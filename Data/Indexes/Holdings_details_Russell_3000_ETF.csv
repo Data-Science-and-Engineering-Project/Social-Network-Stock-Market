@@ -1,0 +1,2952 @@
+name,TICKER,SUB-INDUSTRY,cusip
+NVIDIA Corp,NVDA,Semiconductors,67066G104
+Apple Inc,AAPL,"Technology Hardware, Storage & Peripherals",037833100
+Microsoft Corp,MSFT,Systems Software,594918104
+Amazon.com Inc,AMZN,Broadline Retail,023135106
+Broadcom Inc,AVGO,Semiconductors,11135F101
+Alphabet Inc,GOOGL,Interactive Media & Services,02079K305
+Alphabet Inc,GOOG,Interactive Media & Services,02079K305
+Meta Platforms Inc,META,Interactive Media & Services,30303M102
+Tesla Inc,TSLA,Automobile Manufacturers,88160R101
+Berkshire Hathaway Inc,BRK/B,Multi-Sector Holdings,084670702
+JPMorgan Chase & Co,JPM,Diversified Banks,46625H100
+Eli Lilly & Co,LLY,Pharmaceuticals,532457108
+Visa Inc,V,Transaction & Payment Processing Services,92826C839
+Exxon Mobil Corp,XOM,Integrated Oil & Gas,30231G102
+Johnson & Johnson,JNJ,Pharmaceuticals,478160104
+Walmart Inc,WMT,Consumer Staples Merchandise Retail,931142103
+Netflix Inc,NFLX,Movies & Entertainment,64110L106
+Mastercard Inc,MA,Transaction & Payment Processing Services,57636Q104
+Costco Wholesale Corp,COST,Consumer Staples Merchandise Retail,22160K105
+AbbVie Inc,ABBV,Biotechnology,00287Y109
+Palantir Technologies Inc,PLTR,Application Software,69608A108
+Bank of America Corp,BAC,Diversified Banks,060505104
+Home Depot Inc/The,HD,Home Improvement Retail,437076102
+Advanced Micro Devices Inc,AMD,Semiconductors,007903107
+Procter & Gamble Co/The,PG,Household Products,742718109
+Oracle Corp,ORCL,Systems Software,68389X105
+General Electric Co,GE,Aerospace & Defense,369604301
+Cisco Systems Inc,CSCO,Communications Equipment,17275R102
+UnitedHealth Group Inc,UNH,Managed Health Care,91324P102
+Chevron Corp,CVX,Integrated Oil & Gas,166764100
+International Business Machines Corp,IBM,IT Consulting & Other Services,459200101
+Coca-Cola Co/The,KO,Soft Drinks & Non-alcoholic Beverages,191216100
+Wells Fargo & Co,WFC,Diversified Banks,949746101
+Caterpillar Inc,CAT,Construction Machinery & Heavy Transportation Equipment,149123101
+Micron Technology Inc,MU,Semiconductors,595112103
+Merck & Co Inc,MRK,Pharmaceuticals,58933Y105
+Goldman Sachs Group Inc/The,GS,Investment Banking & Brokerage,38141G104
+Philip Morris International Inc,PM,Tobacco,718172109
+RTX Corp,RTX,Aerospace & Defense,75513E101
+Thermo Fisher Scientific Inc,TMO,Life Sciences Tools & Services,883556102
+Abbott Laboratories,ABT,Health Care Equipment,002824100
+McDonald's Corp,MCD,Restaurants,
+Salesforce Inc,CRM,Application Software,79466L302
+Intuitive Surgical Inc,ISRG,Health Care Equipment,46120E602
+PepsiCo Inc,PEP,Soft Drinks & Non-alcoholic Beverages,713448108
+Applied Materials Inc,AMAT,Semiconductor Materials & Equipment,038222105
+American Express Co,AXP,Consumer Finance,025816109
+Lam Research Corp,LRCX,Semiconductor Materials & Equipment,512807306
+Morgan Stanley,MS,Investment Banking & Brokerage,617446448
+Linde PLC,LIN,Industrial Gases,G54950103
+Citigroup Inc,C,Diversified Banks,172967424
+Walt Disney Co/The,DIS,Movies & Entertainment,254687106
+Amgen Inc,AMGN,Biotechnology,031162100
+AT&T Inc,T,Integrated Telecommunication Services,00206R102
+QUALCOMM Inc,QCOM,Semiconductors,747525103
+NextEra Energy Inc,NEE,Electric Utilities,65339F101
+Intel Corp,INTC,Semiconductors,458140100
+Uber Technologies Inc,UBER,Passenger Ground Transportation,90353T100
+Verizon Communications Inc,VZ,Integrated Telecommunication Services,92343V104
+Intuit Inc,INTU,Application Software,461202103
+Amphenol Corp,APH,Electronic Components,032095101
+TJX Cos Inc/The,TJX,Apparel Retail,872540109
+ServiceNow Inc,NOW,Systems Software,81762P102
+GE Vernova Inc,GEV,Heavy Electrical Equipment,36828A101
+Booking Holdings Inc,BKNG,"Hotels, Resorts & Cruise Lines",09857L108
+Blackrock Inc,BLK,Asset Management & Custody Banks,09290D101
+Charles Schwab Corp/The,SCHW,Investment Banking & Brokerage,808513105
+Gilead Sciences Inc,GILD,Biotechnology,375558103
+Accenture PLC,ACN,IT Consulting & Other Services,G1151C101
+KLA Corp,KLAC,Semiconductor Materials & Equipment,482480100
+S&P Global Inc,SPGI,Financial Exchanges & Data,78409V104
+Texas Instruments Inc,TXN,Semiconductors,882508104
+Boston Scientific Corp,BSX,Health Care Equipment,101137107
+Pfizer Inc,PFE,Pharmaceuticals,717081103
+Danaher Corp,DHR,Life Sciences Tools & Services,235851102
+AppLovin Corp,APP,Application Software,03831W108
+Welltower Inc,WELL,Health Care REITs,95040Q104
+Union Pacific Corp,UNP,Rail Transportation,907818108
+Capital One Financial Corp,COF,Consumer Finance,14040H105
+Boeing Co/The,BA,Aerospace & Defense,097023105
+Adobe Inc,ADBE,Application Software,00724F101
+Lowe's Cos Inc,LOW,Home Improvement Retail,
+Eaton Corp PLC,ETN,Electrical Components & Equipment,G29183103
+Medtronic PLC,MDT,Health Care Equipment,G5960L103
+Arista Networks Inc,ANET,Communications Equipment,040413205
+Progressive Corp/The,PGR,Property & Casualty Insurance,743315103
+Analog Devices Inc,ADI,Semiconductors,032654105
+Stryker Corp,SYK,Health Care Equipment,863667101
+Palo Alto Networks Inc,PANW,Systems Software,697435105
+Crowdstrike Holdings Inc,CRWD,Systems Software,22788C105
+Honeywell International Inc,HON,Industrial Conglomerates,438516106
+Prologis Inc,PLD,Industrial REITs,74340W103
+Constellation Energy Corp,CEG,Electric Utilities,21037T109
+Deere & Co,DE,Agricultural & Farm Machinery,244199105
+ConocoPhillips,COP,Oil & Gas Exploration & Production,20825C104
+Vertex Pharmaceuticals Inc,VRTX,Biotechnology,92532F100
+Parker-Hannifin Corp,PH,Industrial Machinery & Supplies & Components,701094104
+McKesson Corp,MCK,Health Care Distributors,58155Q103
+Chubb Ltd,CB,Property & Casualty Insurance,H1467J104
+Blackstone Inc,BX,Asset Management & Custody Banks,09260D107
+Automatic Data Processing Inc,ADP,Human Resource & Employment Services,053015103
+CME Group Inc,CME,Financial Exchanges & Data,12572Q105
+CVS Health Corp,CVS,Health Care Services,126650100
+Bristol-Myers Squibb Co,BMY,Pharmaceuticals,110122108
+Southern Co/The,SO,Electric Utilities,842587107
+Newmont Corp,NEM,Gold,651639106
+Altria Group Inc,MO,Tobacco,02209S103
+Starbucks Corp,SBUX,Restaurants,855244109
+Comcast Corp,CMCSA,Cable & Satellite,20030N101
+Duke Energy Corp,DUK,Electric Utilities,26441C204
+Lockheed Martin Corp,LMT,Aerospace & Defense,539830109
+Robinhood Markets Inc,HOOD,Investment Banking & Brokerage,770700102
+T-Mobile US Inc,TMUS,Wireless Telecommunication Services,872590104
+Trane Technologies PLC,TT,Building Products,G8994E103
+Spotify Technology SA,SPOT,Movies & Entertainment,L8681T102
+3M Co,MMM,Industrial Conglomerates,88579Y101
+Marsh & McLennan Cos Inc,MMC,Insurance Brokers,571748102
+Intercontinental Exchange Inc,ICE,Financial Exchanges & Data,45866F104
+HCA Healthcare Inc,HCA,Health Care Facilities,40412C101
+O'Reilly Automotive Inc,ORLY,Automotive Retail,
+General Dynamics Corp,GD,Aerospace & Defense,369550108
+Cadence Design Systems Inc,CDNS,Application Software,127387108
+American Tower Corp,AMT,Telecom Tower REITs,03027X100
+KKR & Co Inc,KKR,Asset Management & Custody Banks,48251W104
+Howmet Aerospace Inc,HWM,Aerospace & Defense,443201108
+CRH PLC,CRH,Construction Materials,G25508105
+Regeneron Pharmaceuticals Inc,REGN,Biotechnology,75886F107
+Waste Management Inc,WM,Environmental & Facilities Services,94106L109
+Sherwin-Williams Co/The,SHW,Specialty Chemicals,824348106
+Bank of New York Mellon Corp/The,BK,Asset Management & Custody Banks,064058100
+Snowflake Inc,SNOW,Internet Services & Infrastructure,833445109
+Northrop Grumman Corp,NOC,Aerospace & Defense,666807102
+Marvell Technology Inc,MRVL,Semiconductors,573874104
+Synopsys Inc,SNPS,Application Software,871607107
+Johnson Controls International plc,JCI,Building Products,G51502105
+Elevance Health Inc,ELV,Managed Health Care,036752103
+US Bancorp,USB,Diversified Banks,902973304
+Moody's Corp,MCO,Financial Exchanges & Data,
+PNC Financial Services Group Inc/The,PNC,Diversified Banks,693475105
+TransDigm Group Inc,TDG,Aerospace & Defense,893641100
+Emerson Electric Co,EMR,Electrical Components & Equipment,291011104
+NIKE Inc,NKE,Footwear,654106103
+Mondelez International Inc,MDLZ,Packaged Foods & Meats,609207105
+Aon PLC,AON,Insurance Brokers,G0403H108
+Williams Cos Inc/The,WMB,Oil & Gas Storage & Transportation,969457100
+Equinix Inc,EQIX,Data Center REITs,29444U700
+Cigna Group/The,CI,Health Care Services,125523100
+Illinois Tool Works Inc,ITW,Industrial Machinery & Supplies & Components,452308109
+DoorDash Inc,DASH,Restaurants,25809K105
+United Parcel Service Inc,UPS,Air Freight & Logistics,911312106
+General Motors Co,GM,Automobile Manufacturers,37045V100
+Marriott International Inc/MD,MAR,"Hotels, Resorts & Cruise Lines",571903202
+Ecolab Inc,ECL,Specialty Chemicals,278865100
+Quanta Services Inc,PWR,Construction & Engineering,74762E102
+Cummins Inc,CMI,Construction Machinery & Heavy Transportation Equipment,231021106
+Vertiv Holdings Co,VRT,Electrical Components & Equipment,92537N108
+Cencora Inc,COR,Health Care Distributors,03073E105
+Royal Caribbean Cruises Ltd,RCL,"Hotels, Resorts & Cruise Lines",V7780T103
+CSX Corp,CSX,Rail Transportation,126408103
+Travelers Cos Inc/The,TRV,Property & Casualty Insurance,89417E109
+AutoZone Inc,AZO,Automotive Retail,053332102
+American Electric Power Co Inc,AEP,Electric Utilities,025537101
+Norfolk Southern Corp,NSC,Rail Transportation,655844108
+Corning Inc,GLW,Electronic Components,219350105
+Hilton Worldwide Holdings Inc,HLT,"Hotels, Resorts & Cruise Lines",43300A203
+Autodesk Inc,ADSK,Application Software,052769106
+Colgate-Palmolive Co,CL,Household Products,194162103
+Cintas Corp,CTAS,Diversified Support Services,172908105
+Arthur J Gallagher & Co,AJG,Insurance Brokers,363576109
+Sempra,SRE,Multi-Utilities,816851109
+Cloudflare Inc,NET,Internet Services & Infrastructure,18915M107
+Freeport-McMoRan Inc,FCX,Copper,35671D857
+Motorola Solutions Inc,MSI,Communications Equipment,620076307
+IDEXX Laboratories Inc,IDXX,Health Care Equipment,45168D104
+Vistra Corp,VST,Independent Power Producers & Energy Traders,92840M102
+Simon Property Group Inc,SPG,Retail REITs,828806109
+PayPal Holdings Inc,PYPL,Transaction & Payment Processing Services,70450Y103
+Truist Financial Corp,TFC,Regional Banks,89832Q109
+Marathon Petroleum Corp,MPC,Oil & Gas Refining & Marketing,56585A102
+FedEx Corp,FDX,Air Freight & Logistics,31428X106
+EOG Resources Inc,EOG,Oil & Gas Exploration & Production,26875P101
+NU Holdings Ltd/Cayman Islands,NU,Diversified Banks,G6683N103
+ROBLOX Corp,RBLX,Interactive Home Entertainment,771049103
+Air Products and Chemicals Inc,APD,Industrial Gases,009158106
+Coinbase Global Inc,COIN,Financial Exchanges & Data,19260Q107
+Zoetis Inc,ZTS,Pharmaceuticals,98978V103
+Ross Stores Inc,ROST,Apparel Retail,778296103
+Western Digital Corp,WDC,"Technology Hardware, Storage & Peripherals",958102105
+Alnylam Pharmaceuticals Inc,ALNY,Biotechnology,02043Q107
+Allstate Corp/The,ALL,Property & Casualty Insurance,020002101
+Warner Bros Discovery Inc,WBD,Movies & Entertainment,934423104
+Phillips 66,PSX,Oil & Gas Refining & Marketing,718546104
+Becton Dickinson & Co,BDX,Health Care Equipment,075887109
+Valero Energy Corp,VLO,Oil & Gas Refining & Marketing,91913Y100
+Apollo Global Management Inc,APO,Diversified Financial Services,03769M106
+SLB Ltd,SLB,Oil & Gas Equipment & Services,
+PACCAR Inc,PCAR,Construction Machinery & Heavy Transportation Equipment,693718108
+Digital Realty Trust Inc,DLR,Data Center REITs,253868103
+Aflac Inc,AFL,Life & Health Insurance,001055102
+Dominion Energy Inc,D,Multi-Utilities,25746U109
+Kinder Morgan Inc,KMI,Oil & Gas Storage & Transportation,49456B101
+United Rentals Inc,URI,Trading Companies & Distributors,911363109
+Monster Beverage Corp,MNST,Soft Drinks & Non-alcoholic Beverages,61174X109
+Realty Income Corp,O,Retail REITs,756109104
+L3Harris Technologies Inc,LHX,Aerospace & Defense,502431109
+Ford Motor Co,F,Automobile Manufacturers,345370860
+Fortinet Inc,FTNT,Systems Software,34959E109
+Electronic Arts Inc,EA,Interactive Home Entertainment,285512109
+Cardinal Health Inc,CAH,Health Care Distributors,14149Y108
+Edwards Lifesciences Corp,EW,Health Care Equipment,28176E108
+Baker Hughes Co,BKR,Oil & Gas Equipment & Services,05722G100
+Airbnb Inc,ABNB,"Hotels, Resorts & Cruise Lines",009066101
+Carvana Co,CVNA,Automotive Retail,146869102
+Datadog Inc,DDOG,Application Software,23804L103
+Ferguson Enterprises Inc,FERG,Trading Companies & Distributors,31488V107
+Xcel Energy Inc,XEL,Electric Utilities,98389B100
+CBRE Group Inc,CBRE,Real Estate Services,12504L109
+Roper Technologies Inc,ROP,Application Software,776696106
+Exelon Corp,EXC,Electric Utilities,30161N101
+Strategy Inc,MSTR,Application Software,594972408
+Workday Inc,WDAY,Application Software,98138H101
+Fastenal Co,FAST,Trading Companies & Distributors,311900104
+Chipotle Mexican Grill Inc,CMG,Restaurants,169656105
+Corteva Inc,CTVA,Fertilizers & Agricultural Chemicals,22052L104
+Cheniere Energy Inc,LNG,Oil & Gas Storage & Transportation,16411R208
+AMETEK Inc,AME,Electrical Components & Equipment,031100100
+ONEOK Inc,OKE,Oil & Gas Storage & Transportation,682680103
+Take-Two Interactive Software Inc,TTWO,Interactive Home Entertainment,874054109
+Rockwell Automation Inc,ROK,Electrical Components & Equipment,773903109
+Republic Services Inc,RSG,Environmental & Facilities Services,760759100
+American International Group Inc,AIG,Property & Casualty Insurance,026874784
+Agilent Technologies Inc,A,Life Sciences Tools & Services,00846U101
+Carrier Global Corp,CARR,Building Products,14448C104
+Entergy Corp,ETR,Electric Utilities,29364G103
+Ameriprise Financial Inc,AMP,Asset Management & Custody Banks,03076C106
+Public Storage,PSA,Self-Storage REITs,74460D109
+Anglogold Ashanti Plc,AU,Gold,G0378L100
+Monolithic Power Systems Inc,MPWR,Semiconductors,609839105
+MetLife Inc,MET,Life & Health Insurance,59156R108
+Yum! Brands Inc,YUM,Restaurants,988498101
+MSCI Inc,MSCI,Financial Exchanges & Data,55354G100
+Fair Isaac Corp,FICO,Application Software,303250104
+DR Horton Inc,DHI,Homebuilding,23331A109
+WW Grainger Inc,GWW,Trading Companies & Distributors,384802104
+Delta Air Lines Inc,DAL,Passenger Airlines,247361702
+Public Service Enterprise Group Inc,PEG,Multi-Utilities,744573106
+Target Corp,TGT,Consumer Staples Merchandise Retail,87612E106
+Kroger Co/The,KR,Food Retail,501044101
+Dell Technologies Inc,DELL,"Technology Hardware, Storage & Peripherals",24703L202
+Axon Enterprise Inc,AXON,Aerospace & Defense,05464C101
+Crown Castle Inc,CCI,Telecom Tower REITs,22822V101
+Vulcan Materials Co,VMC,Construction Materials,929160109
+IQVIA Holdings Inc,IQV,Life Sciences Tools & Services,46266C105
+Insmed Inc,INSM,Biotechnology,457669307
+Hartford Insurance Group Inc/The,HIG,Property & Casualty Insurance,416515104
+Cognizant Technology Solutions Corp,CTSH,IT Consulting & Other Services,192446102
+Prudential Financial Inc,PRU,Life & Health Insurance,744320102
+eBay Inc,EBAY,Broadline Retail,278642103
+EQT Corp,EQT,Oil & Gas Exploration & Production,26884L109
+Targa Resources Corp,TRGP,Oil & Gas Storage & Transportation,87612G101
+Nasdaq Inc,NDAQ,Financial Exchanges & Data,631103108
+ResMed Inc,RMD,Health Care Equipment,761152107
+Martin Marietta Materials Inc,MLM,Construction Materials,573284106
+Sysco Corp,SYY,Food Distributors,871829107
+Nucor Corp,NUE,Steel,670346105
+Flutter Entertainment PLC,FLUT,Casinos & Gaming,G3643J108
+GE HealthCare Technologies Inc,GEHC,Health Care Equipment,36266G107
+Ventas Inc,VTR,Health Care REITs,92276F100
+Block Inc,XYZ,Transaction & Payment Processing Services,852234103
+Kimberly-Clark Corp,KMB,Household Products,494368103
+Keurig Dr Pepper Inc,KDP,Soft Drinks & Non-alcoholic Beverages,49271V100
+Paychex Inc,PAYX,Human Resource & Employment Services,704326107
+Consolidated Edison Inc,ED,Multi-Utilities,209115104
+WEC Energy Group Inc,WEC,Multi-Utilities,92939U106
+Westinghouse Air Brake Technologies Corp,WAB,Construction Machinery & Heavy Transportation Equipment,929740108
+Veeva Systems Inc,VEEV,Health Care Technology,922475108
+PG&E Corp,PCG,Electric Utilities,69331C108
+Otis Worldwide Corp,OTIS,Industrial Machinery & Supplies & Components,68902V107
+Coupang Inc,CPNG,Broadline Retail,22266T109
+Fidelity National Information Services Inc,FIS,Transaction & Payment Processing Services,31620M106
+Copart Inc,CPRT,Diversified Support Services,217204106
+Xylem Inc/NY,XYL,Industrial Machinery & Supplies & Components,98419M100
+Arch Capital Group Ltd,ACGL,Property & Casualty Insurance,G0450A105
+Comfort Systems USA Inc,FIX,Construction & Engineering,199908104
+Keysight Technologies Inc,KEYS,Electronic Equipment & Instruments,49338L103
+State Street Corp,STT,Asset Management & Custody Banks,857477103
+SoFi Technologies Inc,SOFI,Consumer Finance,83406F102
+Fiserv Inc,FISV,Transaction & Payment Processing Services,337738108
+United Airlines Holdings Inc,UAL,Passenger Airlines,910047109
+Kenvue Inc,KVUE,Personal Care Products,49177J102
+Ingersoll Rand Inc,IR,Industrial Machinery & Supplies & Components,45687V106
+NRG Energy Inc,NRG,Electric Utilities,629377508
+Garmin Ltd,GRMN,Consumer Electronics,H2906T109
+Verisk Analytics Inc,VRSK,Research & Consulting Services,92345Y106
+Willis Towers Watson PLC,WTW,Insurance Brokers,G96629103
+Expedia Group Inc,EXPE,"Hotels, Resorts & Cruise Lines",30212P303
+Natera Inc,NTRA,Biotechnology,632307104
+Mettler-Toledo International Inc,MTD,Life Sciences Tools & Services,592688105
+VICI Properties Inc,VICI,Other Specialized REITs,925652109
+SANDISK CORP,SNDK,"Technology Hardware, Storage & Peripherals",80004C200
+M&T Bank Corp,MTB,Regional Banks,55261F104
+Occidental Petroleum Corp,OXY,Integrated Oil & Gas,674599105
+Ares Management Corp,ARES,Asset Management & Custody Banks,03990B101
+Humana Inc,HUM,Managed Health Care,444859102
+Teradyne Inc,TER,Semiconductor Materials & Equipment,880770102
+Tractor Supply Co,TSCO,Other Specialty Retail,892356106
+Diamondback Energy Inc,FANG,Oil & Gas Exploration & Production,25278X109
+Fifth Third Bancorp,FITB,Diversified Banks,316773100
+Archer-Daniels-Midland Co,ADM,Agricultural Products & Services,039483102
+Synchrony Financial,SYF,Consumer Finance,87165B103
+Hewlett Packard Enterprise Co,HPE,"Technology Hardware, Storage & Peripherals",42824C109
+Ameren Corp,AEE,Multi-Utilities,023608102
+Ciena Corp,CIEN,Communications Equipment,171779309
+CoStar Group Inc,CSGP,Real Estate Services,22160N109
+Raymond James Financial Inc,RJF,Investment Banking & Brokerage,754730109
+LPL Financial Holdings Inc,LPLA,Investment Banking & Brokerage,50212V100
+DTE Energy Co,DTE,Multi-Utilities,233331107
+Microchip Technology Inc,MCHP,Semiconductors,595017104
+Extra Space Storage Inc,EXR,Self-Storage REITs,30225T102
+Interactive Brokers Group Inc,IBKR,Investment Banking & Brokerage,45841N107
+Carnival Corp,CCL,"Hotels, Resorts & Cruise Lines",143658300
+Atmos Energy Corp,ATO,Gas Utilities,049560105
+First Solar Inc,FSLR,Semiconductors,336433107
+Pure Storage Inc. Class A,PSTG,"Technology Hardware, Storage & Peripherals",
+Lennar Corp,LEN,Homebuilding,526057104
+Hershey Co/The,HSY,Packaged Foods & Meats,427866108
+PPL Corp,PPL,Electric Utilities,69351T106
+EMCOR Group Inc,EME,Construction & Engineering,29084Q100
+Cboe Global Markets Inc,CBOE,Financial Exchanges & Data,12503M108
+Expand Energy Corp,EXE,Oil & Gas Exploration & Production,165167735
+Biogen Inc,BIIB,Biotechnology,09062X103
+Broadridge Financial Solutions Inc,BR,Data Processing & Outsourced Services,11133T103
+Equifax Inc,EFX,Research & Consulting Services,294429105
+FirstEnergy Corp,FE,Electric Utilities,337932107
+MongoDB Inc,MDB,Internet Services & Infrastructure,60937P106
+STERIS PLC,STE,Health Care Equipment,G8473T100
+CenterPoint Energy Inc,CNP,Multi-Utilities,15189T107
+Credo Technology Group Holding Ltd,CRDO,Semiconductors,G25457105
+Markel Group Inc,MKL,Property & Casualty Insurance,570535104
+General Mills Inc,GIS,Packaged Foods & Meats,370334104
+AvalonBay Communities Inc,AVB,Multi-Family Residential REITs,053484101
+Cincinnati Financial Corp,CINF,Property & Casualty Insurance,172062101
+Huntington Bancshares Inc/OH,HBAN,Regional Banks,446150104
+American Water Works Co Inc,AWK,Water Utilities,030420103
+Iron Mountain Inc,IRM,Other Specialized REITs,46284V101
+Dover Corp,DOV,Industrial Machinery & Supplies & Components,260003108
+Reddit Inc,RDDT,Interactive Media & Services,75734B100
+Old Dominion Freight Line Inc,ODFL,Cargo Ground Transportation,679580100
+Coherent Corp,COHR,Electronic Components,19247G107
+PulteGroup Inc,PHM,Homebuilding,745867101
+Northern Trust Corp,NTRS,Asset Management & Custody Banks,665859104
+Dexcom Inc,DXCM,Health Care Equipment,252131107
+Eversource Energy,ES,Electric Utilities,30040W108
+Zscaler Inc,ZS,Systems Software,98980G102
+Leidos Holdings Inc,LDOS,Research & Consulting Services,525327102
+Ulta Beauty Inc,ULTA,Other Specialty Retail,90384S303
+Veralto Corp,VLTO,Environmental & Facilities Services,92338C103
+Atlassian Corp,TEAM,Application Software,049468101
+Dollar General Corp,DG,Consumer Staples Merchandise Retail,256677105
+Waters Corp,WAT,Life Sciences Tools & Services,941848103
+Steel Dynamics Inc,STLD,Steel,858119100
+Citizens Financial Group Inc,CFG,Regional Banks,174610105
+Restaurant Brands International Inc,QSR,Restaurants,76131D103
+Equity Residential,EQR,Multi-Family Residential REITs,29476L107
+Kellanova,K,Packaged Foods & Meats,487836108
+Teledyne Technologies Inc,TDY,Electronic Equipment & Instruments,879360105
+Devon Energy Corp,DVN,Oil & Gas Exploration & Production,25179M103
+Bloom Energy Corp,BE,Heavy Electrical Equipment,093712107
+Regions Financial Corp,RF,Regional Banks,7591EP100
+Hubbell Inc,HUBB,Electrical Components & Equipment,443510607
+Estee Lauder Cos Inc/The,EL,Personal Care Products,518439104
+HP Inc,HPQ,"Technology Hardware, Storage & Peripherals",40434L105
+Omnicom Group Inc,OMC,Advertising,681919106
+Insulet Corp,PODD,Health Care Equipment,45784P101
+PPG Industries Inc,PPG,Specialty Chemicals,693506107
+Tapestry Inc,TPR,"Apparel, Accessories & Luxury Goods",876030107
+W R Berkley Corp,WRB,Property & Casualty Insurance,084423102
+Lumentum Holdings Inc,LITE,Communications Equipment,55024U109
+Zoom Communications Inc,ZM,Application Software,98980L101
+Halliburton Co,HAL,Oil & Gas Equipment & Services,406216101
+Labcorp Holdings Inc,LH,Health Care Services,504922105
+CMS Energy Corp,CMS,Multi-Utilities,125896100
+Brown & Brown Inc,BRO,Insurance Brokers,115236101
+Edison International,EIX,Electric Utilities,281020107
+T Rowe Price Group Inc,TROW,Asset Management & Custody Banks,74144T108
+NetApp Inc,NTAP,"Technology Hardware, Storage & Peripherals",64110D104
+Jabil Inc,JBL,Electronic Manufacturing Services,466313103
+Flex Ltd,FLEX,Electronic Manufacturing Services,Y2573F102
+Dollar Tree Inc,DLTR,Consumer Staples Merchandise Retail,256746108
+Kraft Heinz Co/The,KHC,Packaged Foods & Meats,500754106
+United Therapeutics Corp,UTHR,Biotechnology,91307C102
+NVR Inc,NVR,Homebuilding,62944T105
+Williams-Sonoma Inc,WSM,Homefurnishing Retail,969904101
+VeriSign Inc,VRSN,Internet Services & Infrastructure,92343E102
+Quest Diagnostics Inc,DGX,Health Care Services,74834L100
+Las Vegas Sands Corp,LVS,Casinos & Gaming,517834107
+Curtiss-Wright Corp,CW,Aerospace & Defense,231561101
+ON Semiconductor Corp,ON,Semiconductors,682189105
+Casey's General Stores Inc,CASY,Food Retail,
+Church & Dwight Co Inc,CHD,Household Products,171340102
+Darden Restaurants Inc,DRI,Restaurants,237194105
+Live Nation Entertainment Inc,LYV,Movies & Entertainment,538034109
+PTC Inc,PTC,Application Software,69370C100
+NiSource Inc,NI,Multi-Utilities,65473P105
+SBA Communications Corp,SBAC,Telecom Tower REITs,78410G104
+Illumina Inc,ILMN,Life Sciences Tools & Services,452327109
+International Paper Co,IP,Paper & Plastic Packaging Products & Materials,460146103
+Liberty Media Corp-Liberty Formula One,FWONK,Movies & Entertainment,531229755
+Coterra Energy Inc,CTRA,Oil & Gas Exploration & Production,127097103
+Tyler Technologies Inc,TYL,Application Software,902252105
+Expeditors International of Washington Inc,EXPD,Air Freight & Logistics,302130109
+Brookfield Asset Management Ltd,BAM,Asset Management & Custody Banks,113004105
+Corpay Inc,CPAY,Transaction & Payment Processing Services,219948106
+Astera Labs Inc,ALAB,Semiconductors,04626A103
+West Pharmaceutical Services Inc,WST,Life Sciences Tools & Services,955306105
+Amcor PLC,AMCR,Paper & Plastic Packaging Products & Materials,G0250X107
+Constellation Brands Inc,STZ,Distillers & Vintners,21036P108
+Trimble Inc,TRMB,Electronic Equipment & Instruments,896239100
+Lululemon Athletica Inc,LULU,"Apparel, Accessories & Luxury Goods",550021109
+Zimmer Biomet Holdings Inc,ZBH,Health Care Equipment,98956P102
+Centene Corp,CNC,Managed Health Care,15135B101
+Affirm Holdings Inc,AFRM,Transaction & Payment Processing Services,00827B106
+CDW Corp/DE,CDW,Technology Distributors,12514G108
+Exact Sciences Corp,EXAS,Biotechnology,30063P105
+Principal Financial Group Inc,PFG,Life & Health Insurance,74251V102
+HEICO Corp,HEI/A,Aerospace & Defense,422806109
+Tenet Healthcare Corp,THC,Health Care Facilities,88033G407
+Rocket Cos Inc,RKT,Commercial & Residential Mortgage Finance,77311W101
+HubSpot Inc,HUBS,Application Software,443573100
+CH Robinson Worldwide Inc,CHRW,Air Freight & Logistics,12541W209
+Smurfit WestRock PLC,SW,Paper & Plastic Packaging Products & Materials,G8267P108
+Loews Corp,L,Property & Casualty Insurance,540424108
+TechnipFMC PLC,FTI,Oil & Gas Equipment & Services,G87110105
+Somnigroup International Inc,SGI,Home Furnishings,88023U101
+Global Payments Inc,GPN,Transaction & Payment Processing Services,37940X102
+Twilio Inc,TWLO,Internet Services & Infrastructure,90138F102
+Guidewire Software Inc,GWRE,Application Software,40171V100
+RB Global Inc,RBA,Diversified Support Services,74935Q107
+SS&C Technologies Holdings Inc,SSNC,Data Processing & Outsourced Services,78467J100
+Packaging Corp of America,PKG,Paper & Plastic Packaging Products & Materials,695156109
+Fortive Corp,FTV,Industrial Machinery & Supplies & Components,34959J108
+Genuine Parts Co,GPC,Distributors,372460105
+US Foods Holding Corp,USFD,Food Distributors,912008109
+International Flavors & Fragrances Inc,IFF,Specialty Chemicals,459506101
+Evergy Inc,EVRG,Electric Utilities,30034W106
+Alliant Energy Corp,LNT,Electric Utilities,018802108
+Talen Energy Corp,TLN,Independent Power Producers & Energy Traders,87422Q109
+First Citizens BancShares Inc/NC,FCNCA,Diversified Banks,31946M103
+Woodward Inc,WWD,Aerospace & Defense,980745103
+GoDaddy Inc,GDDY,Internet Services & Infrastructure,380237107
+Charter Communications Inc,CHTR,Cable & Satellite,16119P108
+Trade Desk Inc/The,TTD,Advertising,88339J105
+FTAI Aviation Ltd,FTAI,Trading Companies & Distributors,G3730V105
+KeyCorp,KEY,Diversified Banks,493267108
+nVent Electric PLC,NVT,Electrical Components & Equipment,G6700G107
+Snap-on Inc,SNA,Industrial Machinery & Supplies & Components,833034101
+Rocket Lab Corp,RKLB,Aerospace & Defense,773121108
+Gartner Inc,IT,IT Consulting & Other Services,366651107
+Invitation Homes Inc,INVH,Single-Family Residential REITs,46187W107
+Super Micro Computer Inc,SMCI,"Technology Hardware, Storage & Peripherals",86800U302
+Pentair PLC,PNR,Industrial Machinery & Supplies & Components,G7S00T104
+Rollins Inc,ROL,Environmental & Facilities Services,775711104
+McCormick & Co Inc/MD,MKC,Packaged Foods & Meats,579780206
+Qnity Electronics Inc,Q,Semiconductor Materials & Equipment,
+Dow Inc,DOW,Commodity Chemicals,260557103
+Aptiv PLC,APTV,Automotive Parts & Equipment,G3265R107
+Essex Property Trust Inc,ESS,Multi-Family Residential REITs,297178105
+Royal Gold Inc,RGLD,Gold,780287108
+Hologic Inc,HOLX,Health Care Equipment,436440101
+Incyte Corp,INCY,Biotechnology,45337C102
+DuPont de Nemours Inc,DD,Specialty Chemicals,26614N102
+Texas Pacific Land Corp,TPL,Oil & Gas Exploration & Production,88262P102
+TransUnion,TRU,Research & Consulting Services,89400J107
+XPO Inc,XPO,Cargo Ground Transportation,983793100
+Fabrinet,FN,Electronic Manufacturing Services,G3323L100
+Southwest Airlines Co,LUV,Passenger Airlines,844741108
+BWX Technologies Inc,BWXT,Aerospace & Defense,05605H100
+Tyson Foods Inc,TSN,Packaged Foods & Meats,902494103
+Sun Communities Inc,SUI,Single-Family Residential REITs,866674104
+Weyerhaeuser Co,WY,Timber REITs,962166104
+Jacobs Solutions Inc,J,Research & Consulting Services,46982L108
+DraftKings Inc,DKNG,Casinos & Gaming,26142V105
+Mid-America Apartment Communities Inc,MAA,Multi-Family Residential REITs,59522J103
+Burlington Stores Inc,BURL,Apparel Retail,122017106
+Lennox International Inc,LII,Building Products,526107107
+Jones Lang LaSalle Inc,JLL,Real Estate Services,48020Q107
+Cooper Cos Inc/The,COO,Health Care Supplies,216648501
+Toast Inc,TOST,Transaction & Payment Processing Services,888787108
+Fidelity National Financial Inc,FNF,Property & Casualty Insurance,31620R303
+Pinterest Inc,PINS,Interactive Media & Services,72352L106
+Carpenter Technology Corp,CRS,Aerospace & Defense,144285103
+Best Buy Co Inc,BBY,Computer & Electronics Retail,086516101
+Albemarle Corp,ALB,Specialty Chemicals,012653101
+Royalty Pharma PLC,RPRX,Pharmaceuticals,G7709Q104
+Performance Food Group Co,PFGC,Food Distributors,71377A103
+Textron Inc,TXT,Aerospace & Defense,883203101
+Reliance Inc,RS,Steel,759509102
+Neurocrine Biosciences Inc,NBIX,Biotechnology,64125C109
+Annaly Capital Management Inc,NLY,Mortgage REITs,035710839
+WP Carey Inc,WPC,Diversified REITs,92936U109
+API Group Corp,APG,Construction & Engineering,00187Y100
+East West Bancorp Inc,EWBC,Regional Banks,27579R104
+Gen Digital Inc,GEN,Systems Software,668771108
+ITT Inc,ITT,Industrial Machinery & Supplies & Components,45073V108
+Allegion plc,ALLE,Building Products,G0176J109
+Carlyle Group Inc/The,CG,Asset Management & Custody Banks,14316J108
+Fox Corp,FOXA,Broadcasting,35137L105
+ATI Inc,ATI,Aerospace & Defense,01741R102
+Equitable Holdings Inc,EQH,Diversified Financial Services,29452E101
+Ralph Lauren Corp,RL,"Apparel, Accessories & Luxury Goods",751212101
+Docusign Inc,DOCU,Application Software,256163106
+Kimco Realty Corp,KIM,Retail REITs,49446R109
+RBC Bearings Inc,RBC,Industrial Machinery & Supplies & Components,75524B104
+Graco Inc,GGG,Industrial Machinery & Supplies & Components,384109104
+F5 Inc,FFIV,Communications Equipment,315616102
+Ball Corp,BALL,"Metal, Glass & Plastic Containers",058498106
+Masco Corp,MAS,Building Products,574599106
+Toll Brothers Inc,TOL,Homebuilding,889478103
+AECOM,ACM,Construction & Engineering,00766T100
+Carlisle Cos Inc,CSL,Building Products,142339100
+RPM International Inc,RPM,Specialty Chemicals,749685103
+Zillow Group Inc,Z,Real Estate Services,98954M200
+JB Hunt Transport Services Inc,JBHT,Cargo Ground Transportation,445658107
+IonQ Inc,IONQ,"Technology Hardware, Storage & Peripherals",46222L108
+Revolution Medicines Inc,RVMD,Biotechnology,76155X100
+MasTec Inc,MTZ,Construction & Engineering,576323109
+CACI International Inc,CACI,Research & Consulting Services,127190304
+Unity Software Inc,U,Application Software,91332U101
+Avery Dennison Corp,AVY,Paper & Plastic Packaging Products & Materials,053611109
+Domino's Pizza Inc,DPZ,Restaurants,
+Clorox Co/The,CLX,Household Products,189054109
+Omega Healthcare Investors Inc,OHI,Health Care REITs,681936100
+TKO Group Holdings Inc,TKO,Movies & Entertainment,87256C101
+Medpace Holdings Inc,MEDP,Life Sciences Tools & Services,58506Q109
+Universal Health Services Inc,UHS,Health Care Facilities,913903100
+Nextpower Inc,NXT,Electrical Components & Equipment,
+Okta Inc,OKTA,Internet Services & Infrastructure,679295105
+Everest Group Ltd,EG,Reinsurance,G3223R108
+HEICO Corp,HEI,Aerospace & Defense,422806109
+IDEX Corp,IEX,Industrial Machinery & Supplies & Components,45167R104
+Lincoln Electric Holdings Inc,LECO,Industrial Machinery & Supplies & Components,533900106
+Rivian Automotive Inc,RIVN,Automobile Manufacturers,76954A103
+Dynatrace Inc,DT,Application Software,268150109
+Dick's Sporting Goods Inc,DKS,Other Specialty Retail,
+Ionis Pharmaceuticals Inc,IONS,Biotechnology,462222100
+Bunge Global SA,BG,Agricultural Products & Services,H11356104
+Deckers Outdoor Corp,DECK,Footwear,243537107
+Regency Centers Corp,REG,Retail REITs,758849103
+TopBuild Corp,BLD,Homebuilding,89055F103
+Jack Henry & Associates Inc,JKHY,Transaction & Payment Processing Services,426281101
+Unum Group,UNM,Life & Health Insurance,91529Y106
+Akamai Technologies Inc,AKAM,Internet Services & Infrastructure,00971T101
+Zebra Technologies Corp,ZBRA,Electronic Equipment & Instruments,989207105
+WESCO International Inc,WCC,Trading Companies & Distributors,95082P105
+Guardant Health Inc,GH,Health Care Services,40131M109
+Nordson Corp,NDSN,Industrial Machinery & Supplies & Components,655663102
+Healthpeak Properties Inc,DOC,Health Care REITs,42250P103
+Tradeweb Markets Inc,TW,Financial Exchanges & Data,892672106
+CF Industries Holdings Inc,CF,Fertilizers & Agricultural Chemicals,125269100
+Revvity Inc,RVTY,Life Sciences Tools & Services,714046109
+Solventum Corp,SOLV,Health Care Supplies,83444M101
+Viatris Inc,VTRS,Pharmaceuticals,92556V106
+Reinsurance Group of America Inc,RGA,Reinsurance,759351604
+Kratos Defense & Security Solutions Inc,KTOS,Aerospace & Defense,50077B207
+LyondellBasell Industries NV,LYB,Commodity Chemicals,N53745100
+Roku Inc,ROKU,Movies & Entertainment,77543R102
+DT Midstream Inc,DTM,Oil & Gas Storage & Transportation,23345M107
+Watsco Inc,WSO,Trading Companies & Distributors,942622200
+Huntington Ingalls Industries Inc,HII,Aerospace & Defense,446413106
+Nutanix Inc,NTNX,Application Software,67059N108
+Stifel Financial Corp,SF,Investment Banking & Brokerage,860630102
+Builders FirstSource Inc,BLDR,Building Products,12008R107
+UDR Inc,UDR,Multi-Family Residential REITs,902653104
+Host Hotels & Resorts Inc,HST,Hotel & Resort REITs,44107P104
+RenaissanceRe Holdings Ltd,RNR,Reinsurance,G7496G103
+Equity LifeStyle Properties Inc,ELS,Single-Family Residential REITs,29472R108
+Mueller Industries Inc,MLI,Industrial Machinery & Supplies & Components,624756102
+News Corp,NWSA,Publishing,65249B109
+Gaming and Leisure Properties Inc,GLPI,Other Specialized REITs,36467J108
+TD SYNNEX Corp,SNX,Technology Distributors,87162W100
+Evercore Inc,EVR,Investment Banking & Brokerage,29977A105
+Lamar Advertising Co,LAMR,Other Specialized REITs,512816109
+BJ's Wholesale Club Holdings Inc,BJ,Consumer Staples Merchandise Retail,
+Viking Holdings Ltd,VIK,"Hotels, Resorts & Cruise Lines",G93A5A101
+Exelixis Inc,EXEL,Biotechnology,30161Q104
+Texas Roadhouse Inc,TXRH,Restaurants,882681109
+Encompass Health Corp,EHC,Health Care Facilities,29261A100
+BXP Inc,BXP,Office REITs,101121101
+Entegris Inc,ENTG,Semiconductor Materials & Equipment,29362U104
+Assurant Inc,AIZ,Property & Casualty Insurance,04621X108
+Camden Property Trust,CPT,Multi-Family Residential REITs,133131102
+Clean Harbors Inc,CLH,Environmental & Facilities Services,184496107
+Elanco Animal Health Inc,ELAN,Pharmaceuticals,28414H103
+QXO Inc,QXO,Trading Companies & Distributors,82846H405
+Ally Financial Inc,ALLY,Consumer Finance,02005N100
+Acuity Inc,AYI,Electrical Components & Equipment,00508Y102
+First Horizon Corp,FHN,Regional Banks,320517105
+Crown Holdings Inc,CCK,"Metal, Glass & Plastic Containers",228368106
+Southern Copper Corp,SCCO,Copper,84265V105
+Globe Life Inc,GL,Life & Health Insurance,37959E102
+Bridgebio Pharma Inc,BBIO,Biotechnology,10806X102
+Essential Utilities Inc,WTRG,Water Utilities,29670G102
+Hasbro Inc,HAS,Leisure Products,418056107
+Service Corp International/US,SCI,Specialized Consumer Services,817565104
+Stanley Black & Decker Inc,SWK,Industrial Machinery & Supplies & Components,854502101
+MACOM Technology Solutions Holdings Inc,MTSI,Semiconductors,55405Y100
+J M Smucker Co/The,SJM,Packaged Foods & Meats,832696405
+Advanced Drainage Systems Inc,WMS,Building Products,00790R104
+Madrigal Pharmaceuticals Inc,MDGL,Biotechnology,558868105
+American Homes 4 Rent,AMH,Single-Family Residential REITs,02665T306
+Penumbra Inc,PEN,Health Care Equipment,70975L107
+AGNC Investment Corp,AGNC,Mortgage REITs,00123Q104
+Coeur Mining Inc,CDE,Gold,192108504
+Pinnacle West Capital Corp,PNW,Electric Utilities,723484101
+AST SpaceMobile Inc,ASTS,Alternative Carriers,00217D100
+Dayforce Inc,DAY,Human Resource & Employment Services,15677J108
+Alcoa Corp,AA,Aluminum,013872106
+MKS Inc,MKSI,Semiconductor Materials & Equipment,55306N104
+Antero Resources Corp,AR,Oil & Gas Exploration & Production,03674X106
+BioMarin Pharmaceutical Inc,BMRN,Biotechnology,09061G101
+Manhattan Associates Inc,MANH,Application Software,562750109
+FactSet Research Systems Inc,FDS,Financial Exchanges & Data,303075105
+Wynn Resorts Ltd,WYNN,Casinos & Gaming,983134107
+Old Republic International Corp,ORI,Property & Casualty Insurance,680223104
+Wayfair Inc,W,Homefurnishing Retail,94419L101
+Ovintiv Inc,OVV,Oil & Gas Exploration & Production,69047Q102
+Donaldson Co Inc,DCI,Industrial Machinery & Supplies & Components,257651109
+Globus Medical Inc,GMED,Health Care Equipment,379577208
+New York Times Co/The,NYT,Publishing,650111107
+Jazz Pharmaceuticals PLC,JAZZ,Pharmaceuticals,G50871105
+Ensign Group Inc/The,ENSG,Health Care Facilities,29358P101
+SPX Technologies Inc,SPXC,Industrial Machinery & Supplies & Components,78473E103
+Comerica Inc,CMA,Diversified Banks,200340107
+EPAM Systems Inc,EPAM,IT Consulting & Other Services,29414B104
+Samsara Inc,IOT,Application Software,79589L106
+Rambus Inc,RMBS,Semiconductors,750917106
+QIAGEN NV,QGEN,Life Sciences Tools & Services,N72482206
+Sterling Infrastructure Inc,STRL,Construction & Engineering,859241101
+Bio-Techne Corp,TECH,Life Sciences Tools & Services,09073M104
+Booz Allen Hamilton Holding Corp,BAH,Research & Consulting Services,099502106
+Align Technology Inc,ALGN,Health Care Supplies,016255101
+Rexford Industrial Realty Inc,REXR,Industrial REITs,76169C100
+Dycom Industries Inc,DY,Construction & Engineering,267475101
+Webster Financial Corp,WBS,Regional Banks,947890109
+Hecla Mining Co,HL,Silver,422704106
+AES Corp/The,AES,Independent Power Producers & Energy Traders,00130H105
+Applied Industrial Technologies Inc,AIT,Trading Companies & Distributors,03820C105
+Skyworks Solutions Inc,SWKS,Semiconductors,83088M102
+EchoStar Corp,SATS,Cable & Satellite,278768106
+Oklo Inc,OKLO,Electric Utilities,02156V109
+Permian Resources Corp,PR,Oil & Gas Exploration & Production,71424F105
+Regal Rexnord Corp,RRX,Electrical Components & Equipment,758750103
+Aramark,ARMK,Restaurants,03852U106
+On Holding AG,ONON,Footwear,H5919C104
+BorgWarner Inc,BWA,Automotive Parts & Equipment,099724106
+Owens Corning,OC,Building Products,690742101
+Baxter International Inc,BAX,Health Care Equipment,071813109
+EastGroup Properties Inc,EGP,Industrial REITs,277276101
+Lattice Semiconductor Corp,LSCC,Semiconductors,518415104
+Houlihan Lokey Inc,HLI,Investment Banking & Brokerage,441593100
+Planet Fitness Inc,PLNT,Leisure Facilities,72703H101
+Flowserve Corp,FLS,Industrial Machinery & Supplies & Components,34354P105
+Range Resources Corp,RRC,Oil & Gas Exploration & Production,75281A109
+Frontier Communications Parent Inc,FYBR,Integrated Telecommunication Services,35909D109
+GameStop Corp,GME,Computer & Electronics Retail,36467W109
+Core & Main Inc,CNM,Trading Companies & Distributors,21874C102
+Alexandria Real Estate Equities Inc,ARE,Health Care REITs,015271109
+OGE Energy Corp,OGE,Electric Utilities,670837103
+Moderna Inc,MRNA,Biotechnology,60770K107
+American Airlines Group Inc,AAL,Passenger Airlines,02376R102
+InterDigital Inc,IDCC,Application Software,45867G101
+Blue Owl Capital Inc,OWL,Asset Management & Custody Banks,09581B103
+Chart Industries Inc,GTLS,Industrial Machinery & Supplies & Components,16115Q308
+Tetra Tech Inc,TTEK,Environmental & Facilities Services,88162G103
+American Financial Group Inc/OH,AFG,Property & Casualty Insurance,025932104
+SOUTHSTATE BANK CORP,SSB,Regional Banks,
+Repligen Corp,RGEN,Life Sciences Tools & Services,759916109
+Crane Co,CR,Industrial Machinery & Supplies & Components,224408104
+HealthEquity Inc,HQY,Managed Health Care,42226A107
+Five Below Inc,FIVE,Other Specialty Retail,33829M101
+Invesco Ltd,IVZ,Asset Management & Custody Banks,G491BT108
+Generac Holdings Inc,GNRC,Electrical Components & Equipment,368736104
+Wintrust Financial Corp,WTFC,Regional Banks,97650W108
+Jefferies Financial Group Inc,JEF,Investment Banking & Brokerage,47233W109
+Apa Corp,APA,Oil & Gas Exploration & Production,03743Q108
+AeroVironment Inc,AVAV,Aerospace & Defense,008073108
+Western Alliance Bancorp,WAL,Regional Banks,957638109
+Halozyme Therapeutics Inc,HALO,Biotechnology,40637H109
+Pool Corp,POOL,Distributors,73278L105
+Charles River Laboratories International Inc,CRL,Life Sciences Tools & Services,159864107
+Kinsale Capital Group Inc,KNSL,Property & Casualty Insurance,49714P108
+UGI Corp,UGI,Gas Utilities,902681105
+Federal Realty Investment Trust,FRT,Retail REITs,313745101
+Procore Technologies Inc,PCOR,Application Software,74275K108
+Conagra Brands Inc,CAG,Packaged Foods & Meats,205887102
+Primerica Inc,PRI,Life & Health Insurance,74164M108
+HF Sinclair Corp,DINO,Oil & Gas Refining & Marketing,403949100
+Coca-Cola Consolidated Inc,COKE,Soft Drinks & Non-alcoholic Beverages,191098102
+CubeSmart,CUBE,Self-Storage REITs,229663109
+Amdocs Ltd,DOX,IT Consulting & Other Services,G02602103
+SEI Investments Co,SEIC,Asset Management & Custody Banks,784117103
+Modine Manufacturing Co,MOD,Building Products,607828100
+Lyft Inc,LYFT,Passenger Ground Transportation,55087P104
+Fox Corp,FOX,Broadcasting,35137L105
+CNH Industrial NV,CNH,Agricultural & Farm Machinery,N20944109
+AptarGroup Inc,ATR,"Metal, Glass & Plastic Containers",038336103
+Agree Realty Corp,ADC,Retail REITs,008492100
+Paycom Software Inc,PAYC,Human Resource & Employment Services,70432V102
+Columbia Banking System Inc,COLB,Regional Banks,197236102
+Oshkosh Corp,OSK,Construction Machinery & Heavy Transportation Equipment,688239201
+Lithia Motors Inc,LAD,Automotive Retail,536797103
+Valmont Industries Inc,VMI,Construction & Engineering,920253101
+Sprouts Farmers Market Inc,SFM,Food Retail,85208M102
+Armstrong World Industries Inc,AWI,Building Products,04247X102
+Norwegian Cruise Line Holdings Ltd,NCLH,"Hotels, Resorts & Cruise Lines",G66721104
+American Healthcare REIT Inc,AHR,Health Care REITs,398182303
+Corebridge Financial Inc,CRBG,Diversified Financial Services,21871X109
+Match Group Inc,MTCH,Interactive Media & Services,57667L107
+Rigetti Computing Inc,RGTI,Semiconductors,76655K103
+Roivant Sciences Ltd,ROIV,Biotechnology,G76279101
+MP Materials Corp,MP,Diversified Metals & Mining,553368101
+SharkNinja Inc,SN,Household Appliances,G8068L108
+Henry Schein Inc,HSIC,Health Care Distributors,806407102
+Rubrik Inc,RBRK,Systems Software,781154109
+Sanmina Corp,SANM,Electronic Manufacturing Services,801056102
+UMB Financial Corp,UMBF,Regional Banks,902788108
+XP Inc,XP,Investment Banking & Brokerage,101121101
+Brixmor Property Group Inc,BRX,Retail REITs,11120U105
+Molina Healthcare Inc,MOH,Managed Health Care,60855R100
+Lamb Weston Holdings Inc,LW,Packaged Foods & Meats,513272104
+LKQ Corp,LKQ,Distributors,501889208
+CareTrust REIT Inc,CTRE,Health Care REITs,14174T107
+Cytokinetics Inc,CYTK,Biotechnology,23282W605
+Advanced Energy Industries Inc,AEIS,Electronic Equipment & Instruments,007973100
+TPG Inc,TPG,Asset Management & Custody Banks,872657101
+Molson Coors Beverage Co,TAP,Brewers,60871R209
+NNN REIT Inc,NNN,Retail REITs,637417106
+Axis Capital Holdings Ltd,AXS,Property & Casualty Insurance,G0692U109
+Avantor Inc,AVTR,Life Sciences Tools & Services,05352A100
+Mosaic Co/The,MOS,Fertilizers & Agricultural Chemicals,61945C103
+Zions Bancorp NA,ZION,Regional Banks,989701107
+Popular Inc,BPOP,Regional Banks,733174700
+Lumen Technologies Inc,LUMN,Alternative Carriers,550241103
+Solstice Advanced Materials Inc,SOLS,Specialty Chemicals,
+Allison Transmission Holdings Inc,ALSN,Construction Machinery & Heavy Transportation Equipment,01973R101
+Old National Bancorp/IN,ONB,Regional Banks,680033107
+Ollie's Bargain Outlet Holdings Inc,OLLI,Broadline Retail,
+Watts Water Technologies Inc,WTS,Industrial Machinery & Supplies & Components,942749102
+Hims & Hers Health Inc,HIMS,Health Care Services,433000106
+A O Smith Corp,AOS,Building Products,831865209
+Saia Inc,SAIA,Cargo Ground Transportation,78709Y105
+Corcept Therapeutics Inc,CORT,Pharmaceuticals,218352102
+Affiliated Managers Group Inc,AMG,Asset Management & Custody Banks,008252108
+STAG Industrial Inc,STAG,Industrial REITs,85254J102
+Chewy Inc,CHWY,Other Specialty Retail,16679L109
+Albertsons Cos Inc,ACI,Food Retail,013091103
+Cadence Bank,CADE,Regional Banks,12740C103
+National Fuel Gas Co,NFG,Gas Utilities,636180101
+OneMain Holdings Inc,OMF,Consumer Finance,68268W103
+Cullen/Frost Bankers Inc,CFR,Regional Banks,229899109
+Wingstop Inc,WING,Restaurants,974155103
+First Industrial Realty Trust Inc,FR,Industrial REITs,32054K103
+Cleveland-Cliffs Inc,CLF,Steel,185899101
+JBT Marel Corp,JBTM,Industrial Machinery & Supplies & Components,477839104
+Qorvo Inc,QRVO,Semiconductors,74736K101
+Avidity Biosciences Inc,RNA,Biotechnology,05370A108
+Maplebear Inc,CART,Food Retail,565394103
+Knight-Swift Transportation Holdings Inc,KNX,Cargo Ground Transportation,499049104
+Eagle Materials Inc,EXP,Construction Materials,26969P108
+MGM Resorts International,MGM,Casinos & Gaming,552953101
+Duolingo Inc,DUOL,Education Services,26603R106
+Commercial Metals Co,CMC,Steel,201723103
+Genpact Ltd,G,Data Processing & Outsourced Services,G3922B107
+IDACORP Inc,IDA,Electric Utilities,451107106
+Lincoln National Corp,LNC,Life & Health Insurance,534187109
+Eastman Chemical Co,EMN,Specialty Chemicals,277432100
+Zurn Elkay Water Solutions Corp,ZWS,Building Products,98983L108
+TTM Technologies Inc,TTMI,Electronic Manufacturing Services,87305R109
+Pinnacle Financial Partners Inc,PNFP,Regional Banks,72346Q104
+Onto Innovation Inc,ONTO,Semiconductor Materials & Equipment,683344105
+Simpson Manufacturing Co Inc,SSD,Building Products,829073105
+Franklin Resources Inc,BEN,Asset Management & Custody Banks,354613101
+Jackson Financial Inc,JXN,Diversified Financial Services,46817M107
+Fluor Corp,FLR,Construction & Engineering,343412102
+Murphy USA Inc,MUSA,Automotive Retail,626755102
+Ingredion Inc,INGR,Agricultural Products & Services,457187102
+D-Wave Quantum Inc,QBTS,Application Software,26740W109
+Ryder System Inc,R,Cargo Ground Transportation,783549108
+Churchill Downs Inc,CHDN,Casinos & Gaming,171484108
+Toro Co/The,TTC,Agricultural & Farm Machinery,891092108
+Doximity Inc,DOCS,Health Care Technology,26622P107
+Dutch Bros Inc,BROS,Restaurants,26701L100
+Axalta Coating Systems Ltd,AXTA,Specialty Chemicals,G0750C108
+Federal Signal Corp,FSS,Construction Machinery & Heavy Transportation Equipment,313855108
+Ormat Technologies Inc,ORA,Renewable Electricity,686688102
+Primoris Services Corp,PRIM,Construction & Engineering,74164F103
+Air Lease Corp,AL,Trading Companies & Distributors,00912X302
+Mattel Inc,MAT,Leisure Products,577081102
+Voya Financial Inc,VOYA,Diversified Financial Services,929089100
+Hormel Foods Corp,HRL,Packaged Foods & Meats,440452100
+Floor & Decor Holdings Inc,FND,Home Improvement Retail,339750101
+Celsius Holdings Inc,CELH,Soft Drinks & Non-alcoholic Beverages,15118V207
+Brinker International Inc,EAT,Restaurants,109641100
+Synovus Financial Corp,SNV,Regional Banks,87161C501
+Commerce Bancshares Inc/MO,CBSH,Regional Banks,200525103
+MGIC Investment Corp,MTG,Commercial & Residential Mortgage Finance,552848103
+Hanover Insurance Group Inc/The,THG,Property & Casualty Insurance,410867105
+PTC Therapeutics Inc,PTCT,Biotechnology,69366J200
+Hyatt Hotels Corp,H,"Hotels, Resorts & Cruise Lines",448579102
+AGCO Corp,AGCO,Agricultural & Farm Machinery,001084102
+Bentley Systems Inc,BSY,Application Software,08265T208
+Joby Aviation Inc,JOBY,Passenger Airlines,G65163100
+Paylocity Holding Corp,PCTY,Human Resource & Employment Services,70438V106
+Vornado Realty Trust,VNO,Office REITs,929042109
+Esab Corp,ESAB,Industrial Machinery & Supplies & Components,29605J106
+Masimo Corp,MASI,Health Care Equipment,574795100
+Semtech Corp,SMTC,Semiconductors,816850101
+Elastic NV,ESTC,Application Software,N14506104
+Tempus AI Inc,TEM,Life Sciences Tools & Services,88023B103
+First American Financial Corp,FAF,Property & Casualty Insurance,31847R102
+Terreno Realty Corp,TRNO,Industrial REITs,88146M101
+Moog Inc,MOG/A,Aerospace & Defense,615394202
+Cognex Corp,CGNX,Electronic Equipment & Instruments,192422103
+Arrowhead Pharmaceuticals Inc,ARWR,Biotechnology,04280A100
+Starwood Property Trust Inc,STWD,Mortgage REITs,85571B105
+AAON Inc,AAON,Building Products,000360206
+Kirby Corp,KEX,Marine Transportation,497266106
+Prosperity Bancshares Inc,PB,Regional Banks,743606105
+Chemed Corp,CHE,Health Care Services,16359R103
+Littelfuse Inc,LFUS,Electronic Components,537008104
+ExlService Holdings Inc,EXLS,Data Processing & Outsourced Services,302081104
+SiTime Corp,SITM,Semiconductors,82982T106
+Fortune Brands Innovations Inc,FBIN,Building Products,34964C106
+Essential Properties Realty Trust Inc,EPRT,Diversified REITs,29670E107
+FirstCash Holdings Inc,FCFS,Consumer Finance,33768G107
+Sealed Air Corp,SEE,Paper & Plastic Packaging Products & Materials,81211K100
+Gap Inc/The,GAP,Apparel Retail,364760108
+Installed Building Products Inc,IBP,Homebuilding,45780R101
+Rithm Capital Corp,RITM,Mortgage REITs,64828T201
+Confluent Inc,CFLT,Application Software,20717M103
+Viper Energy Inc,VNOM,Oil & Gas Exploration & Production,927959106
+SLM Corp,SLM,Consumer Finance,78442P106
+Macy's Inc,M,Broadline Retail,
+VF Corp,VFC,"Apparel, Accessories & Luxury Goods",918204108
+Cirrus Logic Inc,CRUS,Semiconductors,172755100
+Ryan Specialty Holdings Inc,RYAN,Insurance Brokers,78351F107
+Mirion Technologies Inc,MIR,Electronic Equipment & Instruments,60471A101
+Essent Group Ltd,ESNT,Commercial & Residential Mortgage Finance,G3198U102
+Bio-Rad Laboratories Inc,BIO,Life Sciences Tools & Services,090572207
+Taylor Morrison Home Corp,TMHC,Homebuilding,87724P106
+Hexcel Corp,HXL,Aerospace & Defense,428291108
+Casella Waste Systems Inc,CWST,Environmental & Facilities Services,147448104
+Axsome Therapeutics Inc,AXSM,Pharmaceuticals,05464T104
+Antero Midstream Corp,AM,Oil & Gas Storage & Transportation,03676B102
+MSA Safety Inc,MSA,Office Services & Supplies,553498106
+Healthcare Realty Trust Inc,HR,Health Care REITs,42226K105
+Kyndryl Holdings Inc,KD,IT Consulting & Other Services,50155Q100
+FNB Corp/PA,FNB,Regional Banks,302520101
+Middleby Corp/The,MIDD,Industrial Machinery & Supplies & Components,596278101
+MarketAxess Holdings Inc,MKTX,Financial Exchanges & Data,57060D108
+Mohawk Industries Inc,MHK,Home Furnishings,608190104
+Campbell's Company/The,CPB,Packaged Foods & Meats,
+iRhythm Technologies Inc,IRTC,Health Care Equipment,450056106
+Glaukos Corp,GKOS,Health Care Equipment,377322102
+SiteOne Landscape Supply Inc,SITE,Trading Companies & Distributors,82982L103
+Boot Barn Holdings Inc,BOOT,Apparel Retail,099406100
+Bright Horizons Family Solutions Inc,BFAM,Education Services,109194100
+Element Solutions Inc,ESI,Specialty Chemicals,28618M106
+Ryman Hospitality Properties Inc,RHP,Hotel & Resort REITs,78377T107
+CarMax Inc,KMX,Automotive Retail,143130102
+AutoNation Inc,AN,Automotive Retail,05329W102
+Piper Sandler Cos,PIPR,Investment Banking & Brokerage,724078100
+Gates Industrial Corp PLC,GTES,Industrial Machinery & Supplies & Components,G39108108
+Applied Digital Corp,APLD,Internet Services & Infrastructure,038169207
+Darling Ingredients Inc,DAR,Agricultural Products & Services,237266101
+Lear Corp,LEA,Automotive Parts & Equipment,521865204
+GXO Logistics Inc,GXO,Air Freight & Logistics,36262G101
+NOV Inc,NOV,Oil & Gas Equipment & Services,62955J103
+TXNM Energy Inc,TXNM,Electric Utilities,69349H107
+GATX Corp,GATX,Trading Companies & Distributors,361448103
+Cogent Biosciences Inc,COGT,Biotechnology,19240Q201
+RadNet Inc,RDNT,Health Care Services,750491102
+Brookfield Renewable Corp,BEPC,Renewable Electricity,11285B108
+Rhythm Pharmaceuticals Inc,RYTM,Biotechnology,76243J105
+H&R Block Inc,HRB,Specialized Consumer Services,093671105
+Vaxcyte Inc,PCVX,Biotechnology,92243G108
+UFP Industries Inc,UFPI,Building Products,90278Q108
+Arrow Electronics Inc,ARW,Technology Distributors,042735100
+UiPath Inc,PATH,Systems Software,90364P105
+Riot Platforms Inc,RIOT,Application Software,767292105
+Ralliant Corp,RAL,Electronic Equipment & Instruments,750940108
+Amer Sports Inc,AS,"Apparel, Accessories & Luxury Goods",G0260P102
+Dropbox Inc,DBX,Application Software,26210C104
+Wyndham Hotels & Resorts Inc,WH,"Hotels, Resorts & Cruise Lines",98311A105
+Portland General Electric Co,POR,Electric Utilities,736508847
+Gitlab Inc,GTLB,Systems Software,37637K108
+ESCO Technologies Inc,ESE,Industrial Machinery & Supplies & Components,296315104
+Chord Energy Corp,CHRD,Oil & Gas Exploration & Production,674215207
+Commvault Systems Inc,CVLT,Systems Software,204166102
+Millicom International Cellular SA,TIGO,Wireless Telecommunication Services,L6388F110
+Janus Henderson Group PLC,JHG,Asset Management & Custody Banks,G4474Y214
+Valley National Bancorp,VLY,Regional Banks,919794107
+Nexstar Media Group Inc,NXST,Broadcasting,65336K103
+Brookfield Infrastructure Corp,BIPC,Gas Utilities,11276H106
+EnerSys,ENS,Electrical Components & Equipment,29275Y102
+Cipher Mining Inc,CIFR,Application Software,17253J106
+Weatherford International PLC,WFRD,Oil & Gas Equipment & Services,G48833118
+Krystal Biotech Inc,KRYS,Biotechnology,501147102
+Clearwater Analytics Holdings Inc,CWAN,Application Software,185123106
+Thor Industries Inc,THO,Automobile Manufacturers,885160101
+Etsy Inc,ETSY,Broadline Retail,29786A106
+Vontier Corp,VNT,Electronic Equipment & Instruments,928881101
+Glacier Bancorp Inc,GBCI,Regional Banks,37637Q105
+Black Hills Corp,BKH,Multi-Utilities,092113109
+Southwest Gas Holdings Inc,SWX,Gas Utilities,844895102
+KBR Inc,KBR,Research & Consulting Services,48242W106
+Home BancShares Inc/AR,HOMB,Regional Banks,436893200
+Badger Meter Inc,BMI,Electronic Equipment & Instruments,056525108
+White Mountains Insurance Group Ltd,WTM,Property & Casualty Insurance,G9618E107
+Universal Display Corp,OLED,Semiconductors,91347P105
+Post Holdings Inc,POST,Packaged Foods & Meats,737446104
+CNX Resources Corp,CNX,Oil & Gas Exploration & Production,12653C108
+Argan Inc,AGX,Construction & Engineering,04010E109
+Nuvalent Inc,NUVL,Biotechnology,670703107
+Hancock Whitney Corp,HWC,Regional Banks,410120109
+United Bankshares Inc/WV,UBSI,Regional Banks,909907107
+Uranium Energy Corp,UEC,Coal & Consumable Fuels,916896103
+U-Haul Holding Co,UHAL/B,Cargo Ground Transportation,023586506
+Louisiana-Pacific Corp,LPX,Forest Products,546347105
+Protagonist Therapeutics Inc,PTGX,Biotechnology,74366E102
+Gentex Corp,GNTX,Automotive Parts & Equipment,371901109
+Meritage Homes Corp,MTH,Homebuilding,59001A102
+Liberty Broadband Corp,LBRDK,Cable & Satellite,530307305
+FTI Consulting Inc,FCN,Research & Consulting Services,302941109
+Timken Co/The,TKR,Industrial Machinery & Supplies & Components,887389104
+QuantumScape Corp,QS,Automotive Parts & Equipment,74767V109
+Spire Inc,SR,Gas Utilities,84857L101
+Balchem Corp,BCPC,Specialty Chemicals,057665200
+Option Care Health Inc,OPCH,Health Care Services,68404L201
+Qualys Inc,QLYS,Systems Software,74758T303
+Kite Realty Group Trust,KRG,Retail REITs,49803T300
+Construction Partners Inc,ROAD,Construction & Engineering,21044C107
+RLI Corp,RLI,Property & Casualty Insurance,749607107
+Arcosa Inc,ACA,Construction & Engineering,039653100
+Teleflex Inc,TFX,Health Care Equipment,879369106
+Kilroy Realty Corp,KRC,Office REITs,49427F108
+WEX Inc,WEX,Transaction & Payment Processing Services,96208T104
+Appfolio Inc,APPF,Application Software,03783C100
+Vail Resorts Inc,MTN,Leisure Facilities,91879Q109
+Bruker Corp,BRKR,Life Sciences Tools & Services,116794108
+Merit Medical Systems Inc,MMSI,Health Care Supplies,589889104
+ONE Gas Inc,OGS,Gas Utilities,68235P108
+Matador Resources Co,MTDR,Oil & Gas Exploration & Production,576485205
+Group 1 Automotive Inc,GPI,Automotive Retail,398905109
+Morningstar Inc,MORN,Financial Exchanges & Data,617700109
+Hamilton Lane Inc,HLNE,Asset Management & Custody Banks,407497106
+Alaska Air Group Inc,ALK,Passenger Airlines,011659109
+Bank OZK,OZK,Regional Banks,06417N103
+ACI Worldwide Inc,ACIW,Application Software,004498101
+Ameris Bancorp,ABCB,Regional Banks,03076K108
+Cava Group Inc,CAVA,Restaurants,148929102
+Compass Inc,COMP,Real Estate Services,20464U100
+Champion Homes Inc,SKY,Homebuilding,830830105
+Selective Insurance Group Inc,SIGI,Property & Casualty Insurance,816300107
+Maximus Inc,MMS,Data Processing & Outsourced Services,577933104
+New Jersey Resources Corp,NJR,Gas Utilities,646025106
+Shift4 Payments Inc,FOUR,Transaction & Payment Processing Services,82452J109
+Archer Aviation Inc,ACHR,Aerospace & Defense,03945R102
+TG Therapeutics Inc,TGTX,Biotechnology,88322Q108
+Alkermes PLC,ALKS,Biotechnology,G01767105
+TransMedics Group Inc,TMDX,Health Care Equipment,89377M109
+Caesars Entertainment Inc,CZR,Casinos & Gaming,12769G100
+Radian Group Inc,RDN,Commercial & Residential Mortgage Finance,750236101
+Core Scientific Inc,CORZ,Application Software,21874A106
+Pegasystems Inc,PEGA,Application Software,705573103
+Atlantic Union Bankshares Corp,AUB,Regional Banks,04911A107
+BILL Holdings Inc,BILL,Application Software,090043100
+SSR Mining Inc,SSRM,Gold,784730103
+Graphic Packaging Holding Co,GPK,Paper & Plastic Packaging Products & Materials,388689101
+Boyd Gaming Corp,BYD,Casinos & Gaming,103304101
+SentinelOne Inc,S,Systems Software,81730H109
+Brink's Co/The,BCO,Security & Alarm Services,
+Moelis & Co,MC,Investment Banking & Brokerage,60786M105
+Granite Construction Inc,GVA,Construction & Engineering,387328107
+Celanese Corp,CE,Specialty Chemicals,150870103
+Everus Construction Group Inc,ECG,Construction & Engineering,300426103
+Lazard Inc,LAZ,Investment Banking & Brokerage,52110M109
+Enpro Inc,NPO,Industrial Machinery & Supplies & Components,29355X107
+Sensata Technologies Holding PLC,ST,Electrical Components & Equipment,G8060N102
+Workiva Inc. Class A,WK,Application Software,98139A105
+Crocs Inc,CROX,Footwear,227046109
+Sabra Health Care REIT Inc,SBRA,Health Care REITs,78573L106
+Asbury Automotive Group Inc,ABG,Automotive Retail,043436104
+Abercrombie & Fitch Co,ANF,Apparel Retail,002896207
+Amentum Holdings Inc,AMTM,Research & Consulting Services,023939101
+Resideo Technologies Inc,REZI,Building Products,76118Y104
+NewMarket Corp,NEU,Specialty Chemicals,651587107
+Urban Outfitters Inc,URBN,Apparel Retail,917047102
+Landstar System Inc,LSTR,Cargo Ground Transportation,515098101
+CCC Intelligent Solutions Holdings Inc,CCC,Application Software,12510Q100
+DaVita Inc,DVA,Health Care Services,23918K108
+Phillips Edison & Co Inc,PECO,Retail REITs,71844V201
+Itron Inc,ITRI,Electronic Equipment & Instruments,465741106
+Cavco Industries Inc,CVCO,Homebuilding,149568107
+Parsons Corp,PSN,Research & Consulting Services,70202L102
+Impinj Inc,PI,Semiconductors,453204109
+Q2 Holdings Inc,QTWO,Application Software,74736L109
+ADMA Biologics Inc,ADMA,Biotechnology,000899104
+Belden Inc,BDC,Electronic Components,077454106
+Aurora Innovation Inc,AUR,Application Software,051774107
+Axos Financial Inc,AX,Regional Banks,05465C100
+Grand Canyon Education Inc,LOPE,Education Services,38526M106
+Macerich Co/The,MAC,Retail REITs,554382101
+SoundHound AI Inc,SOUN,Application Software,836100107
+CRISPR Therapeutics AG,CRSP,Biotechnology,H17182108
+Terawulf Inc,WULF,Application Software,88080T104
+MILLROSE PROPERTIES,MRP,Other Specialized REITs,601137102
+CSW Industrials Inc,CSW,Building Products,126402106
+MARA Holdings Inc,MARA,Application Software,565788106
+FormFactor Inc,FORM,Semiconductor Materials & Equipment,346375108
+StepStone Group Inc,STEP,Asset Management & Custody Banks,85914M107
+Cousins Properties Inc,CUZ,Office REITs,222795502
+Murphy Oil Corp,MUR,Oil & Gas Exploration & Production,626717102
+Associated Banc-Corp,ASB,Regional Banks,045487105
+MDU Resources Group Inc,MDU,Gas Utilities,552690109
+Eos Energy Enterprises Inc,EOSE,Electrical Components & Equipment,29415C101
+Herc Holdings Inc,HRI,Trading Companies & Distributors,42704L104
+Brunswick Corp/DE,BC,Leisure Products,117043109
+Lemonade Inc,LMND,Property & Casualty Insurance,52567D107
+Brown-Forman Corp,BF/B,Distillers & Vintners,115637209
+OSI Systems Inc,OSIS,Electronic Equipment & Instruments,671044105
+Magnolia Oil & Gas Corp,MGY,Oil & Gas Exploration & Production,559663109
+Spirit AeroSystems Holdings Inc,SPR,Aerospace & Defense,848574109
+First Financial Bankshares Inc,FFIN,Regional Banks,32020R109
+CommScope Holding Co Inc,COMM,Communications Equipment,20337X109
+Hut 8 Corp,HUT,Application Software,44812J104
+Sunrun Inc,RUN,Electrical Components & Equipment,86771W105
+KB Home,KBH,Homebuilding,48666K109
+ADT Inc,ADT,Specialized Consumer Services,00090Q103
+Northwestern Energy Group Inc,NWE,Multi-Utilities,668074305
+Eastern Bankshares Inc,EBC,Regional Banks,27627N105
+Travel + Leisure Co,TNL,"Hotels, Resorts & Cruise Lines",
+VSE Corp,VSEC,Aerospace & Defense,918284100
+StoneCo Ltd,STNE,Transaction & Payment Processing Services,G85158106
+elf Beauty Inc,ELF,Personal Care Products,26856L103
+Knife River Corp,KNF,Construction Materials,498894104
+Amkor Technology Inc,AMKR,Semiconductor Materials & Equipment,031652100
+Core Natural Resources Inc,CNR,Coal & Consumable Fuels,218937100
+Atmus Filtration Technologies Inc,ATMU,Construction Machinery & Heavy Transportation Equipment,04956D107
+Cleanspark Inc,CLSK,Application Software,18452B209
+Sonoco Products Co,SON,Paper & Plastic Packaging Products & Materials,835495102
+StoneX Group Inc,SNEX,Investment Banking & Brokerage,861896108
+Assured Guaranty Ltd,AGO,Property & Casualty Insurance,G0585R106
+Whirlpool Corp,WHR,Household Appliances,963320106
+Box Inc,BOX,Application Software,10316T104
+Clearway Energy Inc,CWEN,Renewable Electricity,18539C204
+Dolby Laboratories Inc,DLB,Systems Software,25659T107
+Science Applications International Corp,SAIC,Research & Consulting Services,808625107
+SkyWest Inc,SKYW,Passenger Airlines,830879102
+Archrock Inc,AROC,Oil & Gas Equipment & Services,03957W106
+Texas Capital Bancshares Inc,TCBI,Regional Banks,88224Q107
+Kontoor Brands Inc,KTB,"Apparel, Accessories & Luxury Goods",50050N103
+Viking Therapeutics Inc,VKTX,Biotechnology,92686J106
+Sirius XM Holdings Inc,SIRI,Cable & Satellite,829933100
+Sensient Technologies Corp,SXT,Specialty Chemicals,81725T100
+Silicon Laboratories Inc,SLAB,Semiconductors,826919102
+Crinetics Pharmaceuticals Inc,CRNX,Pharmaceuticals,22663K107
+Novanta Inc,NOVT,Electronic Equipment & Instruments,67000B104
+Centrus Energy Corp,LEU,Coal & Consumable Fuels,15643U104
+Signet Jewelers Ltd,SIG,Other Specialty Retail,G81276100
+Indivior PLC,INDV,Pharmaceuticals,G4766E116
+Independence Realty Trust Inc,IRT,Multi-Family Residential REITs,45378A106
+HA Sustainable Infrastructure Capital Inc,HASI,Specialized Finance,41068X100
+Primo Brands Corp,PRMB,Soft Drinks & Non-alcoholic Beverages,741623102
+PVH Corp,PVH,"Apparel, Accessories & Luxury Goods",693656100
+Praxis Precision Medicines Inc,PRAX,Biotechnology,74006W207
+Frontdoor Inc,FTDR,Specialized Consumer Services,35905A109
+Lantheus Holdings Inc,LNTH,Health Care Supplies,516544103
+Warrior Met Coal Inc,HCC,Steel,93627C101
+Franklin Electric Co Inc,FELE,Industrial Machinery & Supplies & Components,353514102
+Viasat Inc,VSAT,Communications Equipment,92552V100
+Valvoline Inc,VVV,Automotive Retail,92047W101
+Waystar Holding Corp,WAY,Health Care Technology,946784105
+Avnet Inc,AVT,Technology Distributors,053807103
+ALLETE Inc,ALE,Electric Utilities,018522300
+Telephone and Data Systems Inc,TDS,Wireless Telecommunication Services,879433829
+CNO Financial Group Inc,CNO,Life & Health Insurance,12621E103
+MSC Industrial Direct Co Inc,MSM,Trading Companies & Distributors,553530106
+Viavi Solutions Inc,VIAV,Communications Equipment,925550105
+Laureate Education Inc,LAUR,Education Services,518613203
+Haemonetics Corp,HAE,Health Care Supplies,405024100
+BellRing Brands Inc,BRBR,Personal Care Products,07831C103
+Perimeter Solutions Inc,PRM,Specialty Chemicals,71385M107
+PennyMac Financial Services Inc,PFSI,Commercial & Residential Mortgage Finance,70932M107
+EPR Properties,EPR,Other Specialized REITs,26884U109
+Cushman & Wakefield Ltd,CWK,Real Estate Services,G2717B108
+PJT Partners Inc,PJT,Investment Banking & Brokerage,69343T107
+Noble Corp PLC,NE,Oil & Gas Drilling,G65431127
+Ligand Pharmaceuticals Inc,LGND,Pharmaceuticals,53220K504
+BrightSpring Health Services Inc,BTSG,Health Care Services,10950A106
+Plexus Corp,PLXS,Electronic Manufacturing Services,729132100
+Akero Therapeutics Inc,AKRO,Biotechnology,00973Y108
+Brighthouse Financial Inc,BHF,Life & Health Insurance,10922N103
+Liberty Media Corp-Liberty Live,LLYVK,Movies & Entertainment,531229755
+Circle Internet Group Inc,CRCL,Application Software,172573107
+Cal-Maine Foods Inc,CALM,Packaged Foods & Meats,128030202
+Life Time Group Holdings Inc,LTH,Leisure Facilities,53190C102
+Trex Co Inc,TREX,Building Products,89531P105
+Upstart Holdings Inc,UPST,Consumer Finance,91680M107
+Mueller Water Products Inc,MWA,Industrial Machinery & Supplies & Components,624758108
+Tanger Inc,SKT,Retail REITs,875465106
+Madison Square Garden Sports Corp,MSGS,Movies & Entertainment,55825T103
+Golar LNG Ltd,GLNG,Oil & Gas Storage & Transportation,G9456A100
+IES Holdings Inc,IESC,Construction & Engineering,44951W106
+Bath & Body Works Inc,BBWI,Other Specialty Retail,070830104
+StandardAero Inc,SARO,Aerospace & Defense,85423L103
+United Community Banks Inc/GA,UCB,Regional Banks,90984P303
+Transocean Ltd,RIG,Oil & Gas Drilling,H8817H100
+Sotera Health Co,SHC,Life Sciences Tools & Services,83601L102
+GLOBALFOUNDRIES Inc,GFS,Semiconductors,G39387108
+Flagstar Bank NA,FLG,Regional Banks,
+Veracyte Inc,VCYT,Biotechnology,92337F107
+National Health Investors Inc,NHI,Health Care REITs,63633D104
+Enphase Energy Inc,ENPH,Semiconductor Materials & Equipment,29355A107
+Exponent Inc,EXPO,Research & Consulting Services,30214U102
+Mercury Systems Inc,MRCY,Aerospace & Defense,589378108
+ServisFirst Bancshares Inc,SFBS,Regional Banks,81768T108
+Varonis Systems Inc,VRNS,Systems Software,922280102
+Dorman Products Inc,DORM,Automotive Parts & Equipment,258278100
+Inspire Medical Systems Inc,INSP,Health Care Equipment,457730109
+International Bancshares Corp,IBOC,Regional Banks,459044103
+Valaris Ltd,VAL,Oil & Gas Drilling,G9460G101
+Genworth Financial Inc,GNW,Life & Health Insurance,37247D106
+Matson Inc,MATX,Marine Transportation,57686G105
+Gulfport Energy Corp,GPOR,Oil & Gas Exploration & Production,402635502
+M/I Homes Inc,MHO,Homebuilding,55305B101
+Graham Holdings Co,GHC,Education Services,384637104
+Polaris Inc,PII,Leisure Products,731068102
+ICU Medical Inc,ICUI,Health Care Supplies,44930G107
+WillScot Holdings Corp,WSC,Construction & Engineering,971378104
+Scholar Rock Holding Corp,SRRK,Biotechnology,80706P103
+Silgan Holdings Inc,SLGN,"Metal, Glass & Plastic Containers",827048109
+Envista Holdings Corp,NVST,Health Care Equipment,29415F104
+Patrick Industries Inc,PATK,Automotive Parts & Equipment,703343103
+COPT Defense Properties,CDP,Office REITs,22002T108
+Independent Bank Corp,INDB,Regional Banks,453836108
+Rayonier Inc,RYN,Timber REITs,754907103
+LivaNova PLC,LIVN,Health Care Equipment,G5509L101
+Oscar Health Inc,OSCR,Life & Health Insurance,687793109
+Verra Mobility Corp,VRRM,Data Processing & Outsourced Services,92511U102
+GRAIL Inc,GRAL,Biotechnology,384747101
+MYR Group Inc,MYRG,Construction & Engineering,55405W104
+Zeta Global Holdings Corp,ZETA,Application Software,98956A105
+Shake Shack Inc,SHAK,Restaurants,819047101
+YETI Holdings Inc,YETI,Leisure Products,98585X104
+Korn Ferry,KFY,Human Resource & Employment Services,500643200
+Xenon Pharmaceuticals Inc,XENE,Biotechnology,98420N105
+Cidara Therapeutics Inc,CDTX,Biotechnology,171757206
+Avista Corp,AVA,Multi-Utilities,05379B107
+SL Green Realty Corp,SLG,Office REITs,78440X887
+Kymera Therapeutics Inc,KYMR,Biotechnology,501575104
+Cabot Corp,CBT,Commodity Chemicals,127055101
+Marzetti Company/The,MZTI,Packaged Foods & Meats,513847103
+Peabody Energy Corp,BTU,Coal & Consumable Fuels,704551100
+Calix Inc,CALX,Communications Equipment,13100M509
+Allegro MicroSystems Inc,ALGM,Semiconductors,01749D105
+Broadstone Net Lease Inc,BNL,Diversified REITs,11135E203
+Hayward Holdings Inc,HAYW,Building Products,421298100
+BankUnited Inc,BKU,Regional Banks,06652K103
+Renasant Corp,RNST,Regional Banks,75970E107
+American Eagle Outfitters Inc,AEO,Apparel Retail,02553E106
+Fulton Financial Corp,FULT,Regional Banks,360271100
+Adtalem Global Education Inc,ATGE,Education Services,00737L103
+Cathay General Bancorp,CATY,Regional Banks,149150104
+Kadant Inc,KAI,Industrial Machinery & Supplies & Components,48282T104
+Tenable Holdings Inc,TENB,Systems Software,88025T102
+Palomar Holdings Inc,PLMR,Property & Casualty Insurance,69753M105
+Outfront Media Inc,OUT,Other Specialized REITs,69007J304
+PriceSmart Inc,PSMT,Consumer Staples Merchandise Retail,741511109
+Agilysys Inc,AGYS,Application Software,00847J105
+Arcutis Biotherapeutics Inc,ARQT,Biotechnology,03969K108
+California Resources Corp,CRC,Oil & Gas Exploration & Production,13057Q305
+Chesapeake Utilities Corp,CPK,Gas Utilities,165303108
+PotlatchDeltic Corp,PCH,Timber REITs,737630103
+Blackstone Mortgage Trust Inc,BXMT,Mortgage REITs,09257W100
+HB Fuller Co,FUL,Specialty Chemicals,359694106
+TEGNA Inc,TGNA,Broadcasting,87901J105
+SPS Commerce Inc,SPSC,Application Software,78463M107
+Academy Sports & Outdoors Inc,ASO,Other Specialty Retail,00402L107
+BGC Group Inc,BGC,Investment Banking & Brokerage,088929104
+First BanCorp/Puerto Rico,FBP,Regional Banks,318672706
+Euronet Worldwide Inc,EEFT,Transaction & Payment Processing Services,298736109
+GeneDx Holdings Corp,WGS,Health Care Services,81663L200
+First Hawaiian Inc,FHB,Regional Banks,32051X108
+AZZ Inc,AZZ,Building Products,002474104
+ACADIA Pharmaceuticals Inc,ACAD,Biotechnology,004225108
+Bread Financial Holdings Inc,BFH,Consumer Finance,018581108
+Otter Tail Corp,OTTR,Electric Utilities,689648103
+Enova International Inc,ENVA,Consumer Finance,29357K103
+Advance Auto Parts Inc,AAP,Automotive Retail,00751Y106
+Powell Industries Inc,POWL,Electrical Components & Equipment,739128106
+American States Water Co,AWR,Water Utilities,029899101
+Travere Therapeutics Inc,TVTX,Biotechnology,89422G107
+Ultragenyx Pharmaceutical Inc,RARE,Biotechnology,90400D108
+Tutor Perini Corp,TPC,Construction & Engineering,901109108
+Americold Realty Trust Inc,COLD,Industrial REITs,03064D108
+Tarsus Pharmaceuticals Inc,TARS,Pharmaceuticals,87650L103
+MGE Energy Inc,MGEE,Electric Utilities,55277P104
+WSFS Financial Corp,WSFS,Regional Banks,929328102
+Globalstar Inc,GSAT,Alternative Carriers,378973507
+Energy Fuels Inc/Canada,UUUU,Coal & Consumable Fuels,292671708
+WesBanco Inc,WSBC,Regional Banks,950810101
+DigitalOcean Holdings Inc,DOCN,Internet Services & Infrastructure,25402D102
+Novagold Resources Inc,NG,Gold,66987E206
+AAR Corp,AIR,Aerospace & Defense,000361105
+Steven Madden Ltd,SHOO,Footwear,556269108
+Ambarella Inc,AMBA,Semiconductors,G037AX101
+Community Financial System Inc,CBU,Regional Banks,203607106
+Capri Holdings Ltd,CPRI,"Apparel, Accessories & Luxury Goods",G1890L107
+Tri Pointe Homes Inc,TPH,Homebuilding,87265H109
+Prestige Consumer Healthcare Inc,PBH,Pharmaceuticals,74112D101
+Dana Inc,DAN,Automotive Parts & Equipment,235825205
+Celcuity Inc,CELC,Biotechnology,15102K100
+Penske Automotive Group Inc,PAG,Automotive Retail,70959W103
+Standex International Corp,SXI,Industrial Machinery & Supplies & Components,854231107
+Highwoods Properties Inc,HIW,Office REITs,431284108
+Terex Corp,TEX,Construction Machinery & Heavy Transportation Equipment,880779103
+Clear Secure Inc,YOU,Application Software,18467V109
+Simmons First National Corp,SFNC,Regional Banks,828730200
+Griffon Corp,GFF,Building Products,398433102
+James Hardie Industries PLC,JHX,Construction Materials,47030M106
+ZoomInfo Technologies Inc,GTM,Interactive Media & Services,98980F104
+NMI Holdings Inc,NMIH,Commercial & Residential Mortgage Finance,629209305
+Loar Holdings Inc,LOAR,Aerospace & Defense,53947R105
+BlackLine Inc,BL,Application Software,09239B109
+Western Union Co/The,WU,Transaction & Payment Processing Services,959802109
+First Interstate BancSystem Inc,FIBK,Regional Banks,32055Y201
+Adaptive Biotechnologies Corp,ADPT,Life Sciences Tools & Services,00650F109
+Mirum Pharmaceuticals Inc,MIRM,Biotechnology,604749101
+Cargurus Inc,CARG,Interactive Media & Services,141788109
+Cactus Inc. Class A,WHD,Oil & Gas Equipment & Services,
+Bancorp Inc/The,TBBK,Regional Banks,05969A105
+Boise Cascade Co,BCC,Trading Companies & Distributors,09739D100
+Visteon Corp,VC,Automotive Parts & Equipment,92839U206
+Virtu Financial Inc,VIRT,Investment Banking & Brokerage,928254101
+Cinemark Holdings Inc,CNK,Movies & Entertainment,17243V102
+PBF Energy Inc,PBF,Oil & Gas Refining & Marketing,69318G106
+Globant SA,GLOB,IT Consulting & Other Services,L44385109
+Ideaya Biosciences Inc,IDYA,Biotechnology,45166A102
+Liberty Energy Inc,LBRT,Oil & Gas Equipment & Services,53115L104
+Avient Corp,AVNT,Specialty Chemicals,05368V106
+Medical Properties Trust Inc,MPW,Health Care REITs,58463J304
+Red Rock Resorts Inc,RRR,Casinos & Gaming,75700L108
+Victoria's Secret & Co,VSCO,Apparel Retail,
+LXP Industrial Trust,LXP,Industrial REITs,529043101
+Victory Capital Holdings Inc,VCTR,Asset Management & Custody Banks,92645B103
+Huron Consulting Group Inc,HURN,Research & Consulting Services,447462102
+Crane NXT Co,CXT,Electronic Equipment & Instruments,224441105
+LCI Industries,LCII,Automotive Parts & Equipment,50189K103
+Alignment Healthcare Inc,ALHC,Managed Health Care,01625V104
+Freshpet Inc,FRPT,Packaged Foods & Meats,358039105
+Privia Health Group Inc,PRVA,Health Care Services,74276R102
+Howard Hughes Holdings Inc,HHH,Real Estate Development,44267T102
+Planet Labs PBC,PL,Research & Consulting Services,72703X106
+Teradata Corp,TDC,Systems Software,88076W103
+Harley-Davidson Inc,HOG,Motorcycle Manufacturers,412822108
+Robert Half Inc,RHI,Human Resource & Employment Services,770323103
+Catalyst Pharmaceuticals Inc,CPRX,Biotechnology,14888U101
+OPENLANE Inc,KAR,Diversified Support Services,48238T109
+Civitas Resources Inc,CIVI,Oil & Gas Exploration & Production,17888H103
+Stride Inc,LRN,Education Services,86333M108
+Amicus Therapeutics Inc,FOLD,Biotechnology,03152W109
+Alphatec Holdings Inc,ATEC,Health Care Equipment,02081G201
+Helmerich & Payne Inc,HP,Oil & Gas Drilling,423452101
+Newmark Group Inc,NMRK,Real Estate Services,65158N102
+NCR Atleos Corp,NATL,Transaction & Payment Processing Services,63001N106
+Acadia Realty Trust,AKR,Retail REITs,004239109
+Seacoast Banking Corp of Florida,SBCF,Regional Banks,811707801
+California Water Service Group,CWT,Water Utilities,130788102
+ABM Industries Inc,ABM,Environmental & Facilities Services,000957100
+Apple Hospitality REIT Inc,APLE,Hotel & Resort REITs,03784Y200
+nCino Inc,NCNO,Application Software,63947X101
+WD-40 Co,WDFC,Household Products,929236107
+Kohl's Corp,KSS,Broadline Retail,
+Kodiak Gas Services Inc,KGS,Oil & Gas Equipment & Services,50012A108
+Axcelis Technologies Inc,ACLS,Semiconductor Materials & Equipment,054540208
+Synaptics Inc,SYNA,Semiconductors,87157D109
+Artisan Partners Asset Management Inc,APAM,Asset Management & Custody Banks,04316A108
+UniFirst Corp/MA,UNF,Diversified Support Services,904708104
+Tidewater Inc,TDW,Oil & Gas Equipment & Services,88642R109
+Leonardo DRS Inc,DRS,Aerospace & Defense,52661A108
+CVB Financial Corp,CVBF,Regional Banks,126600105
+Park National Corp,PRK,Regional Banks,700658107
+McGrath RentCorp,MGRC,Trading Companies & Distributors,580589109
+REV Group Inc,REVG,Construction Machinery & Heavy Transportation Equipment,749527107
+Denali Therapeutics Inc,DNLI,Biotechnology,24823R105
+Bank of Hawaii Corp,BOH,Regional Banks,062540109
+Peloton Interactive Inc,PTON,Leisure Products,70614W100
+Choice Hotels International Inc,CHH,"Hotels, Resorts & Cruise Lines",169905106
+Provident Financial Services Inc,PFS,Regional Banks,74386T105
+DNOW Inc,DNOW,Trading Companies & Distributors,67011P100
+Xometry Inc,XMTR,Trading Companies & Distributors,98423F109
+Scotts Miracle-Gro Co/The,SMG,Fertilizers & Agricultural Chemicals,810186106
+NuScale Power Corp,SMR,Heavy Electrical Equipment,67079K100
+Brookdale Senior Living Inc,BKD,Health Care Facilities,112463104
+Scorpio Tankers Inc,STNG,Oil & Gas Storage & Transportation,Y7542C130
+Lineage Inc,LINE,Industrial REITs,53566V106
+Hawkins Inc,HWKN,Commodity Chemicals,420261109
+Insight Enterprises Inc,NSIT,Technology Distributors,45765U103
+Mercury General Corp,MCY,Property & Casualty Insurance,589400100
+WaFd Inc,WAFD,Regional Banks,938824109
+Ashland Inc,ASH,Specialty Chemicals,044186104
+BOK Financial Corp,BOKF,Regional Banks,05561Q201
+Ubiquiti Inc,UI,Communications Equipment,90353W103
+CG oncology Inc,CGON,Biotechnology,156944100
+Materion Corp,MTRN,Diversified Metals & Mining,576690101
+Kemper Corp,KMPR,Property & Casualty Insurance,488401100
+Towne Bank/Portsmouth VA,TOWN,Regional Banks,89214P109
+Supernus Pharmaceuticals Inc,SUPN,Pharmaceuticals,868459108
+Arcellx Inc,ACLX,Biotechnology,03940C100
+Integer Holdings Corp,ITGR,Health Care Equipment,45826H109
+First Financial Bancorp,FFBC,Regional Banks,320209109
+Hilton Grand Vacations Inc,HGV,"Hotels, Resorts & Cruise Lines",43283X105
+Alarm.com Holdings Inc,ALRM,Application Software,011642105
+CBIZ Inc,CBZ,Research & Consulting Services,124805102
+Lennar Corp,LEN/B,Homebuilding,526057104
+Apogee Therapeutics Inc,APGE,Biotechnology,03770N101
+Olin Corp,OLN,Commodity Chemicals,680665205
+Intapp Inc,INTA,Application Software,45827U109
+RH,RH,Homefurnishing Retail,G25508105
+Urban Edge Properties,UE,Retail REITs,91704F104
+Rush Enterprises Inc,RUSHA,Trading Companies & Distributors,781846209
+Freshworks Inc,FRSH,Application Software,358054104
+Concentra Group Holdings Parent Inc,CON,Health Care Facilities,20603L102
+Constellium SE,CSTM,Aluminum,F21107101
+Beam Therapeutics Inc,BEAM,Biotechnology,07373V105
+Birkenstock Holding Plc,BIRK,Footwear,M2029K104
+Upwork Inc,UPWK,Human Resource & Employment Services,91688F104
+IAC Inc,IAC,Interactive Media & Services,44891N208
+ePlus Inc,PLUS,Technology Distributors,294268107
+Curbline Properties Corp,CURB,Retail REITs,23128Q101
+Four Corners Property Trust Inc,FCPT,Other Specialized REITs,35086T109
+Banner Corp,BANR,Regional Banks,06652V208
+Dyne Therapeutics Inc,DYN,Biotechnology,26818M108
+DXC Technology Co,DXC,IT Consulting & Other Services,23355L106
+Avis Budget Group Inc,CAR,Passenger Ground Transportation,053774105
+Apellis Pharmaceuticals Inc,APLS,Biotechnology,03753U106
+Banc of California Inc,BANC,Regional Banks,05990K106
+Freedom Holding Corp/NV,FRHC,Investment Banking & Brokerage,356390104
+Kulicke & Soffa Industries Inc,KLIC,Semiconductor Materials & Equipment,501242101
+St Joe Co/The,JOE,Diversified Real Estate Activities,790148100
+Extreme Networks Inc,EXTR,Communications Equipment,30226D106
+BancFirst Corp,BANF,Regional Banks,05945F103
+FB Financial Corp,FBK,Regional Banks,30257X104
+Vita Coco Co Inc/The,COCO,Soft Drinks & Non-alcoholic Beverages,92846Q107
+Sphere Entertainment Co,SPHR,Movies & Entertainment,55826T102
+Braze Inc,BRZE,Application Software,10576N102
+Oceaneering International Inc,OII,Oil & Gas Equipment & Services,675232102
+Acushnet Holdings Corp,GOLF,Leisure Products,005098108
+RingCentral Inc,RNG,Application Software,76680R206
+Delek US Holdings Inc,DK,Oil & Gas Refining & Marketing,24665A103
+Par Pacific Holdings Inc,PARR,Oil & Gas Refining & Marketing,69888T207
+DENTSPLY SIRONA Inc,XRAY,Health Care Supplies,24906P109
+Westlake Corp,WLK,Commodity Chemicals,960413102
+Chefs' Warehouse Inc/The,CHEF,Food Distributors,
+Hillenbrand Inc,HI,Industrial Machinery & Supplies & Components,431571108
+Hub Group Inc,HUBG,Air Freight & Logistics,443320106
+Atkore Inc,ATKR,Electrical Components & Equipment,047649108
+Remitly Global Inc,RELY,Transaction & Payment Processing Services,75960P104
+Penn Entertainment Inc,PENN,Casinos & Gaming,707569109
+InvenTrust Properties Corp,IVT,Retail REITs,46124J201
+Goodyear Tire & Rubber Co/The,GT,Tires & Rubber,382550101
+Trustmark Corp,TRMK,Regional Banks,898402102
+National Vision Holdings Inc,EYE,Other Specialty Retail,63845R107
+Genius Sports Ltd,GENI,Casinos & Gaming,G3934V109
+Garrett Motion Inc,GTX,Automotive Parts & Equipment,366505105
+United Natural Foods Inc,UNFI,Food Distributors,911163103
+Viridian Therapeutics Inc,VRDN,Biotechnology,92790C104
+Addus HomeCare Corp,ADUS,Health Care Services,006739106
+Disc Medicine Inc,IRON,Biotechnology,254604101
+Ocular Therapeutix Inc,OCUL,Pharmaceuticals,67576A100
+Cheesecake Factory Inc/The,CAKE,Restaurants,163072101
+Plug Power Inc,PLUG,Electrical Components & Equipment,72919P202
+CSG Systems International Inc,CSGS,Data Processing & Outsourced Services,126349109
+SM Energy Co,SM,Oil & Gas Exploration & Production,78454L100
+Walker & Dunlop Inc,WD,Commercial & Residential Mortgage Finance,93148P102
+Northern Oil & Gas Inc,NOG,Oil & Gas Exploration & Production,665531307
+NBT Bancorp Inc,NBTB,Regional Banks,628778102
+Blackbaud Inc,BLKB,Application Software,09227Q100
+Vicor Corp,VICR,Electrical Components & Equipment,925815102
+GEO Group Inc/The,GEO,Security & Alarm Services,36162J106
+Sonos Inc,SONO,Consumer Electronics,83570H108
+Trinity Industries Inc,TRN,Construction Machinery & Heavy Transportation Equipment,896522109
+First Merchants Corp,FRME,Regional Banks,320817109
+CorVel Corp,CRVL,Health Care Services,221006109
+Park Hotels & Resorts Inc,PK,Hotel & Resort REITs,700517105
+Terns Pharmaceuticals Inc,TERN,Pharmaceuticals,880881107
+RXO Inc,RXO,Cargo Ground Transportation,74982T103
+Summit Therapeutics Inc,SMMT,Biotechnology,86627T108
+Diodes Inc,DIOD,Semiconductors,254543101
+International Seaways Inc,INSW,Oil & Gas Storage & Transportation,Y41053102
+Green Brick Partners Inc,GRBK,Homebuilding,392709101
+Patterson-UTI Energy Inc,PTEN,Oil & Gas Drilling,703481101
+Soleno Therapeutics Inc,SLNO,Biotechnology,834203309
+Zillow Group Inc,ZG,Real Estate Services,98954M200
+ARMOUR Residential REIT Inc,ARR,Mortgage REITs,042315705
+Stewart Information Services Corp,STC,Property & Casualty Insurance,860372101
+SIRIUSPOINT LTD,SPNT,Reinsurance,G8192H106
+Beacon Financial Corp,BBT,Regional Banks,
+Enerpac Tool Group Corp,EPAC,Industrial Machinery & Supplies & Components,292765104
+Phinia Inc,PHIN,Automotive Parts & Equipment,71880K101
+Magnite Inc,MGNI,Advertising,55955D100
+Pediatrix Medical Group Inc,MD,Health Care Services,58502B106
+Credit Acceptance Corp,CACC,Consumer Finance,225310101
+Kennametal Inc,KMT,Industrial Machinery & Supplies & Components,489170100
+Madison Square Garden Entertainment Corp,MSGE,Movies & Entertainment,55825T103
+National Storage Affiliates Trust,NSA,Self-Storage REITs,637870106
+Hawaiian Electric Industries Inc,HE,Electric Utilities,419870100
+O-I Glass Inc,OI,"Metal, Glass & Plastic Containers",67098H104
+Liquidia Corp,LQDA,Pharmaceuticals,53635D202
+LendingClub Corp,LC,Consumer Finance,52603A208
+Dave Inc,DAVE,Consumer Finance,23834J201
+First Busey Corp,BUSE,Regional Banks,319383204
+Organon & Co,OGN,Pharmaceuticals,68622V106
+Northwest Natural Holding Co,NWN,Gas Utilities,66765N105
+First Bancorp/Southern Pines NC,FBNC,Regional Banks,318910106
+Enterprise Financial Services Corp,EFSC,Regional Banks,293712105
+Flowers Foods Inc,FLO,Packaged Foods & Meats,343498101
+IPG Photonics Corp,IPGP,Electronic Manufacturing Services,44980X109
+Greif Inc,GEF,"Metal, Glass & Plastic Containers",397624107
+Customers Bancorp Inc,CUBI,Regional Banks,23204G100
+Vericel Corp,VCEL,Biotechnology,92346J108
+Knowles Corp,KN,Electronic Components,49926D109
+Buckle Inc/The,BKE,Apparel Retail,118440106
+Comstock Resources Inc,CRK,Oil & Gas Exploration & Production,205768302
+Douglas Emmett Inc,DEI,Office REITs,25960P109
+10X Genomics Inc,TXG,Life Sciences Tools & Services,88025U109
+OneSpaWorld Holdings Ltd,OSW,Specialized Consumer Services,P73684113
+Dillard's Inc,DDS,Broadline Retail,
+ASGN Inc,ASGN,IT Consulting & Other Services,00191U102
+Sarepta Therapeutics Inc,SRPT,Biotechnology,803607100
+Nuvation Bio Inc,NUVB,Pharmaceuticals,67080N101
+CoreCivic Inc,CXW,Security & Alarm Services,21871N101
+Liberty Global Ltd,LBTYA,Alternative Carriers,G61188127
+HNI Corp,HNI,Office Services & Supplies,404251100
+Progyny Inc,PGNY,Managed Health Care,74340E103
+Baldwin Insurance Group Inc/The,BWIN,Insurance Brokers,05589G102
+Twist Bioscience Corp,TWST,Biotechnology,90184D100
+Seadrill Ltd,SDRL,Oil & Gas Drilling,G7997W102
+Bank of NT Butterfield & Son Ltd/The,NTB,Diversified Banks,G0772R208
+Warby Parker Inc,WRBY,Other Specialty Retail,93403J106
+Power Integrations Inc,POWI,Semiconductors,739276103
+Burford Capital Ltd,BUR,Specialized Finance,G17977110
+Perpetua Resources Corp,PPTA,Gold,714266103
+Pagseguro Digital Ltd,PAGS,Transaction & Payment Processing Services,G68707101
+Avadel Pharmaceuticals PLC,AVDL,Pharmaceuticals,G29687103
+Ingevity Corp,NGVT,Specialty Chemicals,45688C107
+Quaker Chemical Corp,KWR,Specialty Chemicals,747316107
+Horace Mann Educators Corp,HMN,Multi-line Insurance,440327104
+Chemours Co/The,CC,Diversified Chemicals,163851108
+EVERTEC Inc,EVTC,Transaction & Payment Processing Services,30040P103
+Amneal Pharmaceuticals Inc,AMRX,Pharmaceuticals,03168L105
+Marqeta Inc,MQ,Transaction & Payment Processing Services,57142B104
+Bel Fuse Inc,BELFB,Electronic Components,077347300
+Trump Media & Technology Group Corp,DJT,Interactive Media & Services,25400Q105
+Simply Good Foods Co/The,SMPL,Packaged Foods & Meats,82900L102
+BigBear.ai Holdings Inc,BBAI,IT Consulting & Other Services,08975B109
+Marex Group PLC,MRX,Investment Banking & Brokerage,G5S37H101
+NetScout Systems Inc,NTCT,Communications Equipment,64115T104
+DiamondRock Hospitality Co,DRH,Hotel & Resort REITs,252784301
+Minerals Technologies Inc,MTX,Specialty Chemicals,603158106
+Aurinia Pharmaceuticals Inc,AUPH,Biotechnology,05156V102
+Perrigo Co PLC,PRGO,Pharmaceuticals,G97822103
+QuidelOrtho Corp,QDEL,Health Care Equipment,219798105
+Innospec Inc,IOSP,Specialty Chemicals,45768S105
+LiveRamp Holdings Inc,RAMP,Application Software,53815P108
+HCI Group Inc,HCI,Property & Casualty Insurance,40416E103
+Strategic Education Inc,STRA,Education Services,86272C103
+Alpha Metallurgical Resources Inc,AMR,Steel,020764106
+Brightstar Lottery PLC,BRSL,Casinos & Gaming,460599AD5
+Sunstone Hotel Investors Inc,SHO,Hotel & Resort REITs,867892101
+Progress Software Corp,PRGS,Systems Software,743312100
+Helios Technologies Inc,HLIO,Industrial Machinery & Supplies & Components,42328H109
+FMC Corp,FMC,Fertilizers & Agricultural Chemicals,302491303
+Cohen & Steers Inc,CNS,Asset Management & Custody Banks,19247A100
+Dynex Capital Inc,DX,Mortgage REITs,26817Q886
+AtriCure Inc,ATRC,Health Care Equipment,04963C209
+Huntsman Corp,HUN,Diversified Chemicals,447011107
+Innodata Inc,INOD,Research & Consulting Services,457642205
+Northwest Bancshares Inc,NWBI,Regional Banks,667340103
+Karman Holdings Inc,KRMN,Aerospace & Defense,485924104
+TriNet Group Inc,TNET,Human Resource & Employment Services,896288107
+Arcus Biosciences Inc,RCUS,Biotechnology,03969F109
+Stock Yards Bancorp Inc,SYBT,Regional Banks,861025104
+Celldex Therapeutics Inc,CLDX,Biotechnology,15117B202
+Yelp Inc,YELP,Interactive Media & Services,985817105
+C3.ai Inc,AI,Application Software,12468P104
+OFG Bancorp,OFG,Regional Banks,67103X102
+Artivion Inc,AORT,Health Care Equipment,228903100
+Super Group SGHC Ltd,SGHC,Casinos & Gaming,G8588X103
+National HealthCare Corp,NHC,Health Care Facilities,635906100
+Vera Therapeutics Inc,VERA,Biotechnology,92337R101
+LeMaitre Vascular Inc,LMAT,Health Care Equipment,525558201
+Syndax Pharmaceuticals Inc,SNDX,Biotechnology,87164F105
+Solaris Energy Infrastructure Inc,SEI,Oil & Gas Equipment & Services,83418M103
+AvePoint Inc,AVPT,Application Software,053604104
+Omnicell Inc,OMCL,Health Care Equipment,68213N109
+Edgewise Therapeutics Inc,EWTX,Pharmaceuticals,28036F105
+First Commonwealth Financial Corp,FCF,Regional Banks,319829107
+City Holding Co,CHCO,Regional Banks,177835105
+German American Bancorp Inc,GABC,Regional Banks,373865104
+Lucid Group Inc,LCID,Automobile Manufacturers,549498103
+ACM Research Inc,ACMR,Semiconductor Materials & Equipment,00108J109
+Goosehead Insurance Inc,GSHD,Insurance Brokers,38267D109
+NETSTREIT Corp,NTST,Retail REITs,64119V303
+Recursion Pharmaceuticals Inc,RXRX,Biotechnology,75629V104
+Skyward Specialty Insurance Group Inc,SKWD,Property & Casualty Insurance,830940102
+Perdoceo Education Corp,PRDO,Education Services,71363P106
+Crescent Energy Co,CRGY,Oil & Gas Exploration & Production,44952J104
+UFP Technologies Inc,UFPT,Health Care Supplies,902673102
+Enovis Corp,ENOV,Health Care Equipment,194014502
+Select Medical Holdings Corp,SEM,Health Care Facilities,81619Q105
+Arbor Realty Trust Inc,ABR,Mortgage REITs,038923108
+DigitalBridge Group Inc,DBRG,Asset Management & Custody Banks,25401T603
+Hillman Solutions Corp,HLMN,Industrial Machinery & Supplies & Components,431636109
+Pathward Financial Inc,CASH,Regional Banks,59100U108
+Worthington Enterprises Inc,WOR,Industrial Machinery & Supplies & Components,981811102
+Century Communities Inc,CCS,Homebuilding,156504300
+TripAdvisor Inc,TRIP,Interactive Media & Services,896945201
+LTC Properties Inc,LTC,Health Care REITs,502175102
+Turning Point Brands Inc,TPB,Tobacco,90041L105
+Immunovant Inc,IMVT,Biotechnology,45258J102
+Vishay Intertechnology Inc,VSH,Electronic Components,928298108
+Adient PLC,ADNT,Automotive Parts & Equipment,G0084W101
+PROCEPT BioRobotics Corp,PRCT,Health Care Equipment,74276L105
+DHT Holdings Inc,DHT,Oil & Gas Storage & Transportation,Y2065G121
+nLight Inc,LASR,Electronic Equipment & Instruments,65487K100
+Topgolf Callaway Brands Corp,MODG,Leisure Products,131193104
+PACS Group Inc,PACS,Health Care Facilities,69380Q107
+Nelnet Inc,NNI,Consumer Finance,64031N108
+Nicolet Bankshares Inc,NIC,Regional Banks,65406E102
+Pitney Bowes Inc,PBI,Office Services & Supplies,724479100
+Veeco Instruments Inc,VECO,Semiconductor Materials & Equipment,922417100
+Mineralys Therapeutics Inc,MLYS,Biotechnology,603170101
+Agios Pharmaceuticals Inc,AGIO,Biotechnology,00847X104
+Olema Pharmaceuticals Inc,OLMA,Biotechnology,68062P106
+Diebold Nixdorf Inc,DBD,"Technology Hardware, Storage & Peripherals",253651202
+TIC Solutions Inc,TIC,Research & Consulting Services,
+Andersons Inc/The,ANDE,Food Distributors,034164103
+Astronics Corp,ATRO,Aerospace & Defense,046433108
+Payoneer Global Inc,PAYO,Transaction & Payment Processing Services,70451X104
+IMAX Corp,IMAX,Movies & Entertainment,45245E109
+La-Z-Boy Inc,LZB,Home Furnishings,505336107
+MannKind Corp,MNKD,Biotechnology,56400P706
+Concentrix Corp,CNXC,Data Processing & Outsourced Services,20602D101
+Alamo Group Inc,ALG,Agricultural & Farm Machinery,011311107
+Blue Bird Corp,BLBD,Construction Machinery & Heavy Transportation Equipment,095306106
+Global Net Lease Inc,GNL,Diversified REITs,379378201
+Flywire Corp,FLYW,Transaction & Payment Processing Services,302492103
+Sylvamo Corp,SLVM,Paper Products,871332102
+Federal Agricultural Mortgage Corp,AGM,Commercial & Residential Mortgage Finance,313148306
+Rush Street Interactive Inc,RSI,Casinos & Gaming,782011100
+NeoGenomics Inc,NEO,Health Care Services,64049M209
+Pilgrim's Pride Corp,PPC,Packaged Foods & Meats,
+Fastly Inc,FSLY,Internet Services & Infrastructure,31188V100
+Kaiser Aluminum Corp,KALU,Aluminum,483007704
+Liberty Media Corp-Liberty Formula One,FWONA,Movies & Entertainment,531229755
+Interface Inc,TILE,Office Services & Supplies,458665304
+Acadia Healthcare Co Inc,ACHC,Health Care Facilities,00404A109
+Liberty Global Ltd,LBTYK,Alternative Carriers,G61188127
+Iridium Communications Inc,IRDM,Alternative Carriers,46269C102
+Anywhere Real Estate Inc,HOUS,Real Estate Services,75605Y106
+Sally Beauty Holdings Inc,SBH,Other Specialty Retail,79546E104
+Digi International Inc,DGII,Communications Equipment,253798102
+Benchmark Electronics Inc,BHE,Electronic Manufacturing Services,08160H101
+Centuri Holdings Inc,CTRI,Construction & Engineering,155923105
+Appian Corp,APPN,Systems Software,03782L101
+Quantum Computing Inc,QUBT,"Technology Hardware, Storage & Peripherals",74766W108
+Hilltop Holdings Inc,HTH,Regional Banks,432748101
+Century Aluminum Co,CENX,Aluminum,156431108
+Harmony Biosciences Holdings Inc,HRMY,Pharmaceuticals,413197104
+Newell Brands Inc,NWL,Housewares & Specialties,651229106
+Boston Beer Co Inc/The,SAM,Brewers,100557107
+News Corp,NWS,Publishing,65249B109
+BioCryst Pharmaceuticals Inc,BCRX,Biotechnology,09058V103
+Lakeland Financial Corp,LKFN,Regional Banks,511656100
+Stellar Bancorp Inc,STEL,Regional Banks,858927106
+ANI Pharmaceuticals Inc,ANIP,Pharmaceuticals,00182C103
+Kinetik Holdings Inc,KNTK,Oil & Gas Storage & Transportation,02215L209
+Elme Communities,ELME,Multi-Family Residential REITs,939653101
+TriCo Bancshares,TCBK,Regional Banks,896095106
+Five9 Inc,FIVN,Application Software,338307101
+Rogers Corp,ROG,Electronic Components,775133101
+S&T Bancorp Inc,STBA,Regional Banks,783859101
+CECO Environmental Corp,CECO,Industrial Machinery & Supplies & Components,125141101
+Fluence Energy Inc,FLNC,Electrical Components & Equipment,34379V103
+John Wiley & Sons Inc,WLY,Publishing,968223206
+Marriott Vacations Worldwide Corp,VAC,"Hotels, Resorts & Cruise Lines",57164Y107
+Interparfums Inc,IPAR,Personal Care Products,458334109
+Lionsgate Studios Corp,LION,Movies & Entertainment,53626N102
+JetBlue Airways Corp,JBLU,Passenger Airlines,477143101
+Gibraltar Industries Inc,ROCK,Building Products,374689107
+Getty Realty Corp,GTY,Retail REITs,374297109
+Apollo Commercial Real Estate Finance Inc,ARI,Mortgage REITs,03762U105
+Tandem Diabetes Care Inc,TNDM,Health Care Equipment,875372203
+Spyre Therapeutics Inc,SYRE,Biotechnology,00773J202
+H2O America,HTO,Water Utilities,784305104
+J & J Snack Foods Corp,JJSF,Packaged Foods & Meats,466032109
+Azenta Inc,AZTA,Life Sciences Tools & Services,114340102
+Werner Enterprises Inc,WERN,Cargo Ground Transportation,950755108
+Alkami Technology Inc,ALKT,Application Software,01644J108
+Collegium Pharmaceutical Inc,COLL,Pharmaceuticals,19459J104
+Coastal Financial Corp/WA,CCB,Regional Banks,19046P209
+Albany International Corp,AIN,Industrial Machinery & Supplies & Components,012348108
+Six Flags Entertainment Corp,FUN,Leisure Facilities,83001C108
+Applied Optoelectronics Inc,AAOI,Communications Equipment,03823U102
+Expro Group Holdings NV,XPRO,Oil & Gas Equipment & Services,N3144W105
+National Bank Holdings Corp,NBHC,Regional Banks,633707104
+ArcBest Corp,ARCB,Cargo Ground Transportation,03937C105
+Arlo Technologies Inc,ARLO,Electronic Equipment & Instruments,04206A101
+DoubleVerify Holdings Inc,DV,Advertising,25862V105
+Zymeworks Inc,ZYME,Biotechnology,98985Y108
+ICF International Inc,ICFI,Research & Consulting Services,44925C103
+Reynolds Consumer Products Inc,REYN,Household Products,76171L106
+Spectrum Brands Holdings Inc,SPB,Household Products,84790A105
+PAR Technology Corp,PAR,Application Software,698884103
+Willdan Group Inc,WLDN,Research & Consulting Services,96924N100
+Immunome Inc,IMNM,Biotechnology,45257U108
+Innovative Industrial Properties Inc,IIPR,Industrial REITs,45781V101
+Papa John's International Inc,PZZA,Restaurants,
+Ardelyx Inc,ARDX,Biotechnology,039697107
+Leggett & Platt Inc,LEG,Home Furnishings,524660107
+NCR Voyix Corp,VYX,Application Software,62886E108
+Shoals Technologies Group Inc,SHLS,Electrical Components & Equipment,82489W107
+Calumet Inc,CLMT,Oil & Gas Refining & Marketing,131428104
+Janux Therapeutics Inc,JANX,Biotechnology,47103J105
+Rush Enterprises Inc,RUSHB,Trading Companies & Distributors,781846209
+Enviri Corp,NVRI,Environmental & Facilities Services,415864107
+Stoke Therapeutics Inc,STOK,Biotechnology,86150R107
+Innoviva Inc,INVA,Pharmaceuticals,45781M101
+Talos Energy Inc,TALO,Oil & Gas Exploration & Production,87484T108
+Masterbrand Inc,MBC,Building Products,57638P104
+Teladoc Health Inc,TDOC,Health Care Technology,87918A105
+Wendy's Co/The,WEN,Restaurants,
+Greenbrier Cos Inc/The,GBX,Construction Machinery & Heavy Transportation Equipment,393657101
+Columbia Sportswear Co,COLM,"Apparel, Accessories & Luxury Goods",198516106
+WisdomTree Inc,WT,Asset Management & Custody Banks,97717P104
+Atlanta Braves Holdings Inc,BATRK,Movies & Entertainment,047726302
+Healthcare Services Group Inc,HCSG,Diversified Support Services,421906108
+Xenia Hotels & Resorts Inc,XHR,Hotel & Resort REITs,984017103
+Napco Security Technologies Inc,NSSC,Electronic Equipment & Instruments,630402105
+American Superconductor Corp,AMSC,Electrical Components & Equipment,030111207
+Steelcase Inc,SCS,Office Services & Supplies,858155203
+Teekay Tankers Ltd,TNK,Oil & Gas Storage & Transportation,G8726X106
+TreeHouse Foods Inc,THS,Packaged Foods & Meats,89469A104
+Axogen Inc,AXGN,Health Care Equipment,05463X106
+Photronics Inc,PLAB,Semiconductor Materials & Equipment,719405102
+RealReal Inc/The,REAL,Apparel Retail,88339P101
+Tennant Co,TNC,Industrial Machinery & Supplies & Components,880345103
+Donnelley Financial Solutions Inc,DFIN,Financial Exchanges & Data,25787G100
+STAAR Surgical Co,STAA,Health Care Supplies,852312305
+Ziff Davis Inc,ZD,Interactive Media & Services,48123V102
+Liberty Media Corp-Liberty Live,LLYVA,Movies & Entertainment,531229755
+Surgery Partners Inc,SGRY,Health Care Facilities,86881A100
+ManpowerGroup Inc,MAN,Human Resource & Employment Services,56418H100
+Sapiens International Corp NV,SPNS,Application Software,G7T16G103
+Adeia Inc,ADEA,Systems Software,00676P107
+Novocure Ltd,NVCR,Health Care Equipment,G6674U108
+Clarivate PLC,CLVT,Research & Consulting Services,G21810109
+QCR Holdings Inc,QCRH,Regional Banks,74727A104
+Harrow Inc,HROW,Pharmaceuticals,415858109
+Wolverine World Wide Inc,WWW,Footwear,978097103
+CONMED Corp,CNMD,Health Care Equipment,207410101
+Vertex Inc,VERX,Application Software,92538J106
+Herbalife Ltd,HLF,Personal Care Products,G4412G101
+Hope Bancorp Inc,HOPE,Regional Banks,43940T109
+Trupanion Inc,TRUP,Property & Casualty Insurance,898202106
+Banco Latinoamericano de Comercio Exterior SA,BLX,Specialized Finance,P16994132
+Nurix Therapeutics Inc,NRIX,Biotechnology,67080M103
+Sila Realty Trust Inc,SILA,Health Care REITs,146280508
+Neogen Corp,NEOG,Health Care Supplies,640491106
+RLJ Lodging Trust,RLJ,Hotel & Resort REITs,74965L101
+Brown-Forman Corp,BF/A,Distillers & Vintners,115637209
+World Kinect Corp,WKC,Oil & Gas Refining & Marketing,981475106
+ACV Auctions Inc,ACVA,Diversified Support Services,00091G104
+Pebblebrook Hotel Trust,PEB,Hotel & Resort REITs,70509V100
+A10 Networks Inc,ATEN,Systems Software,002121101
+MaxLinear Inc,MXL,Semiconductors,57776J100
+CTS Corp,CTS,Electronic Manufacturing Services,126501105
+Insperity Inc,NSP,Human Resource & Employment Services,45778Q107
+United States Lime & Minerals Inc,USLM,Construction Materials,911922102
+Enovix Corp,ENVX,Electrical Components & Equipment,293594107
+Ivanhoe Electric Inc / US,IE,Diversified Metals & Mining,46578C108
+Heidrick & Struggles International Inc,HSII,Human Resource & Employment Services,422819102
+Triumph Financial Inc,TFIN,Regional Banks,89679E300
+Ducommun Inc,DCO,Aerospace & Defense,264147109
+Ladder Capital Corp,LADR,Mortgage REITs,505743104
+NextNav Inc,NN,Application Software,65345N106
+Life360 Inc,LIF,Application Software,532206109
+Lindsay Corp,LNN,Agricultural & Farm Machinery,535555106
+Hamilton Insurance Group Ltd,HG,Property & Casualty Insurance,G42706104
+Ellington Financial Inc,EFC,Mortgage REITs,28852N109
+Universal Corp/VA,UVV,Tobacco,913456109
+ProAssurance Corp,PRA,Property & Casualty Insurance,74267C106
+Kennedy-Wilson Holdings Inc,KW,Real Estate Operating Companies,489398107
+Xencor Inc,XNCR,Biotechnology,98401F105
+Bitdeer Technologies Group,BTDR,Application Software,G11448100
+Thermon Group Holdings Inc,THR,Electrical Components & Equipment,88362T103
+Schneider National Inc,SNDR,Cargo Ground Transportation,80689H102
+UMH Properties Inc,UMH,Single-Family Residential REITs,903002103
+Fortrea Holdings Inc,FTRE,Life Sciences Tools & Services,34965K107
+Monarch Casino & Resort Inc,MCRI,Casinos & Gaming,609027107
+DXP Enterprises Inc/TX,DXPE,Trading Companies & Distributors,233377407
+Tecnoglass Inc,TGLS,Building Products,G87264100
+Paramount Group Inc,PGRE,Office REITs,69924R108
+Veris Residential Inc,VRE,Multi-Family Residential REITs,554489104
+Phreesia Inc,PHR,Health Care Technology,71944F106
+Cadre Holdings Inc,CDRE,Aerospace & Defense,12763L105
+Acadian Asset Management Inc,AAMI,Asset Management & Custody Banks,10948W103
+Proto Labs Inc,PRLB,Industrial Machinery & Supplies & Components,743713109
+Energizer Holdings Inc,ENR,Household Products,29272W109
+Fresh Del Monte Produce Inc,FDP,Agricultural Products & Services,G36738105
+Navitas Semiconductor Corp,NVTS,Semiconductors,63942X106
+Winmark Corp,WINA,Other Specialty Retail,974250102
+Beta Bionics Inc,BBNX,Health Care Equipment,08659B102
+Carter's Inc,CRI,"Apparel, Accessories & Luxury Goods",
+Pagaya Technologies Ltd,PGY,Application Software,M7S64L123
+Under Armour Inc,UAA,"Apparel, Accessories & Luxury Goods",904311107
+Encore Capital Group Inc,ECPG,Consumer Finance,292554102
+ConnectOne Bancorp Inc,CNOB,Regional Banks,20786W107
+Live Oak Bancshares Inc,LOB,Regional Banks,53803X105
+Safety Insurance Group Inc,SAFT,Property & Casualty Insurance,78648T100
+Ultra Clean Holdings Inc,UCTT,Semiconductor Materials & Equipment,90385V107
+1st Source Corp,SRCE,Regional Banks,336901103
+Westamerica BanCorp,WABC,Regional Banks,957090103
+Centerspace,CSR,Multi-Family Residential REITs,15202L107
+Seaboard Corp,SEB,Packaged Foods & Meats,811543107
+Worthington Steel Inc,WS,Steel,982104101
+CRA International Inc,CRAI,Research & Consulting Services,12618T105
+Coty Inc,COTY,Personal Care Products,222070203
+US Physical Therapy Inc,USPH,Health Care Facilities,90337L108
+Ingles Markets Inc,IMKTA,Food Retail,457030104
+Trevi Therapeutics Inc,TRVI,Pharmaceuticals,89532M101
+Array Technologies Inc,ARRY,Electrical Components & Equipment,04271T100
+SailPoint Inc,SAIL,Application Software,78781J109
+Ouster Inc,OUST,Electronic Equipment & Instruments,68989M202
+G-III Apparel Group Ltd,GIII,"Apparel, Accessories & Luxury Goods",36237H101
+Dynavax Technologies Corp,DVAX,Biotechnology,268158201
+PureCycle Technologies Inc,PCT,Commodity Chemicals,74623V103
+Vital Farms Inc,VITL,Packaged Foods & Meats,92847W103
+TriMas Corp,TRS,"Metal, Glass & Plastic Containers",896215209
+Castle Biosciences Inc,CSTL,Health Care Services,14843C105
+Dime Community Bancshares Inc,DCOM,Regional Banks,25432X102
+Fidelis Insurance Holdings Ltd,FIHL,Property & Casualty Insurance,G3398L118
+JBG SMITH Properties,JBGS,Office REITs,46590V100
+Alexander & Baldwin Inc,ALEX,Diversified REITs,014491104
+Perella Weinberg Partners,PWP,Investment Banking & Brokerage,71367G102
+Certara Inc,CERT,Health Care Technology,15687V109
+PROG Holdings Inc,PRG,Consumer Finance,74319R101
+Ameresco Inc,AMRC,Construction & Engineering,02361E108
+Harmonic Inc,HLIT,Communications Equipment,413160102
+Xeris Biopharma Holdings Inc,XERS,Pharmaceuticals,98422E103
+XPEL Inc,XPEL,Automotive Parts & Equipment,98379L100
+Enact Holdings Inc,ACT,Commercial & Residential Mortgage Finance,29249E109
+Preferred Bank/Los Angeles CA,PFBC,Regional Banks,740367404
+PennyMac Mortgage Investment Trust,PMT,Mortgage REITs,70931T103
+AMC Entertainment Holdings Inc,AMC,Movies & Entertainment,00165C302
+Amprius Technologies Inc,AMPX,Electrical Components & Equipment,03214Q108
+Cohu Inc,COHU,Semiconductor Materials & Equipment,192576106
+UroGen Pharma Ltd,URGN,Biotechnology,M96088105
+Asana Inc,ASAN,Application Software,04342Y104
+Legalzoom.com Inc,LZ,Research & Consulting Services,52466B103
+Universal Technical Institute Inc,UTI,Education Services,913915104
+Allegiant Travel Co,ALGT,Passenger Airlines,01748X102
+Bank First Corp,BFC,Regional Banks,06211J100
+First Advantage Corp,FA,Human Resource & Employment Services,31846B108
+Liberty Latin America Ltd,LILAK,Alternative Carriers,G9001E128
+Coursera Inc,COUR,Education Services,22266M104
+OceanFirst Financial Corp,OCFC,Regional Banks,675234108
+Gentherm Inc,THRM,Automotive Parts & Equipment,37253A103
+MillerKnoll Inc,MLKN,Office Services & Supplies,600544100
+CVR Energy Inc,CVI,Oil & Gas Refining & Marketing,12662P108
+Cimpress PLC,CMPR,Commercial Printing,G2143T103
+Penguin Solutions Inc,PENG,Semiconductors,G8232Y101
+Piedmont Realty Trust Inc,PDM,Office REITs,720190206
+BioLife Solutions Inc,BLFS,Life Sciences Tools & Services,09062W204
+Intuitive Machines Inc,LUNR,Aerospace & Defense,46125A100
+Relay Therapeutics Inc,RLAY,Biotechnology,75943R102
+V2X Inc,VVX,Aerospace & Defense,92242T101
+Diversified Healthcare Trust,DHC,Health Care REITs,25525P107
+fuboTV Inc,FUBO,Interactive Media & Services,35953D104
+Virtus Investment Partners Inc,VRTS,Asset Management & Custody Banks,92828Q109
+MFA Financial Inc,MFA,Mortgage REITs,55272X607
+Bristow Group Inc,VTOL,Oil & Gas Equipment & Services,11040G103
+American Assets Trust Inc,AAT,Diversified REITs,024013104
+Pacira BioSciences Inc,PCRX,Pharmaceuticals,695127100
+Origin Bancorp Inc,OBK,Regional Banks,68621T102
+Peoples Bancorp Inc/OH,PEBO,Regional Banks,709789101
+Ecovyst Inc,ECVT,Specialty Chemicals,27923Q109
+LGI Homes Inc,LGIH,Homebuilding,50187T106
+Grocery Outlet Holding Corp,GO,Food Retail,39874R101
+Weis Markets Inc,WMK,Food Retail,948849104
+Clover Health Investments Corp,CLOV,Managed Health Care,18914F103
+Smartstop Self Storage REIT Inc,SMA,Self-Storage REITs,83192D402
+Novavax Inc,NVAX,Biotechnology,670002401
+Kura Oncology Inc,KURA,Biotechnology,50127T109
+Astec Industries Inc,ASTE,Construction Machinery & Heavy Transportation Equipment,046224101
+PROS Holdings Inc,PRO,Application Software,74346Y103
+PagerDuty Inc,PD,Application Software,69553P100
+Dole PLC,DOLE,Packaged Foods & Meats,G27907107
+Stepan Co,SCL,Specialty Chemicals,858586100
+Revolve Group Inc,RVLV,Apparel Retail,76156B107
+Rapid7 Inc,RPD,Systems Software,753422104
+NANO Nuclear Energy Inc,NNE,Heavy Electrical Equipment,63010H108
+Sezzle Inc,SEZL,Transaction & Payment Processing Services,78435P105
+Alight Inc,ALIT,Human Resource & Employment Services,01626W101
+AdaptHealth Corp,AHCO,Health Care Distributors,00653Q102
+CNA Financial Corp,CNA,Property & Casualty Insurance,126117100
+Two Harbors Investment Corp,TWO,Mortgage REITs,90187B804
+Taysha Gene Therapies Inc,TSHA,Biotechnology,877619106
+Amphastar Pharmaceuticals Inc,AMPH,Pharmaceuticals,03209R103
+eXp World Holdings Inc,EXPI,Real Estate Services,30212W100
+NPK International Inc,NPKI,Trading Companies & Distributors,651718504
+Amylyx Pharmaceuticals Inc,AMLX,Pharmaceuticals,03237H101
+SFL Corp Ltd,SFL,Oil & Gas Storage & Transportation,G7738W106
+Chimera Investment Corp,CIM,Mortgage REITs,16934Q802
+Winnebago Industries Inc,WGO,Automobile Manufacturers,974637100
+REX American Resources Corp,REX,Oil & Gas Refining & Marketing,761624105
+TETRA Technologies Inc,TTI,Oil & Gas Equipment & Services,88162F105
+United Parks & Resorts Inc,PRKS,Leisure Facilities,81282V100
+Smithfield Foods Inc,SFD,Packaged Foods & Meats,832248207
+Old Second Bancorp Inc,OSBC,Regional Banks,680277100
+Central Garden & Pet Co,CENT,Household Products,153527205
+CareDx Inc,CDNA,Biotechnology,14167L103
+Employers Holdings Inc,EIG,Property & Casualty Insurance,292218104
+Select Water Solutions Inc,WTTR,Oil & Gas Equipment & Services,81617J301
+Gorman-Rupp Co/The,GRC,Industrial Machinery & Supplies & Components,383082104
+GigaCloud Technology Inc,GCT,Distributors,G38644103
+Helix Energy Solutions Group Inc,HLX,Oil & Gas Equipment & Services,42330P107
+Schrodinger Inc/United States,SDGR,Health Care Technology,80810D103
+Pennant Group Inc/The,PNTG,Health Care Services,70805E109
+Upstream Bio Inc,UPB,Biotechnology,91678A107
+Univest Financial Corp,UVSP,Regional Banks,915271100
+Middlesex Water Co,MSEX,Water Utilities,596680108
+Easterly Government Properties Inc,DEA,Office REITs,27616P301
+Tompkins Financial Corp,TMP,Regional Banks,890110109
+Empire State Realty Trust Inc,ESRT,Office REITs,292104106
+Astrana Health Inc,ASTH,Health Care Services,03763A207
+BrightView Holdings Inc,BV,Environmental & Facilities Services,10948C107
+Patria Investments Ltd,PAX,Asset Management & Custody Banks,G69451105
+Dorian LPG Ltd,LPG,Oil & Gas Storage & Transportation,Y2106R110
+Diversified Energy Co,DEC,Oil & Gas Exploration & Production,G2891G204
+Upbound Group Inc,UPBD,Other Specialty Retail,76009N100
+Mind Medicine MindMed Inc,MNMD,Pharmaceuticals,60255C885
+TFS Financial Corp,TFSL,Regional Banks,87240R107
+UWM Holdings Corp,UWMC,Commercial & Residential Mortgage Finance,91823B109
+Root Inc/OH,ROOT,Property & Casualty Insurance,77664L207
+Jamf Holding Corp,JAMF,Application Software,47074L105
+Deluxe Corp,DLX,Commercial Printing,248019101
+Amplitude Inc,AMPL,Application Software,03213A104
+AnaptysBio Inc,ANAB,Biotechnology,032724106
+Sonic Automotive Inc,SAH,Automotive Retail,83545G102
+Uniti Group Inc,UNIT,Integrated Telecommunication Services,91325V108
+Enliven Therapeutics Inc,ELVN,Pharmaceuticals,29337E102
+Orchid Island Capital Inc,ORC,Mortgage REITs,68571X301
+Innovex International Inc,INVX,Oil & Gas Equipment & Services,457651107
+WaVe Life Sciences Ltd,WVE,Pharmaceuticals,Y95308105
+PDF Solutions Inc,PDFS,Semiconductor Materials & Equipment,693282105
+Community Trust Bancorp Inc,CTBI,Regional Banks,204149108
+Central Garden & Pet Co,CENTA,Household Products,153527205
+Driven Brands Holdings Inc,DRVN,Specialized Consumer Services,26210V102
+Hanmi Financial Corp,HAFC,Regional Banks,410495204
+Biohaven Ltd,BHVN,Biotechnology,G1110E107
+Esperion Therapeutics Inc,ESPR,Pharmaceuticals,29664W105
+Borr Drilling Ltd,BORR,Oil & Gas Drilling,G1466R173
+Barrett Business Services Inc,BBSI,Human Resource & Employment Services,068463108
+Cannae Holdings Inc,CNNE,Multi-Sector Holdings,13765N107
+Intellia Therapeutics Inc,NTLA,Biotechnology,45826J105
+Yext Inc,YEXT,Application Software,98585N106
+ScanSource Inc,SCSC,Technology Distributors,806037107
+Cogent Communications Holdings Inc,CCOI,Alternative Carriers,19239V302
+Integra LifeSciences Holdings Corp,IART,Health Care Equipment,457985208
+CompoSecure Inc,CMPO,"Technology Hardware, Storage & Peripherals",20459V105
+Universal Insurance Holdings Inc,UVE,Property & Casualty Insurance,91359V107
+EyePoint Pharmaceuticals Inc,EYPT,Pharmaceuticals,30233G209
+Arvinas Inc,ARVN,Pharmaceuticals,04335A105
+Montrose Environmental Group Inc,MEG,Environmental & Facilities Services,615111101
+Plymouth Industrial REIT Inc,PLYM,Industrial REITs,729640102
+Rigel Pharmaceuticals Inc,RIGL,Biotechnology,766559702
+Brookfield Business Corp,BBUC,Industrial Conglomerates,11259V106
+GCI LIBERTY INC-CL C,GLIBK,Integrated Telecommunication Services,
+FLEX LNG Ltd,FLNG,Oil & Gas Storage & Transportation,G35947202
+Navient Corp,NAVI,Consumer Finance,63938C108
+LifeStance Health Group Inc,LFST,Health Care Services,53228F101
+Byline Bancorp Inc,BY,Regional Banks,124411109
+Phibro Animal Health Corp,PAHC,Pharmaceuticals,71742Q106
+American Axle & Manufacturing Holdings Inc,AXL,Automotive Parts & Equipment,024061103
+Merchants Bancorp/IN,MBIN,Commercial & Residential Mortgage Finance,58844R108
+Franklin BSP Realty Trust Inc,FBRT,Mortgage REITs,35243J101
+Allient Inc,ALNT,Electrical Components & Equipment,019330109
+ProPetro Holding Corp,PUMP,Oil & Gas Equipment & Services,74347M108
+Janus International Group Inc,JBI,Building Products,47103N106
+Liberty Broadband Corp,LBRDA,Cable & Satellite,530307305
+IDT Corp,IDT,Integrated Telecommunication Services,448947507
+Great Lakes Dredge & Dock Corp,GLDD,Construction & Engineering,390607109
+First Watch Restaurant Group Inc,FWRG,Restaurants,33748L101
+BJ's Restaurants Inc,BJRI,Restaurants,
+Burke & Herbert Financial Services Corp,BHRB,Regional Banks,12135Y108
+Oruka Therapeutics Inc,ORKA,Biotechnology,687604108
+Figs Inc,FIGS,"Apparel, Accessories & Luxury Goods",30260D103
+Central Pacific Financial Corp,CPF,Regional Banks,154760409
+Edgewell Personal Care Co,EPC,Personal Care Products,28035Q102
+Sprinklr Inc,CXM,Application Software,85208T107
+Solid Power Inc,SLDP,Automotive Parts & Equipment,83422N105
+National Energy Services Reunited Corp,NESR,Oil & Gas Equipment & Services,G6375R107
+Atlanta Braves Holdings Inc,BATRA,Movies & Entertainment,047726302
+Safehold Inc,SAFE,Other Specialized REITs,78646V107
+Tango Therapeutics Inc,TNGX,Biotechnology,87583X109
+Monte Rosa Therapeutics Inc,GLUE,Biotechnology,61225M102
+American Woodmark Corp,AMWD,Building Products,030506109
+Southside Bancshares Inc,SBSI,Regional Banks,84470P109
+Palvella Therapeutics Inc,PVLA,Biotechnology,697947109
+United Fire Group Inc,UFCS,Property & Casualty Insurance,910340108
+QuinStreet Inc,QNST,Interactive Media & Services,74874Q100
+Esquire Financial Holdings Inc,ESQ,Regional Banks,29667J101
+Porch Group Inc,PRCH,Application Software,733245104
+Apartment Investment and Management Co,AIV,Multi-Family Residential REITs,03748R747
+NextDecade Corp,NEXT,Oil & Gas Storage & Transportation,65342K105
+First Mid Bancshares Inc,FMBH,Regional Banks,320866106
+Washington Trust Bancorp Inc,WASH,Regional Banks,940610108
+TrustCo Bank Corp NY,TRST,Regional Banks,898349204
+Embecta Corp,EMBC,Health Care Supplies,29082K105
+MiMedx Group Inc,MDXG,Biotechnology,602496101
+National Beverage Corp,FIZZ,Soft Drinks & Non-alcoholic Beverages,635017106
+Capitol Federal Financial Inc,CFFN,Regional Banks,14057J101
+Heritage Financial Corp/WA,HFWA,Regional Banks,42722X106
+SI-BONE Inc,SIBN,Health Care Equipment,825704109
+Pursuit Attractions and Hospitality Inc,PRSU,Leisure Facilities,92552R406
+NB Bancorp Inc,NBBK,Regional Banks,63945M107
+Costamare Inc,CMRE,Marine Transportation,Y1771G102
+Limbach Holdings Inc,LMB,Construction & Engineering,53263P105
+Integral Ad Science Holding Corp,IAS,Advertising,45828L108
+Nabors Industries Ltd,NBR,Oil & Gas Drilling,G6359F137
+Inhibrx Biosciences Inc,INBX,Biotechnology,45720N103
+Bit Digital Inc,BTBT,Application Software,G1144A105
+Standard Motor Products Inc,SMP,Automotive Parts & Equipment,853666105
+NIQ Global Intelligence Plc,NIQ,Advertising,
+Daktronics Inc,DAKT,Electronic Equipment & Instruments,234264109
+Rezolute Inc,RZLT,Biotechnology,76200L309
+Resolute Holdings Management Inc,RHLD,Research & Consulting Services,76134H101
+ODP Corp/The,ODP,Other Specialty Retail,88337F105
+EverQuote Inc,EVER,Interactive Media & Services,30041R108
+AMERISAFE Inc,AMSF,Property & Casualty Insurance,03071H100
+Amerant Bancorp Inc,AMTB,Regional Banks,023576101
+Unitil Corp,UTL,Multi-Utilities,913259107
+Vestis Corp,VSTS,Diversified Support Services,29430C102
+Evolv Technologies Holdings Inc,EVLV,Electronic Equipment & Instruments,30049H102
+Savara Inc,SVRA,Biotechnology,805111101
+Kodiak Sciences Inc,KOD,Biotechnology,50015M109
+Energy Recovery Inc,ERII,Industrial Machinery & Supplies & Components,29270J100
+Maze Therapeutics Inc,MAZE,Pharmaceuticals,578784100
+Douglas Dynamics Inc,PLOW,Construction Machinery & Heavy Transportation Equipment,25960R105
+Liquidity Services Inc,LQDT,Diversified Support Services,53635B107
+Cytek Biosciences Inc,CTKB,Life Sciences Tools & Services,23285D109
+Day One Biopharmaceuticals Inc,DAWN,Biotechnology,23954D109
+Rumble Inc,RUM,Interactive Media & Services,78137L105
+Redwood Trust Inc,RWT,Mortgage REITs,758075402
+Global Business Travel Group I,GBTG,"Hotels, Resorts & Cruise Lines",37890B100
+Apogee Enterprises Inc,APOG,Building Products,037598109
+Dianthus Therapeutics Inc,DNTH,Biotechnology,252828108
+Nordic American Tankers Ltd,NAT,Oil & Gas Storage & Transportation,G65773106
+NETGEAR Inc,NTGR,Communications Equipment,64111Q104
+Microvast Holdings Inc,MVST,Construction Machinery & Heavy Transportation Equipment,59516C106
+Myriad Genetics Inc,MYGN,Biotechnology,62855J104
+Phathom Pharmaceuticals Inc,PHAT,Pharmaceuticals,71722W107
+Horizon Bancorp Inc/IN,HBNC,Regional Banks,440407104
+Business First Bancshares Inc,BFST,Regional Banks,12326C105
+Zenas Biopharma Inc,ZBIO,Biotechnology,98937L105
+iRadimed Corp,IRMD,Health Care Equipment,46266A109
+Sun Country Airlines Holdings Inc,SNCY,Passenger Airlines,866683105
+Core Laboratories Inc,CLB,Oil & Gas Equipment & Services,21867A105
+Kimball Electronics Inc,KE,Electronic Manufacturing Services,49428J109
+Independent Bank Corp/MI,IBCP,Regional Banks,453838609
+Tootsie Roll Industries Inc,TR,Packaged Foods & Meats,890516107
+Theravance Biopharma Inc,TBPH,Pharmaceuticals,G8807B106
+Pacific Biosciences of California Inc,PACB,Life Sciences Tools & Services,69404D108
+Matthews International Corp,MATW,Specialized Consumer Services,577128101
+Aehr Test Systems,AEHR,Semiconductor Materials & Equipment,00760J108
+Amalgamated Financial Corp,AMAL,Regional Banks,022671101
+Mercantile Bank Corp,MBWM,Regional Banks,587376104
+Camden National Corp,CAC,Regional Banks,133034108
+PRA Group Inc,PRAA,Consumer Finance,69354N106
+CorMedix Inc,CRMD,Pharmaceuticals,21900C308
+CNB Financial Corp/PA,CCNE,Regional Banks,126128107
+Marcus & Millichap Inc,MMI,Real Estate Services,566324109
+ORIC Pharmaceuticals Inc,ORIC,Biotechnology,68622P109
+USA TODAY Co Inc,TDAY,Publishing,
+Excelerate Energy Inc,EE,Oil & Gas Storage & Transportation,30069T101
+First Financial Corp,THFF,Regional Banks,320218100
+Tactile Systems Technology Inc,TCMD,Health Care Equipment,87357P100
+Metallus Inc,MTUS,Steel,887399103
+Heritage Commerce Corp,HTBK,Regional Banks,426927109
+Replimune Group Inc,REPL,Biotechnology,76029N106
+Green Plains Inc,GPRE,Oil & Gas Refining & Marketing,393222104
+Metropolitan Bank Holding Corp,MCB,Regional Banks,591774104
+Cars.com Inc,CARS,Interactive Media & Services,14575E105
+AMN Healthcare Services Inc,AMN,Health Care Services,001744101
+Utz Brands Inc,UTZ,Packaged Foods & Meats,918090101
+Cracker Barrel Old Country Store Inc,CBRL,Restaurants,22410J106
+BrightSpire Capital Inc,BRSP,Mortgage REITs,10949T109
+Vitesse Energy Inc,VTS,Oil & Gas Exploration & Production,92852X103
+ThredUp Inc,TDUP,Apparel Retail,88556E102
+Columbia Financial Inc,CLBK,Regional Banks,197641103
+Northeast Bank,NBN,Regional Banks,66405S100
+NexPoint Residential Trust Inc,NXRT,Multi-Family Residential REITs,65341D102
+Blend Labs Inc,BLND,Application Software,09352U108
+Atlas Energy Solutions Inc,AESI,Oil & Gas Equipment & Services,642045108
+indie Semiconductor Inc,INDI,Semiconductors,45569U101
+Sweetgreen Inc,SG,Restaurants,87043Q108
+Lincoln Educational Services Corp,LINC,Education Services,533535100
+Camping World Holdings Inc,CWH,Automotive Retail,13462K109
+Red Cat Holdings Inc,RCAT,Electronic Equipment & Instruments,75644T100
+HealthStream Inc,HSTM,Health Care Technology,42222N103
+Golden Entertainment Inc,GDEN,Casinos & Gaming,381013101
+Build-A-Bear Workshop Inc,BBW,Other Specialty Retail,120076104
+Cantaloupe Inc,CTLP,Transaction & Payment Processing Services,138103106
+F&G Annuities & Life Inc,FG,Life & Health Insurance,30190A104
+MidWestOne Financial Group Inc,MOFG,Regional Banks,598511103
+Powerfleet Inc NJ,AIOT,Electronic Equipment & Instruments,73931J109
+Emergent BioSolutions Inc,EBS,Biotechnology,29089Q105
+Butterfly Network Inc,BFLY,Health Care Equipment,124155102
+Myers Industries Inc,MYE,"Metal, Glass & Plastic Containers",628464109
+Compass Therapeutics Inc,CMPX,Biotechnology,20454B104
+HomeTrust Bancshares Inc,HTB,Regional Banks,437872104
+Beazer Homes USA Inc,BZH,Homebuilding,07556Q881
+Adamas Trust Inc,ADAM,Mortgage REITs,
+Compass Minerals International Inc,CMP,Diversified Metals & Mining,20451N101
+Vir Biotechnology Inc,VIR,Biotechnology,92764N102
+Geron Corp,GERN,Biotechnology,374163103
+REGENXBIO Inc,RGNX,Biotechnology,75901B107
+Red Violet Inc,RDVT,Application Software,75704L104
+Green Dot Corp,GDOT,Consumer Finance,39304D102
+Navigator Holdings Ltd,NVGS,Oil & Gas Storage & Transportation,Y62132108
+LendingTree Inc,TREE,Consumer Finance,52603B107
+Brandywine Realty Trust,BDN,Office REITs,105368203
+Mativ Holdings Inc,MATV,Commodity Chemicals,808541106
+Dream Finders Homes Inc,DFH,Homebuilding,26154D100
+Scholastic Corp,SCHL,Publishing,807066105
+ArriVent Biopharma Inc,AVBP,Biotechnology,04272N102
+Bicara Therapeutics Inc,BCAX,Biotechnology,055477103
+Hallador Energy Co,HNRG,Independent Power Producers & Energy Traders,40609P105
+Koppers Holdings Inc,KOP,Commodity Chemicals,50060P106
+NerdWallet Inc,NRDS,Consumer Finance,64082B102
+American Public Education Inc,APEI,Education Services,02913V103
+Hippo Holdings Inc,HIPO,Insurance Brokers,433539202
+Hovnanian Enterprises Inc,HOV,Homebuilding,442487401
+Carriage Services Inc,CSV,Specialized Consumer Services,143905107
+SEMrush Holdings Inc,SEMR,Application Software,81686C104
+Summit Hotel Properties Inc,INN,Hotel & Resort REITs,866082100
+Quanex Building Products Corp,NX,Building Products,747619104
+Orrstown Financial Services Inc,ORRF,Regional Banks,687380105
+Omeros Corp,OMER,Pharmaceuticals,682143102
+Arbutus Biopharma Corp,ABUS,Biotechnology,03879J100
+Stagwell Inc,STGW,Advertising,85256A109
+Ironwood Pharmaceuticals Inc,IRWD,Biotechnology,46333X108
+Ermenegildo Zegna NV,ZGN,"Apparel, Accessories & Luxury Goods",N30577105
+Genco Shipping & Trading Ltd,GNK,Marine Transportation,Y2685T131
+Heritage Insurance Holdings Inc,HRTG,Property & Casualty Insurance,42727J102
+Fox Factory Holding Corp,FOXF,Automotive Parts & Equipment,35138V102
+Sionna Therapeutics Inc,SION,Biotechnology,829401108
+Iovance Biotherapeutics Inc,IOVA,Biotechnology,462260100
+One Liberty Properties Inc,OLP,Industrial REITs,682406103
+Monro Inc,MNRO,Automotive Retail,610236101
+Bloomin' Brands Inc,BLMN,Restaurants,
+PC Connection Inc,CNXN,Technology Distributors,69318J100
+Graham Corp,GHM,Industrial Machinery & Supplies & Components,384556106
+Financial Institutions Inc,FISI,Regional Banks,317585404
+Cable One Inc,CABO,Cable & Satellite,12685J105
+RBB Bancorp,RBB,Regional Banks,74930B105
+Orthofix Medical Inc,OFIX,Health Care Equipment,68752M108
+BlackSky Technology Inc,BKSY,Research & Consulting Services,09263B207
+Forge Global Holdings Inc,FRGE,Diversified Capital Markets,34629L202
+CBL & Associates Properties Inc,CBL,Retail REITs,124830878
+NWPX Infrastructure Inc,NWPX,Construction & Engineering,667746101
+Capital City Bank Group Inc,CCBG,Regional Banks,139674105
+Sinclair Inc,SBGI,Broadcasting,829242106
+Mid Penn Bancorp Inc,MPB,Regional Banks,59540G107
+Northrim BanCorp Inc,NRIM,Regional Banks,666762109
+KalVista Pharmaceuticals Inc,KALV,Biotechnology,483497103
+Southern Missouri Bancorp Inc,SMBC,Regional Banks,843380106
+Hertz Global Holdings Inc,HTZ,Passenger Ground Transportation,42806J700
+Ryerson Holding Corp,RYI,Steel,783754104
+Whitestone REIT,WSR,Retail REITs,966084204
+Shutterstock Inc,SSTK,Interactive Media & Services,825690100
+Ethan Allen Interiors Inc,ETD,Home Furnishings,297602104
+Aquestive Therapeutics Inc,AQST,Pharmaceuticals,03843E104
+Ichor Holdings Ltd,ICHR,Semiconductor Materials & Equipment,G4740B105
+Sabre Corp,SABR,"Hotels, Resorts & Cruise Lines",78573M104
+SandRidge Energy Inc,SD,Oil & Gas Exploration & Production,80007P869
+TPG RE Finance Trust Inc,TRTX,Mortgage REITs,87266M107
+Mister Car Wash Inc,MCW,Specialized Consumer Services,60646V105
+SunCoke Energy Inc,SXC,Steel,86722A103
+Sana Biotechnology Inc,SANA,Biotechnology,799566104
+ADTRAN Holdings Inc,ADTN,Communications Equipment,00486H105
+OPKO Health Inc,OPK,Health Care Services,68375N103
+Caris Life Sciences Inc,CAI,Biotechnology,142152107
+Gogo Inc,GOGO,Wireless Telecommunication Services,38046C109
+Gossamer Bio Inc,GOSS,Biotechnology,38341P102
+United States Antimony Corp,UAMY,Diversified Metals & Mining,911549103
+Septerna Inc,SEPN,Pharmaceuticals,81734D104
+Guardian Pharmacy Services Inc,GRDN,Health Care Services,40145W101
+Aspen Insurance Holdings Ltd,AHL,Property & Casualty Insurance,G05384501
+Precigen Inc,PGEN,Biotechnology,74017N105
+Insteel Industries Inc,IIIN,Building Products,45774W108
+Bowman Consulting Group Ltd,BWMN,Construction & Engineering,103002101
+Cullinan Therapeutics Inc,CGEM,Biotechnology,230031106
+CEVA Inc,CEVA,Semiconductors,157210105
+Kforce Inc,KFRC,Human Resource & Employment Services,493732101
+Vital Energy Inc,VTLE,Oil & Gas Exploration & Production,516806205
+ARS Pharmaceuticals Inc,SPRY,Biotechnology,82835W108
+Equity Bancshares Inc,EQBK,Regional Banks,29460X109
+Marten Transport Ltd,MRTN,Cargo Ground Transportation,573075108
+Daily Journal Corp,DJCO,Application Software,233912104
+Kosmos Energy Ltd,KOS,Oil & Gas Exploration & Production,500688106
+John B Sanfilippo & Son Inc,JBSS,Packaged Foods & Meats,800422107
+Talkspace Inc,TALK,Health Care Services,87427V103
+Third Coast Bancshares Inc,TCBX,Regional Banks,88422P109
+Shenandoah Telecommunications Co,SHEN,Integrated Telecommunication Services,82312B106
+Transcat Inc,TRNS,Trading Companies & Distributors,893529107
+Fulgent Genetics Inc,FLGT,Health Care Services,359664109
+Erasca Inc,ERAS,Biotechnology,29479A108
+Malibu Boats Inc,MBUU,Leisure Products,56117J100
+Mission Produce Inc,AVO,Packaged Foods & Meats,60510V108
+Armada Hoffler Properties Inc,AHH,Diversified REITs,04208T108
+MBX Biosciences Inc,MBX,Pharmaceuticals,55287L101
+Cass Information Systems Inc,CASS,Transaction & Payment Processing Services,14808P109
+Eagle Bancorp Inc,EGBN,Regional Banks,268948106
+Five Star Bancorp,FSBC,Regional Banks,33830T103
+CTO Realty Growth Inc,CTO,Diversified REITs,22948Q101
+SmartFinancial Inc,SMBK,Regional Banks,83190L208
+P10 Inc,PX,Asset Management & Custody Banks,69376K106
+GCM Grosvenor Inc,GCMG,Asset Management & Custody Banks,36831E108
+I3 Verticals Inc,IIIV,Application Software,46571Y107
+Cooper-Standard Holdings Inc,CPS,Automotive Parts & Equipment,21676P103
+Under Armour Inc,UA,"Apparel, Accessories & Luxury Goods",904311107
+Alpha & Omega Semiconductor Ltd,AOSL,Semiconductors,G6331P104
+ImmunityBio Inc,IBRX,Biotechnology,45256X103
+4D Molecular Therapeutics Inc,FDMT,Biotechnology,35104E100
+Caledonia Mining Corp PLC,CMCL,Gold,G1757E113
+Gladstone Commercial Corp,GOOD,Diversified REITs,376536108
+Invesco Mortgage Capital Inc,IVR,Mortgage REITs,46131B704
+LSI Industries Inc,LYTS,Electrical Components & Equipment,50216C108
+CryoPort Inc,CYRX,Life Sciences Tools & Services,229050307
+Sprout Social Inc,SPT,Application Software,85209W109
+Personalis Inc,PSNL,Life Sciences Tools & Services,71535D106
+iHeartMedia Inc,IHRT,Broadcasting,45174J509
+Grid Dynamics Holdings Inc,GDYN,IT Consulting & Other Services,39813G109
+Corvus Pharmaceuticals Inc,CRVS,Biotechnology,221015100
+Tyra Biosciences Inc,TYRA,Biotechnology,90240B106
+Great Southern Bancorp Inc,GSBC,Regional Banks,390905107
+BlueLinx Holdings Inc,BXC,Trading Companies & Distributors,09624H208
+Zevra Therapeutics Inc,ZVRA,Pharmaceuticals,488445206
+First Community Bankshares Inc,FCBC,Regional Banks,31983A103
+Encore Energy Corp,EU,Coal & Consumable Fuels,29259W700
+Tronox Holdings PLC,TROX,Commodity Chemicals,G9087Q102
+Republic Bancorp Inc/KY,RBCAA,Regional Banks,760281204
+Rapport Therapeutics Inc,RAPP,Pharmaceuticals,75383L102
+Dave & Buster's Entertainment Inc,PLAY,Leisure Facilities,
+N-able Inc/US,NABL,Systems Software,62878D100
+Evolent Health Inc,EVH,Health Care Technology,30050B101
+Oil-Dri Corp of America,ODC,Household Products,677864100
+Accel Entertainment Inc,ACEL,Casinos & Gaming,00436Q106
+Varex Imaging Corp,VREX,Health Care Equipment,92214X106
+Metrocity Bankshares Inc,MCBS,Regional Banks,59165J105
+Gold.com Inc,GOLD,Distributors,
+Magnera Corp,MAGN,Paper Products,55939A107
+Alerus Financial Corp,ALRS,Diversified Financial Services,01446U103
+International Money Express Inc,IMXI,Transaction & Payment Processing Services,46005L101
+Farmers National Banc Corp,FMNB,Regional Banks,309627107
+Seneca Foods Corp,SENEA,Packaged Foods & Meats,817070501
+Flushing Financial Corp,FFIC,Regional Banks,343873105
+Idaho Strategic Resources Inc,IDR,Diversified Metals & Mining,645827205
+Compass Diversified Holdings,CODI,Multi-Sector Holdings,20451Q104
+Consolidated Water Co Ltd,CWCO,Water Utilities,G23773107
+Verastem Inc,VSTM,Biotechnology,92337C203
+Oxford Industries Inc,OXM,"Apparel, Accessories & Luxury Goods",691497309
+Shore Bancshares Inc,SHBI,Regional Banks,825107105
+Forestar Group Inc,FOR,Real Estate Development,346232101
+Teekay Corp Ltd,TK,Oil & Gas Storage & Transportation,G8726T105
+Serve Robotics Inc,SERV,Restaurants,81758H106
+Preformed Line Products Co,PLPC,Electrical Components & Equipment,740444104
+York Water Co/The,YORW,Water Utilities,987184108
+LENZ Therapeutics Inc,LENZ,Pharmaceuticals,52635N103
+Fulcrum Therapeutics Inc,FULC,Pharmaceuticals,359616109
+Arhaus Inc,ARHS,Homefurnishing Retail,04035M102
+Ferroglobe PLC,GSM,Diversified Metals & Mining,G33856108
+Hingham Institution For Savings The,HIFS,Regional Banks,433323102
+Hackett Group Inc/The,HCKT,IT Consulting & Other Services,404609109
+Ardagh Metal Packaging SA,AMBP,"Metal, Glass & Plastic Containers",L02235106
+Nu Skin Enterprises Inc,NUS,Personal Care Products,67018T105
+LSB Industries Inc,LXU,Diversified Chemicals,502160104
+FTAI Infrastructure Inc,FIP,Rail Transportation,35953C106
+NET Lease Office Properties,NLOP,Office REITs,64110Y108
+Ardmore Shipping Corp,ASC,Oil & Gas Storage & Transportation,Y0207T100
+Jade Biosciences Inc,JBIO,Biotechnology,008064206
+Civista Bancshares Inc,CIVB,Regional Banks,178867107
+Bowhead Specialty Holdings Inc,BOW,Property & Casualty Insurance,10240L102
+Lindblad Expeditions Holdings Inc,LIND,"Hotels, Resorts & Cruise Lines",535219109
+AngioDynamics Inc,ANGO,Health Care Equipment,03475V101
+Consensus Cloud Solutions Inc,CCSI,Application Software,20848V105
+Digital Turbine Inc,APPS,Application Software,25400W102
+Dine Brands Global Inc,DIN,Restaurants,254423106
+Arrow Financial Corp,AROW,Regional Banks,042744102
+Udemy Inc,UDMY,Education Services,902685106
+South Plains Financial Inc,SPFI,Regional Banks,83946P107
+ASP Isotopes Inc,ASPI,Specialty Chemicals,00218A105
+National Presto Industries Inc,NPK,Aerospace & Defense,637215104
+Avanos Medical Inc,AVNS,Health Care Supplies,05350V106
+Forward Air Corp,FWRD,Air Freight & Logistics,34986A104
+Universal Health Realty Income Trust,UHT,Health Care REITs,91359E105
+Eton Pharmaceuticals Inc,ETON,Pharmaceuticals,29772L108
+Sturm Ruger & Co Inc,RGR,Leisure Products,864159108
+Peoples Financial Services Corp,PFIS,Regional Banks,711040105
+Peakstone Realty Trust,PKST,Office REITs,39818P799
+Gevo Inc,GEVO,Oil & Gas Refining & Marketing,374396406
+Real Brokerage Inc/The,REAX,Real Estate Services,75585H206
+Ramaco Resources Inc,METC,Steel,75134P501
+Olympic Steel Inc,ZEUS,Steel,68162K106
+Helen of Troy Ltd,HELE,Household Appliances,G4388N106
+Prothena Corp PLC,PRTA,Biotechnology,G72800108
+First Business Financial Services Inc,FBIZ,Regional Banks,319390100
+Optimum Communications Inc,OPTU,Cable & Satellite,
+Columbus McKinnon Corp/NY,CMCO,Industrial Machinery & Supplies & Components,199333105
+Orion Group Holdings Inc,ORN,Construction & Engineering,68628V308
+Evolus Inc,EOLS,Pharmaceuticals,30052C107
+Gray Media Inc,GTN,Broadcasting,389375106
+Alumis Inc,ALMS,Pharmaceuticals,022307102
+Cerence Inc,CRNC,Application Software,156727109
+Stitch Fix Inc,SFIX,Apparel Retail,860897107
+Eastman Kodak Co,KODK,"Technology Hardware, Storage & Peripherals",277461406
+Slide Insurance Holdings Inc,SLDE,Property & Casualty Insurance,831349105
+Aveanna Healthcare Holdings Inc,AVAH,Health Care Services,05356F105
+NioCorp Developments Ltd,NB,Diversified Metals & Mining,654484609
+California BanCorp,BCAL,Regional Banks,84252A106
+ACNB Corp,ACNB,Regional Banks,000868109
+KKR Real Estate Finance Trust Inc,KREF,Mortgage REITs,48251K100
+Peapack-Gladstone Financial Corp,PGC,Regional Banks,704699107
+Angi Inc,ANGI,Interactive Media & Services,00183L201
+Rezolve AI PLC,RZLV,Application Software,G75398100
+Community Health Systems Inc,CYH,Health Care Facilities,203668108
+Community Healthcare Trust Inc,CHCT,Health Care REITs,20369C106
+ChoiceOne Financial Services Inc,COFS,Regional Banks,170386106
+Astria Therapeutics Inc,ATXS,Biotechnology,04635X102
+SkyWater Technology Inc,SKYT,Semiconductors,83089J108
+MarineMax Inc,HZO,Other Specialty Retail,567908108
+Octave Specialty Group Inc,OSG,Property & Casualty Insurance,
+RxSight Inc,RXST,Health Care Supplies,78349D107
+Miller Industries Inc/TN,MLR,Construction Machinery & Heavy Transportation Equipment,600551204
+T1 Energy Inc,TE,Electrical Components & Equipment,35834F104
+Bandwidth Inc,BAND,Alternative Carriers,05988J103
+Caleres Inc,CAL,Apparel Retail,129500104
+EVgo Inc,EVGO,Automotive Retail,30052F100
+RPC Inc,RES,Oil & Gas Equipment & Services,749660106
+Investors Title Co,ITIC,Property & Casualty Insurance,461804106
+Akebia Therapeutics Inc,AKBA,Biotechnology,00972D105
+Standard BioTools Inc,LAB,Life Sciences Tools & Services,34385P108
+Ennis Inc,EBF,Commercial Printing,293389102
+Groupon Inc,GRPN,Broadline Retail,399473206
+BKV Corp,BKV,Oil & Gas Exploration & Production,05603J108
+Mesa Laboratories Inc,MLAB,Life Sciences Tools & Services,59064R109
+Zumiez Inc,ZUMZ,Apparel Retail,989817101
+OneSpan Inc,OSPN,Systems Software,68287N100
+Mitek Systems Inc,MITK,Application Software,606710200
+Vishay Precision Group Inc,VPG,Electronic Equipment & Instruments,92835K103
+Southern First Bancshares Inc,SFST,Regional Banks,842873101
+IBEX Holdings Ltd,IBEX,Data Processing & Outsourced Services,G4690M101
+Grindr Inc,GRND,Interactive Media & Services,39854F101
+GLOBAL INDUSTRIAL CO,GIC,Trading Companies & Distributors,37892E102
+Absci Corp,ABSI,Biotechnology,00091E109
+Bar Harbor Bankshares,BHB,Regional Banks,066849100
+Home Bancorp Inc,HBCP,Regional Banks,43689E107
+Sierra Bancorp,BSRR,Regional Banks,82620P102
+Aebi Schmidt Holding AG,AEBI,Construction Machinery & Heavy Transportation Equipment,825698103
+Alexander's Inc,ALX,Retail REITs,
+Arko Corp,ARKO,Automotive Retail,041242108
+Domo Inc,DOMO,Application Software,257554105
+Global Medical REIT Inc,GMRE,Health Care REITs,37954A204
+McGraw Hill Inc,MH,Education Services,
+Annexon Inc,ANNX,Biotechnology,03589W102
+ClearPoint Neuro Inc,CLPT,Health Care Equipment,18507C103
+Ready Capital Corp,RC,Mortgage REITs,75574U101
+Nutex Health Inc,NUTX,Health Care Facilities,67079U306
+Ingram Micro Holding Corp,INGM,Technology Distributors,457152106
+World Acceptance Corp,WRLD,Consumer Finance,981419104
+Weave Communications Inc,WEAV,Application Software,94724R108
+Bioventus Inc,BVS,Health Care Supplies,09075A108
+Tiptree Inc,TIPT,Property & Casualty Insurance,88822Q103
+Jack in the Box Inc,JACK,Restaurants,466367109
+Ginkgo Bioworks Holdings Inc,DNA,Life Sciences Tools & Services,37611X209
+Firstsun Capital Bancorp,FSUN,Regional Banks,33767U107
+Clean Energy Fuels Corp,CLNE,Oil & Gas Refining & Marketing,184499101
+Nextdoor Holdings Inc,NXDR,Interactive Media & Services,65345M108
+AdvanSix Inc,ASIX,Commodity Chemicals,00773T101
+Rayonier Advanced Materials Inc,RYAM,Specialty Chemicals,75508B104
+Movado Group Inc,MOV,"Apparel, Accessories & Luxury Goods",624580106
+Krispy Kreme Inc,DNUT,Restaurants,50101L106
+Community West Bancshares,CWBC,Regional Banks,203937107
+NeuroPace Inc,NPCE,Health Care Equipment,641288105
+Tejon Ranch Co,TRC,Diversified Real Estate Activities,879080109
+Northfield Bancorp Inc,NFBK,Regional Banks,66611T108
+Enhabit Inc,EHAB,Health Care Services,29332G102
+Kopin Corp,KOPN,Semiconductors,500600101
+Park Aerospace Corp,PKE,Aerospace & Defense,70014A104
+SITE Centers Corp,SITC,Retail REITs,82981J851
+MediaAlpha Inc,MAX,Interactive Media & Services,58450V104
+Bank of Marin Bancorp,BMRC,Regional Banks,063425102
+Frontier Group Holdings Inc,ULCC,Passenger Airlines,35909R108
+Maravai LifeSciences Holdings Inc,MRVI,Life Sciences Tools & Services,56600D107
+Willis Lease Finance Corp,WLFC,Trading Companies & Distributors,970646105
+Dakota Gold Corp,DC,Gold,46655E100
+First Foundation Inc,FFWM,Regional Banks,32026V104
+Claritev Corp,CTEV,Health Care Technology,62548M209
+Titan International Inc,TWI,Agricultural & Farm Machinery,88830M102
+Cadiz Inc,CDZI,Water Utilities,127537207
+Marcus Corp/The,MCS,Movies & Entertainment,566330106
+Kestra Medical Technologies Ltd,KMTS,Health Care Equipment,G52441105
+Farmland Partners Inc,FPI,Other Specialized REITs,31154R109
+Aeva Technologies Inc,AEVA,Electronic Equipment & Instruments,00835Q202
+Climb Global Solutions Inc,CLMB,Technology Distributors,946760105
+B&G Foods Inc,BGS,Packaged Foods & Meats,05508R106
+PubMatic Inc,PUBM,Advertising,74467Q103
+Organogenesis Holdings Inc,ORGO,Biotechnology,68621F102
+Carter Bankshares Inc,CARE,Regional Banks,146103106
+Regional Management Corp,RM,Consumer Finance,75902K106
+Altimmune Inc,ALT,Biotechnology,02155H200
+Latham Group Inc,SWIM,Leisure Products,51819L107
+Arteris Inc,AIP,Systems Software,04302A104
+Ceribell Inc,CBLL,Health Care Equipment,15678C102
+Niagen Bioscience Inc,NAGE,Life Sciences Tools & Services,171077407
+Capital Bancorp Inc,CBNK,Regional Banks,139737100
+Greenlight Capital Re Ltd,GLRE,Reinsurance,G4095J109
+Power Solutions International Inc,PSIX,Heavy Electrical Equipment,73933G202
+Nature's Sunshine Products Inc,NATR,Personal Care Products,
+Titan America SA,TTAM,Construction Materials,B9151N105
+Bridgewater Bancshares Inc,BWB,Regional Banks,108621103
+Covenant Logistics Group Inc,CVLG,Cargo Ground Transportation,22284P105
+American Coastal Insurance Corp,ACIC,Property & Casualty Insurance,910710102
+Smith & Wesson Brands Inc,SWBI,Leisure Products,831754106
+MVB Financial Corp,MVBF,Regional Banks,553810102
+Atlanticus Holdings Corp,ATLC,Consumer Finance,04914Y102
+Savers Value Village Inc,SVV,Broadline Retail,80517M109
+Strattec Security Corp,STRT,Automotive Parts & Equipment,863111100
+Kearny Financial Corp/MD,KRNY,Regional Banks,48716P108
+Xerox Holdings Corp,XRX,"Technology Hardware, Storage & Peripherals",98421M106
+Natural Grocers by Vitamin Cottage Inc,NGVC,Food Retail,63888U108
+Saul Centers Inc,BFS,Retail REITs,804395101
+Forum Energy Technologies Inc,FET,Oil & Gas Equipment & Services,34984V209
+Orange County Bancorp Inc,OBT,Regional Banks,68417L107
+Midland States Bancorp Inc,MSBI,Regional Banks,597742105
+Village Super Market Inc,VLGEA,Food Retail,927107409
+ZipRecruiter Inc,ZIP,Interactive Media & Services,98980B103
+ACCO Brands Corp,ACCO,Office Services & Supplies,00081T108
+Genie Energy Ltd,GNE,Electric Utilities,372284208
+Byrna Technologies Inc,BYRN,Aerospace & Defense,12448X201
+Genesco Inc,GCO,Apparel Retail,371532102
+Aldeyra Therapeutics Inc,ALDX,Biotechnology,01438T106
+Manitowoc Co Inc/The,MTW,Construction Machinery & Heavy Transportation Equipment,563571405
+Red River Bancshares Inc,RRBI,Regional Banks,75686R202
+Claros Mortgage Trust Inc,CMTG,Mortgage REITs,18270D106
+SunOpta Inc,STKL,Packaged Foods & Meats,8676EP108
+Mama's Creations Inc,MAMA,Packaged Foods & Meats,
+Industrial Logistics Properties Trust,ILPT,Industrial REITs,456237106
+Oil States International Inc,OIS,Oil & Gas Equipment & Services,678026105
+Gladstone Land Corp,LAND,Other Specialized REITs,376549101
+Custom Truck One Source Inc,CTOS,Trading Companies & Distributors,23204X103
+American Battery Technology Co,ABAT,Diversified Metals & Mining,02451V309
+Heartland Express Inc,HTLD,Cargo Ground Transportation,422347104
+Lightbridge Corp,LTBR,Coal & Consumable Fuels,53224K302
+Titan Machinery Inc,TITN,Trading Companies & Distributors,88830R101
+Cross Country Healthcare Inc,CCRN,Health Care Services,227483104
+Clearfield Inc,CLFD,Communications Equipment,18482P103
+Sable Offshore Corp,SOC,Oil & Gas Exploration & Production,78574H104
+Bed Bath & Beyond Inc,BBBY,Homefurnishing Retail,
+Postal Realty Trust Inc,PSTL,Office REITs,73757R102
+Kura Sushi USA Inc,KRUS,Restaurants,501270102
+Cerus Corp,CERS,Health Care Supplies,157085101
+Aura Biosciences Inc,AURA,Biotechnology,05153U107
+Bright Minds Biosciences Inc,DRUG,Biotechnology,10919W405
+VAALCO Energy Inc,EGY,Oil & Gas Exploration & Production,91851C201
+OrthoPediatrics Corp,KIDS,Health Care Supplies,68752L100
+Ares Commercial Real Estate Corp,ACRE,Mortgage REITs,04013V108
+Keros Therapeutics Inc,KROS,Biotechnology,492327101
+Riley Exploration Permian Inc,REPX,Oil & Gas Exploration & Production,76665T102
+NewtekOne Inc,NEWT,Diversified Financial Services,652526203
+MBIA Inc,MBI,Property & Casualty Insurance,55262C100
+First Bank/Hamilton NJ,FRBA,Regional Banks,31931U102
+Plumas Bancorp,PLBC,Regional Banks,729273102
+Simulations Plus Inc,SLP,Health Care Technology,829214105
+Hyster-Yale Inc,HY,Industrial Machinery & Supplies & Components,449172105
+Delcath Systems Inc,DCTH,Health Care Equipment,24661P807
+Northeast Community Bancorp Inc,NECB,Regional Banks,664121100
+BayCom Corp,BCML,Regional Banks,07272M107
+Unity Bancorp Inc,UNTY,Regional Banks,913290102
+Flowco Holdings Inc,FLOC,Oil & Gas Equipment & Services,342909108
+Spok Holdings Inc,SPOK,Wireless Telecommunication Services,84863T106
+Monopar Therapeutics Inc,MNPR,Biotechnology,61023L207
+NVE Corp,NVEC,Semiconductors,629445206
+Citizens & Northern Corp,CZNC,Regional Banks,172922106
+Orion SA,OEC,Commodity Chemicals,L72967109
+Anavex Life Sciences Corp,AVXL,Biotechnology,032797300
+Protara Therapeutics Inc,TARA,Biotechnology,74365U107
+Farmers & Merchants Bancorp Inc/Archbold OH,FMAO,Regional Banks,30779N105
+Voyager Technologies Inc,VOYG,Aerospace & Defense,92892B103
+Ibotta Inc,IBTA,Advertising,451051106
+Nathan's Famous Inc,NATH,Restaurants,
+Telos Corp,TLS,Systems Software,87969B101
+Calavo Growers Inc,CVGW,Packaged Foods & Meats,128246105
+Wabash National Corp,WNC,Construction Machinery & Heavy Transportation Equipment,929566107
+Natural Gas Services Group Inc,NGS,Oil & Gas Equipment & Services,63886Q109
+Donegal Group Inc,DGICA,Property & Casualty Insurance,257701201
+Haverty Furniture Cos Inc,HVT,Homefurnishing Retail,419596101
+Ranger Energy Services Inc,RNGR,Oil & Gas Equipment & Services,75282U104
+Safe Bulkers Inc,SB,Marine Transportation,Y7388L103
+MeiraGTx Holdings plc,MGTX,Biotechnology,G59665102
+OptimizeRx Corp,OPRX,Health Care Technology,68401U204
+Petco Health & Wellness Co Inc,WOOF,Other Specialty Retail,71601V105
+OppFi Inc,OPFI,Consumer Finance,68386H103
+Mechanics Bancorp,MCHB,Regional Banks,
+Blue Ridge Bankshares Inc,BRBS,Regional Banks,095825105
+Chaince Digital Holdings Inc,CD,Application Software,
+VTEX,VTEX,Internet Services & Infrastructure,G9470A102
+FrontView REIT Inc,FVR,Retail REITs,35922N100
+8x8 Inc,EGHT,Application Software,282914100
+Chatham Lodging Trust,CLDT,Hotel & Resort REITs,16208T102
+Luxfer Holdings PLC,LXFR,Industrial Machinery & Supplies & Components,G5698W116
+Corsair Gaming Inc,CRSR,"Technology Hardware, Storage & Peripherals",22041X102
+Bankwell Financial Group Inc,BWFG,Regional Banks,06654A103
+Intrepid Potash Inc,IPI,Fertilizers & Agricultural Chemicals,46121Y201
+Clearwater Paper Corp,CLW,Paper Products,18538R103
+First Bancorp Inc/The,FNLC,Regional Banks,31866P102
+Design Therapeutics Inc,DSGN,Biotechnology,25056L103
+Hanesbrands Inc,HBI,"Apparel, Accessories & Luxury Goods",410345102
+Prime Medicine Inc,PRME,Biotechnology,74168J101
+West BanCorp Inc,WTBA,Regional Banks,95123P106
+National CineMedia Inc,NCMI,Advertising,635309206
+Matrix Service Co,MTRX,Construction & Engineering,576853105
+Solid Biosciences Inc,SLDB,Biotechnology,83422E204
+Tectonic Therapeutic Inc,TECX,Biotechnology,878972108
+City Office REIT Inc,CIO,Office REITs,178587101
+Denny's Corp,DENN,Restaurants,
+Redwire Corp,RDW,Aerospace & Defense,75776W103
+Nexxen International Ltd,NEXN,Advertising,M8T80P204
+Hudson Technologies Inc,HDSN,Trading Companies & Distributors,444144109
+Shoe Carnival Inc,SCVL,Apparel Retail,824889109
+Sight Sciences Inc,SGHT,Health Care Equipment,82657M105
+Repay Holdings Corp,RPAY,Transaction & Payment Processing Services,76029L100
+Liberty Latin America Ltd,LILA,Alternative Carriers,G9001E128
+ADC Therapeutics SA,ADCT,Biotechnology,H0036K147
+Spire Global Inc,SPIR,Research & Consulting Services,848560306
+Strata Critical Medical Inc,SRTA,Health Care Services,
+Timberland Bancorp Inc/WA,TSBK,Regional Banks,887098101
+Limoneira Co,LMNR,Agricultural Products & Services,532746104
+Berry Corp,BRY,Oil & Gas Exploration & Production,08579X101
+Portillo's Inc,PTLO,Restaurants,
+DiaMedica Therapeutics Inc,DMAC,Biotechnology,25253X207
+SANUWAVE Health Inc,SNWV,Health Care Equipment,80303D305
+MasterCraft Boat Holdings Inc,MCFT,Leisure Products,57637H103
+MicroVision Inc,MVIS,Electronic Equipment & Instruments,594960304
+Playtika Holding Corp,PLTK,Interactive Home Entertainment,72815L107
+Distribution Solutions Group Inc,DSGR,Trading Companies & Distributors,520776105
+Hyliion Holdings Corp,HYLN,Electrical Components & Equipment,449109107
+MGP Ingredients Inc,MGPI,Distillers & Vintners,55303J106
+Granite Ridge Resources Inc,GRNT,Oil & Gas Exploration & Production,387432107
+Entrada Therapeutics Inc,TRDA,Biotechnology,29384C108
+Service Properties Trust,SVC,Hotel & Resort REITs,81761L102
+Abacus Global Management Inc,ABL,Insurance Brokers,00258Y104
+Ponce Financial Group Inc,PDLB,Regional Banks,732344106
+Mayville Engineering Co Inc,MEC,Industrial Machinery & Supplies & Components,578605107
+Nano-X Imaging Ltd,NNOX,Health Care Services,M70700105
+Boston Omaha Corp,BOC,Advertising,101044105
+Ooma Inc,OOMA,Application Software,683416101
+Conduent Inc,CNDT,Data Processing & Outsourced Services,206787103
+Methode Electronics Inc,MEI,Electronic Manufacturing Services,591520200
+Vanda Pharmaceuticals Inc,VNDA,Biotechnology,921659108
+Semler Scientific Inc,SMLR,Health Care Equipment,81684M104
+GBank Financial Holdings Inc,GBFH,Regional Banks,36166F100
+Fidelity D&D Bancorp Inc,FDBC,Regional Banks,31609R100
+BioAge Labs Inc,BIOA,Pharmaceuticals,09077V100
+John Marshall Bancorp Inc,JMSB,Regional Banks,47804G103
+Honest Co Inc/The,HNST,Personal Care Products,438333106
+Aviat Networks Inc,AVNW,Communications Equipment,05366Y201
+AMC Networks Inc,AMCX,Broadcasting,00164V103
+Kelly Services Inc,KELYA,Human Resource & Employment Services,488152208
+Enanta Pharmaceuticals Inc,ENTA,Biotechnology,29251M106
+Primis Financial Corp,FRST,Regional Banks,74167B109
+Norwood Financial Corp,NWFL,Regional Banks,669549107
+Critical Metals Corp,CRML,Diversified Metals & Mining,G2662B103
+Webtoon Entertainment Inc,WBTN,Interactive Media & Services,94845U105
+Kingsway Financial Services Inc,KFS,Property & Casualty Insurance,496904202
+Better Home & Finance Holding Co,BETR,Commercial & Residential Mortgage Finance,08774B508
+Diamond Hill Investment Group Inc,DHIL,Asset Management & Custody Banks,25264R207
+Backblaze Inc,BLZE,Internet Services & Infrastructure,05637B105
+KORU Medical Systems Inc,KRMD,Health Care Equipment,759910102
+3D Systems Corp,DDD,Industrial Machinery & Supplies & Components,88554D205
+Himalaya Shipping Ltd,HSHP,Marine Transportation,G4660A103
+Rocket Pharmaceuticals Inc,RCKT,Biotechnology,77313F106
+TruBridge Inc,TBRG,Health Care Technology,205306103
+Lands' End Inc,LE,Apparel Retail,
+Quanterix Corp,QTRX,Life Sciences Tools & Services,74766Q101
+EW Scripps Co/The,SSP,Broadcasting,
+SIGA Technologies Inc,SIGA,Pharmaceuticals,826917106
+Xperi Inc,XPER,Systems Software,98423J101
+XOMA Royalty Corp,XOMA,Biotechnology,98419J206
+Colony Bankcorp Inc,CBAN,Regional Banks,19623P101
+Sky Harbour Group Corp,SKYH,Airport Services,83085C107
+Park-Ohio Holdings Corp,PKOH,Industrial Machinery & Supplies & Components,700666100
+Jefferson Capital Inc,JCAP,Consumer Finance,47248R103
+Pure Cycle Corp,PCYO,Water Utilities,746228303
+Turtle Beach Corp,TBCH,"Technology Hardware, Storage & Peripherals",900450206
+Rocky Brands Inc,RCKY,Footwear,774515100
+Cricut Inc,CRCT,Household Appliances,22658D100
+Aclaris Therapeutics Inc,ACRS,Pharmaceuticals,00461U105
+Flotek Industries Inc,FTK,Specialty Chemicals,343389409
+HBT Financial Inc,HBT,Regional Banks,404111106
+Atea Pharmaceuticals Inc,AVIR,Pharmaceuticals,04683R106
+Editas Medicine Inc,EDIT,Biotechnology,28106W103
+FB Bancorp Inc,FBLA,Regional Banks,31425A109
+Chicago Atlantic Real Estate Finance Inc,REFI,Mortgage REITs,167239102
+LCNB Corp,LCNB,Regional Banks,50181P100
+Quantum-Si Inc,QSI,Life Sciences Tools & Services,74765K105
+El Pollo Loco Holdings Inc,LOCO,Restaurants,268603107
+Commerce.com Inc,CMRC,Internet Services & Infrastructure,
+Anterix Inc,ATEX,Alternative Carriers,03676C100
+Richtech Robotics Inc,RR,Industrial Machinery & Supplies & Components,765504105
+Paysafe Ltd,PSFE,Transaction & Payment Processing Services,G6964L206
+Alpine Income Property Trust Inc,PINE,Diversified REITs,02083X103
+Asure Software Inc,ASUR,Human Resource & Employment Services,04649U102
+AerSale Corp,ASLE,Aerospace & Defense,00810F106
+Weyco Group Inc,WEYS,Distributors,962149100
+AG Mortgage Investment Trust Inc,MITT,Mortgage REITs,001228501
+Investar Holding Corp,ISTR,Regional Banks,46134L105
+Onity Group Inc,ONIT,Commercial & Residential Mortgage Finance,675746606
+NACCO Industries Inc,NC,Coal & Consumable Fuels,629579103
+Summit Midstream Corp,SMC,Oil & Gas Storage & Transportation,86614G101
+loanDepot Inc,LDI,Commercial & Residential Mortgage Finance,53946R106
+Lexeo Therapeutics Inc,LXEO,Biotechnology,52886X107
+WideOpenWest Inc,WOW,Cable & Satellite,96758W101
+FRP Holdings Inc,FRPH,Real Estate Operating Companies,30292L107
+Candel Therapeutics Inc,CADL,Biotechnology,137404109
+First Western Financial Inc,MYFW,Regional Banks,33751L105
+Biglari Holdings Inc,BH,Restaurants,08986R309
+Franklin Financial Services Corp,FRAF,Regional Banks,353525108
+Thryv Holdings Inc,THRY,Advertising,886029206
+Bumble Inc,BMBL,Interactive Media & Services,12047B105
+Bally's Corp,BALY,Casinos & Gaming,
+Lovesac Co/The,LOVE,Home Furnishings,54738L109
+Owens & Minor Inc,OMI,Health Care Distributors,690732102
+Selectquote Inc,SLQT,Insurance Brokers,816307300
+Information Services Group Inc,III,IT Consulting & Other Services,45675Y104
+Ribbon Communications Inc,RBBN,Communications Equipment,762544104
+FVCBankcorp Inc,FVCB,Regional Banks,36120Q101
+First United Corp,FUNC,Regional Banks,33741H107
+Chemung Financial Corp,CHMG,Regional Banks,164024101
+FS Bancorp Inc,FSBW,Regional Banks,30263Y104
+Blue Foundry Bancorp,BLFY,Regional Banks,09549B104
+Waterstone Financial Inc,WSBF,Commercial & Residential Mortgage Finance,94188P101
+Target Hospitality Corp,TH,"Hotels, Resorts & Cruise Lines",87615L107
+L B Foster Co,FSTR,Industrial Machinery & Supplies & Components,350060109
+JELD-WEN Holding Inc,JELD,Building Products,47580P103
+SKYX Platforms Corp,SKYX,Electrical Components & Equipment,78471E105
+Western New England Bancorp Inc,WNEB,Regional Banks,958892101
+Fennec Pharmaceuticals Inc,FENC,Biotechnology,31447P100
+Eve Holding Inc,EVEX,Aerospace & Defense,29970N104
+Ames National Corp,ATLO,Regional Banks,031001100
+Abeona Therapeutics Inc,ABEO,Biotechnology,00289Y206
+Pulse Biosciences Inc,PLSE,Health Care Equipment,74587B101
+First Community Corp/SC,FCCO,Regional Banks,
+National Research Corp,NRC,Health Care Services,637372202
+Ranpak Holdings Corp,PACK,Paper & Plastic Packaging Products & Materials,75321W103
+Tredegar Corp,TG,Aluminum,894650100
+Johnson Outdoors Inc,JOUT,Leisure Products,479167108
+Citizens Inc/TX,CIA,Life & Health Insurance,
+Open Lending Corp,LPRO,Financial Exchanges & Data,68373J104
+Perma-Fix Environmental Services Inc,PESI,Environmental & Facilities Services,714157203
+SELLAS Life Sciences Group Inc,SLS,Biotechnology,81642T209
+Ardent Health Inc,ARDT,Health Care Facilities,03980N107
+Douglas Elliman Inc,DOUG,Real Estate Services,25961D105
+Aspen Aerogels Inc,ASPN,Specialty Chemicals,04523Y105
+RMR Group Inc/The,RMR,Diversified Real Estate Activities,74967R106
+Legacy Housing Corp,LEGH,Homebuilding,52472M101
+US Gold Corp,USAU,Diversified Metals & Mining,90291C201
+Unisys Corp,UIS,IT Consulting & Other Services,909214306
+Capricor Therapeutics Inc,CAPR,Biotechnology,14070B309
+Benitec Biopharma Inc,BNTC,Biotechnology,08205P209
+Alico Inc,ALCO,Agricultural Products & Services,016230104
+Xponential Fitness Inc,XPOF,Leisure Facilities,98422X101
+USANA Health Sciences Inc,USNA,Personal Care Products,90328M107
+Citizens Financial Services Inc,CZFS,Regional Banks,174615104
+Middlefield Banc Corp,MBCN,Regional Banks,596304204
+ON24 Inc,ONTF,Application Software,68339B104
+TriSalus Life Sciences Inc,TLSI,Biotechnology,89680M101
+Olaplex Holdings Inc,OLPX,Personal Care Products,679369108
+Pangaea Logistics Solutions Ltd,PANL,Marine Transportation,G6891L105
+ATN International Inc,ATNI,Integrated Telecommunication Services,00215F107
+Virginia National Bankshares Corp,VABK,Regional Banks,928031103
+Hawthorn Bancshares Inc,HWBK,Regional Banks,420476103
+Proficient Auto Logistics Inc,PAL,Cargo Ground Transportation,74317M104
+Neurogene Inc,NGNE,Biotechnology,64135M105
+Oak Valley Bancorp,OVLY,Regional Banks,671807105
+Lifecore Biomedical Inc,LFCR,Life Sciences Tools & Services,514766104
+Holley Inc,HLLY,Automotive Parts & Equipment,43538H103
+Vox Royalty Corp,VOXR,Precious Metals & Minerals,92919F103
+Puma Biotechnology Inc,PBYI,Biotechnology,74587V107
+Mistras Group Inc,MG,Research & Consulting Services,60649T107
+Rimini Street Inc,RMNI,Application Software,76674Q107
+New Fortress Energy Inc,NFE,Oil & Gas Storage & Transportation,644393100
+C&F Financial Corp,CFFI,Regional Banks,12466Q104
+First National Corp/VA,FXNC,Regional Banks,32106V107
+PCB Bancorp,PCB,Regional Banks,69320M109
+National Bankshares Inc,NKSH,Regional Banks,634865109
+Oportun Financial Corp,OPRT,Consumer Finance,68376D104
+USCB Financial Holdings Inc,USCB,Regional Banks,90355N101
+Arcturus Therapeutics Holdings Inc,ARCT,Biotechnology,03969T109
+Viemed Healthcare Inc,VMD,Health Care Services,92663R105
+Heron Therapeutics Inc,HRTX,Biotechnology,427746102
+RGC Resources Inc,RGCO,Gas Utilities,74955L103
+Frequency Electronics Inc,FEIM,Electronic Equipment & Instruments,358010106
+Allogene Therapeutics Inc,ALLO,Biotechnology,019770106
+Health Catalyst Inc,HCAT,Health Care Technology,42225T107
+Voyager Therapeutics Inc,VYGR,Biotechnology,92915B106
+Medallion Financial Corp,MFIN,Consumer Finance,583928106
+Contango ORE Inc,CTGO,Diversified Metals & Mining,21077F100
+Northpointe Bancshares Inc,NPB,Regional Banks,66661N886
+Velocity Financial Inc,VEL,Commercial & Residential Mortgage Finance,92262D101
+Infinity Natural Resources Inc,INR,Oil & Gas Exploration & Production,456941103
+Radiant Logistics Inc,RLGT,Air Freight & Logistics,75025X100
+James River Group Holdings Inc,JRVR,Property & Casualty Insurance,G5005R107
+Paysign Inc,PAYS,Transaction & Payment Processing Services,70451A104
+Tucows Inc,TCX,Internet Services & Infrastructure,898697206
+COSTAMARE BULKERS HOLDIN,CMDB,Marine Transportation,Y2001C101
+eGain Corp,EGAN,Application Software,28225C806
+Beauty Health Co/The,SKIN,Personal Care Products,88331L108
+JAKKS Pacific Inc,JAKK,Leisure Products,47012E403
+Blaize Holdings Inc,BZAI,Semiconductors,092915107
+America's Car-Mart Inc/TX,CRMT,Automotive Retail,
+First Savings Financial Group Inc,FSFG,Regional Banks,33621E109
+Crawford & Co,CRD/A,Insurance Brokers,224633206
+Eagle Financial Services Inc,EFSI,Regional Banks,26951R104
+TSS Inc/MD,TSSI,IT Consulting & Other Services,87288V101
+Electromed Inc,ELMD,Health Care Equipment,285409108
+908 Devices Inc,MASS,Electronic Equipment & Instruments,65443P102
+Immersion Corp,IMMR,"Technology Hardware, Storage & Peripherals",452521107
+Inspired Entertainment Inc,INSE,Casinos & Gaming,45782N108
+agilon health Inc,AGL,Health Care Services,00857U107
+Karat Packaging Inc,KRT,Trading Companies & Distributors,48563L101
+Vuzix Corp,VUZI,Electronic Equipment & Instruments,92921W300
+MaxCyte Inc,MXCT,Life Sciences Tools & Services,57777K106
+Citizens Community Bancorp Inc/WI,CZWI,Regional Banks,174903104
+Reservoir Media Inc,RSVR,Movies & Entertainment,76119X105
+Eventbrite Inc,EB,Movies & Entertainment,29975E109
+LINKBANCORP Inc,LNKB,Regional Banks,53578P105
+Entravision Communications Corp,EVC,Broadcasting,29382R107
+Citi Trends Inc,CTRN,Apparel Retail,17306X102
+Livewire Group Inc,LVWR,Motorcycle Manufacturers,53838J105
+Stereotaxis Inc,STXS,Health Care Equipment,85916J409
+American Integrity Insurance Group Inc,AII,Property & Casualty Insurance,026948109
+Humacyte Inc,HUMA,Biotechnology,44486Q103
+Omada Health Inc,OMDA,Health Care Services,68170A108
+Flexsteel Industries Inc,FLXS,Home Furnishings,339382103
+Franklin Covey Co,FC,Research & Consulting Services,353469109
+BRC Inc,BRCC,Packaged Foods & Meats,05601U105
+TrueCar Inc,TRUE,Interactive Media & Services,89785L107
+Kaltura Inc,KLTR,Application Software,483467106
+AlTi Global Inc,ALTI,Asset Management & Custody Banks,02157E106
+BV Financial Inc,BVFL,Regional Banks,05603E208
+CB Financial Services Inc,CBFV,Regional Banks,12479G101
+BK Technologies Corp,BKTI,Communications Equipment,05587G203
+First Capital Inc,FCAP,Regional Banks,31942S104
+Utah Medical Products Inc,UTMD,Health Care Supplies,917488108
+Finwise Bancorp,FINW,Regional Banks,31813A109
+Greene County Bancorp Inc,GCBC,Regional Banks,394357107
+Bakkt Holdings Inc/US,BKKT,Financial Exchanges & Data,
+Outdoor Holding Co,POWW,Other Specialty Retail,00175J107
+CS Disco Inc,LAW,Application Software,126327105
+Parke Bancorp Inc,PKBK,Regional Banks,700885106
+Oncology Institute Inc/The,TOI,Health Care Facilities,68236X100
+OraSure Technologies Inc,OSUR,Health Care Supplies,68554V108
+TechTarget Inc,TTGT,Advertising,87874R308
+Tile Shop Holdings Inc,TTSH,Home Improvement Retail,88677Q109
+OP Bancorp,OPBK,Regional Banks,67109R109
+Sonida Senior Living Inc,SNDA,Health Care Facilities,140475203
+Motorcar Parts of America Inc,MPAA,Automotive Parts & Equipment,620071100
+Palladyne AI Corp,PDYN,Industrial Machinery & Supplies & Components,80359A205
+OmniAb Inc,OABI,Life Sciences Tools & Services,68218J103
+RCI Hospitality Holdings Inc,RICK,Restaurants,74934Q108
+Billiontoone Inc,BLLN,Health Care Services,
+Ategrity Specialty Holdings LLC,ASIC,Property & Casualty Insurance,04681Y103
+Seaport Entertainment Group Inc,SEG,Real Estate Operating Companies,812215200
+Finward Bancorp,FNWD,Regional Banks,31812F109
+Kolibri Global Energy Inc,KGEI,Oil & Gas Exploration & Production,50043K406
+Resources Connection Inc,RGP,Research & Consulting Services,76122Q105
+Braemar Hotels & Resorts Inc,BHR,Hotel & Resort REITs,10482B101
+CVRx Inc,CVRX,Health Care Equipment,126638105
+Codexis Inc,CDXS,Life Sciences Tools & Services,192005106
+Westrock Coffee Co,WEST,Packaged Foods & Meats,96145W103
+BRT Apartments Corp,BRT,Multi-Family Residential REITs,055645303
+Larimar Therapeutics Inc,LRMR,Biotechnology,517125100
+Barnes & Noble Education Inc,BNED,Other Specialty Retail,06777U200
+Bank7 Corp,BSVN,Regional Banks,06652N107
+Meridian Corp,MRBK,Regional Banks,58958P104
+Inogen Inc,INGN,Health Care Equipment,45780L104
+Acacia Research Corp,ACTG,Specialized Finance,003881307
+Ohio Valley Banc Corp,OVBC,Regional Banks,677719106
+Journey Medical Corp,DERM,Pharmaceuticals,48115J109
+Stratus Properties Inc,STRS,Real Estate Development,863167201
+ReposiTrak Inc,TRAK,Application Software,700215304
+SEACOR Marine Holdings Inc,SMHI,Oil & Gas Equipment & Services,78413P101
+SunPower Inc,SPWR,Electrical Components & Equipment,
+Starz Entertainment Corp,STRZ,Movies & Entertainment,855919106
+Getty Images Holdings Inc,GETY,Interactive Media & Services,374275105
+Gencor Industries Inc,GENC,Industrial Machinery & Supplies & Components,368678108
+Ascent Industries Co,ACNT,Steel,871565107
+Priority Technology Holdings Inc,PRTH,Transaction & Payment Processing Services,74275G107
+Lifeway Foods Inc,LWAY,Packaged Foods & Meats,531914109
+Smith-Midland Corp,SMID,Construction Materials,832156103
+Peoples Bancorp of North Carolina Inc,PEBK,Regional Banks,710577107
+Pro-Dex Inc,PDEX,Health Care Equipment,74265M205
+Lakeland Industries Inc,LAKE,"Apparel, Accessories & Luxury Goods",511795106
+MediWound Ltd,MDWD,Pharmaceuticals,M68830112
+Landmark Bancorp Inc/Manhattan KS,LARK,Regional Banks,51504L107
+M-Tron Industries Inc,MPTI,Electronic Components,55380K109
+Zevia PBC,ZVIA,Soft Drinks & Non-alcoholic Beverages,98955K104
+Riverview Bancorp Inc,RVSB,Regional Banks,769397100
+RE/MAX Holdings Inc,RMAX,Real Estate Services,75524W108
+United Security Bancshares/Fresno CA,UBFO,Regional Banks,911460103
+ECB Bancorp Inc/MD,ECBK,Regional Banks,
+MainStreet Bancshares Inc,MNSB,Regional Banks,56064Y100
+First Internet Bancorp,INBK,Regional Banks,320557101
+Strawberry Fields REIT Inc,STRW,Health Care REITs,863182101
+Designer Brands Inc,DBI,Apparel Retail,250565108
+Modiv Industrial Inc,MDV,Diversified REITs,60784B101
+Viant Technology Inc,DSP,Application Software,92557A101
+BankFinancial Corp,BFIN,Regional Banks,06643P104
+Nexpoint Real Estate Finance Inc,NREF,Mortgage REITs,65342V101
+Security National Financial Corp,SNFCA,Commercial & Residential Mortgage Finance,814785309
+Foghorn Therapeutics Inc,FHTX,Biotechnology,344174107
+FitLife Brands Inc,FTLF,Personal Care Products,33817P405
+Anteris Technologies Global Corp,AVR,Health Care Equipment,03675P102
+Anika Therapeutics Inc,ANIK,Biotechnology,035255108
+Inseego Corp,INSG,Communications Equipment,45782B302
+U-Haul Holding Co,UHAL,Cargo Ground Transportation,023586506
+OneWater Marine Inc,ONEW,Automotive Retail,68280L101
+SR Bancorp Inc,SRBK,Regional Banks,85227J106
+Crexendo Inc,CXDO,Internet Services & Infrastructure,226552107
+Lucid Diagnostics Inc,LUCD,Health Care Equipment,54948X109
+SB Financial Group Inc,SBFG,Regional Banks,78408D105
+CSP Inc,CSPI,IT Consulting & Other Services,126389105
+eHealth Inc,EHTH,Insurance Brokers,28238P109
+BCB Bancorp Inc,BCBP,Regional Banks,055298103
+ACRES Commercial Realty Corp,ACR,Mortgage REITs,00489Q102
+Eagle Bancorp Montana Inc,EBMT,Regional Banks,26942G100
+Lifezone Metals Ltd,LZM,Diversified Metals & Mining,G5568L109
+Hanover Bancorp Inc,HNVR,Regional Banks,410709109
+Nuvectis Pharma Inc,NVCT,Biotechnology,67080T108
+Chain Bridge Bancorp Inc,CBNA,Regional Banks,15746L100
+Patriot National Bancorp Inc,PNBK,Regional Banks,70336F203
+CuriosityStream Inc,CURI,Movies & Entertainment,23130Q107
+Evolution Petroleum Corp,EPM,Oil & Gas Exploration & Production,30049A107
+Friedman Industries Inc,FRD,Steel,358435105
+Pioneer Bancorp Inc/NY,PBFS,Regional Banks,723561106
+Westwood Holdings Group Inc,WHG,Asset Management & Custody Banks,961765104
+Seven Hills Realty Trust,SEVN,Mortgage REITs,81784E101
+W&T Offshore Inc,WTI,Oil & Gas Exploration & Production,92922P106
+Rithm Property Trust Inc,RPT,Mortgage REITs,38983D300
+Sound Financial Bancorp Inc,SFBC,Regional Banks,83607A100
+Protalix BioTherapeutics Inc,PLX,Biotechnology,74365A309
+Universal Logistics Holdings Inc,ULH,Cargo Ground Transportation,91388P105
+Richmond Mutual BanCorp Inc,RMBI,Regional Banks,76525P100
+Coherus Oncology Inc,CHRS,Biotechnology,19249H103
+Inhibikase Therapeutics Inc,IKT,Biotechnology,45719W205
+Kingstone Cos Inc,KINS,Property & Casualty Insurance,496719105
+Bassett Furniture Industries Inc,BSET,Home Furnishings,070203104
+Hamilton Beach Brands Holding Co,HBB,Household Appliances,40701T104
+CoastalSouth Bancshares Inc,COSO,Regional Banks,
+Quad/Graphics Inc,QUAD,Commercial Printing,747301109
+Finance Of America Cos Inc,FOA,Commercial & Residential Mortgage Finance,31738L206
+Acme United Corp,ACU,Health Care Supplies,004816104
+CF Bankshares Inc,CFBK,Regional Banks,12520L109
+Innovage Holding Corp,INNV,Health Care Services,45784A104
+LifeMD Inc,LFMD,Health Care Technology,53216B104
+TrueBlue Inc,TBI,Human Resource & Employment Services,89785X101
+TTEC Holdings Inc,TTEC,Data Processing & Outsourced Services,89854H102
+Marine Products Corp,MPX,Leisure Products,568427108
+DMC Global Inc,BOOM,Oil & Gas Equipment & Services,23291C103
+Clarus Corp,CLAR,Leisure Products,18270P109
+Fate Therapeutics Inc,FATE,Biotechnology,31189P102
+Perspective Therapeutics Inc,CATX,Biotechnology,46489V302
+Princeton Bancorp Inc,BPRN,Regional Banks,74179A107
+Digimarc Corp,DMRC,Application Software,25381B101
+Concrete Pumping Holdings Inc,BBCP,Construction & Engineering,206704108
+Legence Corp,LGN,Construction & Engineering,
+American Vanguard Corp,AVD,Fertilizers & Agricultural Chemicals,030371108
+Silvercrest Asset Management Group Inc,SAMG,Asset Management & Custody Banks,828359109
+EverCommerce Inc,EVCM,Application Software,29977X105
+CPI Card Group Inc,PMTS,"Technology Hardware, Storage & Peripherals",12634H200
+Carlsmed Inc,CARL,Health Care Equipment,
+Cardiff Oncology Inc,CRDF,Biotechnology,14147L108
+Transcontinental Realty Investors Inc,TCI,Real Estate Operating Companies,893617209
+Joint Corp/The,JYNT,Health Care Facilities,
+Tonix Pharmaceuticals Holding Corp,TNXP,Biotechnology,890260839
+Escalade Inc,ESCA,Leisure Products,296056104
+Core Molding Technologies Inc,CMT,Commodity Chemicals,218683100
+KinderCare Learning Cos Inc,KLC,Education Services,49456W105
+Sunrise Realty Trust Inc,SUNS,Mortgage REITs,867981102
+Epsilon Energy Ltd,EPSN,Oil & Gas Exploration & Production,294375209
+Union Bankshares Inc/Morrisville VT,UNB,Regional Banks,
+Energy Services of America Corp,ESOA,Oil & Gas Equipment & Services,29271Q103
+Treace Medical Concepts Inc,TMCI,Health Care Equipment,89455T109
+Superior Group of Cos Inc,SGC,"Apparel, Accessories & Luxury Goods",868358102
+Kronos Worldwide Inc,KRO,Commodity Chemicals,50105F105
+Ambiq Micro Inc,AMBQ,Semiconductors,
+Satellogic Inc,SATL,Aerospace & Defense,80401C100
+HighPeak Energy Inc,HPK,Oil & Gas Exploration & Production,43114Q105
+KULR Technology Group Inc,KULR,Electrical Components & Equipment,50125G307
+Global Water Resources Inc,GWRS,Water Utilities,379463102
+Hain Celestial Group Inc/The,HAIN,Packaged Foods & Meats,405217100
+Advantage Solutions Inc,ADV,Advertising,00791N102
+Omega Flex Inc,OFLX,Industrial Machinery & Supplies & Components,682095104
+DocGo Inc,DCGO,Health Care Services,256086109
+Net Power Inc,NPWR,Heavy Electrical Equipment,64107A113
+Aeluma Inc,ALMU,Semiconductor Materials & Equipment,00776X109
+LENSAR Inc,LNSR,Health Care Equipment,52634L108
+European Wax Center Inc,EWCZ,Specialized Consumer Services,29882P106
+American Outdoor Brands Inc,AOUT,Leisure Products,02875D109
+Alta Equipment Group Inc,ALTG,Trading Companies & Distributors,02128L106
+Gambling.com Group Ltd,GAMB,Advertising,G3R239101
+EVI Industries Inc,EVI,Trading Companies & Distributors,26929N102
+Netskope Inc,NTSK,Systems Software,
+Angel Oak Mortgage REIT Inc,AOMR,Mortgage REITs,03464Y108
+WM Technology Inc,MAPS,Application Software,92971A109
+Fermi Inc,FRMI,Data Center REITs,
+Richardson Electronics Ltd/United States,RELL,Technology Distributors,
+Shoulder Innovations Inc,SI,Health Care Equipment,
+BARK Inc,BARK,Other Specialty Retail,68622E104
+Medifast Inc,MED,Personal Care Products,58470H101
+RCM Technologies Inc,RCMT,Research & Consulting Services,749360400
+Emerald Holding Inc,EEX,Advertising,29103W104
+Eastern Co/The,EML,Industrial Machinery & Supplies & Components,276317104
+Rackspace Technology Inc,RXT,Internet Services & Infrastructure,750102105
+PAMT CORP,PAMT,Cargo Ground Transportation,693149106
+Arena Group Holdings Inc/The,AREN,Interactive Media & Services,040044109
+Nkarta Inc,NKTX,Biotechnology,65487U108
+HF Foods Group Inc,HFFG,Food Distributors,40417F109
+Montauk Renewables Inc,MNTK,Renewable Electricity,61218C103
+Forrester Research Inc,FORR,Research & Consulting Services,346563109
+Lument Finance Trust Inc,LFT,Mortgage REITs,55025L108
+Arq Inc,ARQ,Specialty Chemicals,00770C101
+Eledon Pharmaceuticals Inc,ELDN,Biotechnology,28617K101
+Alector Inc,ALEC,Biotechnology,014442107
+Outset Medical Inc,OM,Health Care Equipment,690145206
+Envela Corp,ELA,Other Specialty Retail,29402E102
+Maui Land & Pineapple Co Inc,MLP,Real Estate Operating Companies,577345101
+Playstudios Inc,MYPS,Interactive Home Entertainment,72815G108
+AudioEye Inc,AEYE,Application Software,050734201
+Funko Inc,FNKO,Leisure Products,361008105
+Beyond Meat Inc,BYND,Packaged Foods & Meats,08862E109
+Accuray Inc,ARAY,Health Care Equipment,004397105
+NexPoint Diversified Real Estate Trust,NXDT,Diversified REITs,65340G205
+Biote Corp,BTMD,Pharmaceuticals,090683103
+1-800-Flowers.com Inc,FLWS,Other Specialty Retail,68243Q106
+Advanced Flower Capital Inc,AFCG,Mortgage REITs,00109K105
+Waldencast plc,WALD,Personal Care Products,G9503X103
+Airship AI Holdings Inc,AISP,Systems Software,008940108
+Faraday Future Intelligent Electric Inc,FFAI,Automobile Manufacturers,307359885
+Gyre Therapeutics Inc,GYRE,Biotechnology,403783103
+Gaia Inc,GAIA,Movies & Entertainment,36269P104
+Franklin Street Properties Corp,FSP,Office REITs,35471R106
+Clearway Energy Inc,CWEN/A,Renewable Electricity,18539C204
+Sanara Medtech Inc,SMTI,Health Care Supplies,79957L100
+Expensify Inc,EXFY,Application Software,30219Q106
+Figure Technology Solutions Inc,FIGR,Consumer Finance,
+NI Holdings Inc,NODK,Property & Casualty Insurance,65342T106
+ProFrac Holding Corp,ACDC,Oil & Gas Equipment & Services,74319N100
+Consumer Portfolio Services Inc,CPSS,Consumer Finance,210502100
+AirJoule Technologies Corp,AIRJ,Industrial Machinery & Supplies & Components,612160101
+Triller Group Inc,ILLR,Diversified Financial Services,895970101
+aTyr Pharma Inc,ATYR,Biotechnology,002120202
+AirSculpt Technologies Inc,AIRS,Health Care Services,009496100
+Newsmax Inc,NMAX,Broadcasting,65250K105
+FutureFuel Corp,FF,Oil & Gas Refining & Marketing,36116M106
+Kestrel Group Ltd,KG,Reinsurance,G5260K102
+AIRO Group Holdings Inc,AIRO,Aerospace & Defense,
+J Jill Inc,JILL,Apparel Retail,46620W201
+Virco Mfg. Corp,VIRC,Office Services & Supplies,927651109
+Aardvark Therapeutics Inc,AARD,Pharmaceuticals,002942100
+Lifevantage Corp,LFVN,Personal Care Products,53222K205
+Atomera Inc,ATOM,Semiconductor Materials & Equipment,04965B100
+Synchronoss Technologies Inc,SNCR,Application Software,87157B400
+Sleep Number Corp,SNBR,Homefurnishing Retail,83125X103
+Greenwich Lifesciences Inc,GLSI,Biotechnology,396879108
+OPAL Fuels Inc,OPAL,Oil & Gas Refining & Marketing,68347P103
+Miami International Holdings Inc,MIAX,Financial Exchanges & Data,
+GCI LIBERTY INC-CL C - RTS (NOV 25),GLIBR,Integrated Telecommunication Services,
+Torrid Holdings Inc,CURV,Apparel Retail,89142B107
+Cartesian Therapeutics Inc,RNAC,Biotechnology,816212302
+Prairie Operating Co,PROP,Oil & Gas Exploration & Production,739650109
+Nerdy Inc,NRDY,Education Services,64081V109
+Neuronetics Inc,STIM,Health Care Equipment,64131A105
+TuHURA Biosciences Inc,HURA,Biotechnology,898920103
+Mammoth Energy Services Inc,TUSK,Oil & Gas Equipment & Services,56155L108
+SoundThinking Inc,SSTI,Application Software,82536T107
+Alpha Teknova Inc,TKNO,Life Sciences Tools & Services,02080L102
+Pulmonx Corp,LUNG,Health Care Equipment,745848101
+Whitefiber Inc,WYFI,Internet Services & Infrastructure,
+Trinseo PLC,TSE,Commodity Chemicals,G9059U107
+Definitive Healthcare Corp,DH,Health Care Technology,24477E103
+Alliance Laundry Holdings Inc,ALH,Industrial Machinery & Supplies & Components,
+WaterBridge Infrastructure LLC,WBI,Oil & Gas Equipment & Services,
+Evommune Inc,EVMN,Biotechnology,
+Beta Technologies Inc,BETA,Aerospace & Defense,
+HeartFlow Inc,HTFL,Health Care Technology,
+MapLight Therapeutics Inc,MPLT,Biotechnology,
+Stubhub Holdings Inc,STUB,Movies & Entertainment,
+Travelzoo,TZOO,Interactive Media & Services,89421Q205
+Skillsoft Corp,SKIL,Human Resource & Employment Services,83066P309
+Empire Petroleum Corp,EP,Oil & Gas Exploration & Production,292034204
+Luminar Technologies Inc,LAZR,Automotive Parts & Equipment,550424303
+Solesence Inc,SLSN,Specialty Chemicals,630079101
+Navan Inc,NAVN,"Hotels, Resorts & Cruise Lines",
+Ispire Technology Inc,ISPR,Tobacco,46501C100
+Via Transportation Inc,VIA,Application Software,
+Phoenix Education Partners Inc,PXED,Education Services,
+Black Rock Coffee Bar Inc,BRCB,Restaurants,
+Inmune Bio Inc,INMB,Biotechnology,45782T105
+Pattern Group Inc,PTRN,Broadline Retail,
+Korro Bio Inc,KRRO,Biotechnology,500946108
+Teads Holding Co,TEAD,Interactive Media & Services,69002R103
+Vivid Seats Inc,SEAT,Movies & Entertainment,92854T100
+PrimeEnergy Resources Corp,PNRG,Oil & Gas Exploration & Production,74158E104
+Neonode Inc,NEON,Electronic Manufacturing Services,64051M709
+Firefly Aerospace Inc,FLY,Aerospace & Defense,
+Neptune Insurance Holdings Inc,NP,Property & Casualty Insurance,
+Tvardi Therapeutics Inc,TVRD,Pharmaceuticals,140755307
+Avidbank Holdings Inc,AVBH,Regional Banks,
+Avita Medical Inc,RCEL,Biotechnology,05380C102
+GoHealth Inc,GOCO,Insurance Brokers,38046W204
+Gemini Space Station Inc,GEMI,Financial Exchanges & Data,
+Third Harmonic Bio Inc,THRD,Pharmaceuticals,88427A107
+GCI LIBERTY INC-CL A,GLIBA,Integrated Telecommunication Services,
+Sterling Bancorp Inc/MI,SBT,Regional Banks,
+,,,
