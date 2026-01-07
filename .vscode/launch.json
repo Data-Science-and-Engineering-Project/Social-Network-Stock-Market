@@ -1,0 +1,57 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Russell Pipeline",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/RawToFilteredtable/indices_parser/russell_pipeline.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--input-dir", "Data/Indexes/RUSSELL3000 HISTORY"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": true,
+            "stopOnEntry": true
+        },
+        {
+            "name": "Debug Russell Pipeline (Skip Steps 1-3)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/RawToFilteredtable/indices_parser/russell_pipeline.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--input-dir", "Data/Indexes/RUSSELL3000 HISTORY",
+                "--skip-step", "1", "2", "3"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Debug Russell Pipeline (Custom Args)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/RawToFilteredtable/indices_parser/russell_pipeline.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--input-dir", "Data/Indexes/RUSSELL3000 HISTORY",
+                "--output", "Data/Indexes/RUSSELL3000 HISTORY/russell3000_final.csv",
+                "--filtered", "Data/Indexes/RUSSELL3000 HISTORY/russell3000_filtered.csv",
+                "--price-start", "Q2_2013",
+                "--price-end", "Q2_2025"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        }
+    ]
+}
+
