@@ -5,8 +5,8 @@ import psycopg2
 from psycopg2.extras import execute_batch
 from typing import Optional, Set, Tuple
 import pandas as pd
-from data_handlers.db_data_handler.db_abstract import AbstractDBHandler
-from logger.logger import ETLLogger
+from ETL.data_handlers.db_data_handler.db_abstract import AbstractDBHandler
+from ETL.logger.logger import ETLLogger
 
 load_dotenv()
 
@@ -21,7 +21,6 @@ class PostgresHandler(AbstractDBHandler):
         self.user = os.getenv("DB_USER")
         self.password = os.getenv("DB_PASSWORD")
         self.connection: Optional[psycopg2.extensions.connection] = None
-
     # ==================== CONNECTION ====================
 
     def connect(self) -> bool:
@@ -51,6 +50,123 @@ class PostgresHandler(AbstractDBHandler):
 
     # ==================== PUBLIC API ====================
 
+    # ==================== INSERT DATAFRAME ====================
+    
+    def create_table(self, table_name: str, df: pd.DataFrame) -> bool:
+            """
+            Create table based on DataFrame schema.
+            Thread-safe: Uses IF NOT EXISTS to handle concurrent creation attempts.
+
+            Args:
+                table_name: Name of table to create
+                df: DataFrame with schema to use
+
+            Returns:
+                True if successful, False otherwise
+            """
+            try:
+                if not self.connection:
+                    self.connect()
+
+                cursor = self.connection.cursor()
+
+                # Check if table already exists (thread-safe check)
+                if self.table_exists(table_name):
+                    cursor.close()
+                    return True
+
+                # Generate column definitions from DataFrame dtypes
+                columns = []
+                for col_name, dtype in zip(df.columns, df.dtypes):
+                    sql_type = self._get_sql_type(dtype)
+                    columns.append(f'"{col_name}" {sql_type}')
+
+                quoted_table_name = self._quote_table_name(table_name)
+                create_table_sql = f"CREATE TABLE IF NOT EXISTS {quoted_table_name} ({', '.join(columns)})"
+
+                cursor.execute(create_table_sql)
+                self.connection.commit()
+                ETLLogger().info(f"Table '{table_name}' created successfully")
+                cursor.close()
+                return True
+            except psycopg2.Error as e:
+                error_msg = str(e)
+                self.connection.rollback()
+                if 'cursor' in locals():
+                    try:
+                        cursor.close()
+                    except:
+                        pass
+                # Check if it's a "table already exists" error (race condition)
+                if 'already exists' in error_msg.lower():
+                    ETLLogger().warning(f"Table '{table_name}' already exists (race), continuing")
+                    return True
+                ETLLogger().error(f"Failed to create table '{table_name}': {error_msg}")
+                return False
+            except Exception as e:
+                ETLLogger().error(f"Failed to create table '{table_name}': {str(e)}")
+                if self.connection:
+                    self.connection.rollback()
+                if 'cursor' in locals():
+                    try:
+                        cursor.close()
+                    except:
+                        pass
+                return False
+    
+    def _get_sql_type(self, dtype) -> str:
+        """Convert pandas dtype to PostgreSQL type."""
+        dtype_str = str(dtype).lower()
+        if 'int' in dtype_str:
+            return 'BIGINT'
+        elif 'float' in dtype_str:
+            return 'NUMERIC(18,4)'
+        elif 'bool' in dtype_str:
+            return 'BOOLEAN'
+        elif 'datetime' in dtype_str:
+            return 'TIMESTAMP'
+        elif 'date' in dtype_str:
+            return 'DATE'
+        else:
+            return 'TEXT'
+
+
+    def insert_dataframe_regular(
+        self, df: pd.DataFrame, table_name: str, if_exists: str = "append"
+    ) -> int:
+        """
+        Insert DataFrame records into PostgreSQL table.
+
+        Args:
+            df: DataFrame to insert
+            table_name: Target table name
+            if_exists: 'fail', 'replace', or 'append'
+
+        Returns:
+            Number of records inserted
+        """
+        if not self.connection:
+            self.connect()
+
+        try:
+            # Handle if_exists logic
+            if if_exists == "replace":
+                self.drop_table(table_name)
+
+            # Create table if it doesn't exist
+            if not self.table_exists(table_name):
+                self.create_table(table_name, df)
+
+            # Insert data
+            insert_count = self._copy_dataframe(table_name, df)
+            ETLLogger().info(f"Loaded {insert_count} records into '{table_name}' table")
+            return insert_count
+
+        except Exception as e:
+            ETLLogger().error(f"Failed to insert DataFrame: {str(e)}")
+            return 0
+
+
     def insert_dataframe(self, df: pd.DataFrame, table_name: str) -> int:
         if not self.connection and not self.connect():
             ETLLogger().error("Failed to establish database connection")
@@ -79,6 +195,43 @@ class PostgresHandler(AbstractDBHandler):
             ETLLogger().error(f"Insert failed: {str(e)}")
             self.connection.rollback()
             return 0
+
+
+    def table_exists(self, table_name: str) -> bool:
+        """Check if table exists."""
+        try:
+            if not self.connection:
+                self.connect()
+            cursor = self.connection.cursor()
+            cursor.execute(f"SELECT to_regclass('{table_name}');")
+            result = cursor.fetchone()[0] is not None
+            cursor.close()
+            return result
+        except psycopg2.Error as e:
+            ETLLogger().error(f"Failed to check table existence: {str(e)}")
+            return False
+
+    def drop_table(self, table_name: str) -> bool:
+        """Drop a table if it exists."""
+        try:
+            if not self.connection:
+                self.connect()
+            cursor = self.connection.cursor()
+            quoted_table_name = self._quote_table_name(table_name)
+            cursor.execute(f"DROP TABLE IF EXISTS {quoted_table_name}")
+            self.connection.commit()
+            cursor.close()
+            ETLLogger().info(f"Table '{table_name}' dropped")
+            return True
+        except psycopg2.Error as e:
+            ETLLogger().error(f"Failed to drop table '{table_name}': {str(e)}")
+            if self.connection:
+                self.connection.rollback()
+            return False
+
+    def _quote_table_name(self, table_name: str) -> str:
+        """Quote table name to handle special characters."""
+        return f'"{table_name}"'
 
     # ==================== SCHEMA MANAGEMENT ====================
 
