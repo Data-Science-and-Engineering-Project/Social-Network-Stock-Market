@@ -252,9 +252,9 @@ lgb_params = {
 
 ### 3. הטמעות צמתים (GraphSAGE)
 GraphSAGE היא רשת נוירונים גרפית הלומדת ייצוגים דחוסים (embeddings) לכל צומת על ידי צבירת מאפיינים מהשכנים. לצומת $v$:
-$$
-h_v^{(k)} = \sigma \left( W^{(k)} \cdot \text{AGGREGATE}^{(k)} \left( \{ h_v^{(k-1)} \} \cup \{ h_u^{(k-1)}, \forall u \in N(v) \} \right) \right)
-$$
+
+$$h_v^{(k)} = \sigma \left( W^{(k)} \cdot \text{AGGREGATE}^{(k)} \left( \{ h_v^{(k-1)} \} \cup \{ h_u^{(k-1)}, \forall u \in N(v) \} \right) \right)$$
+
 כאשר $h_v^{(k)}$ היא ההטמעה בשכבה $k$, $N(v)$ הם השכנים, $W^{(k)}$ הם משקלים לימודיים, ו-$\sigma$ היא פונקציית אי-לינאריות.
 
 ### 4. אימון מודל (LightGBM)
