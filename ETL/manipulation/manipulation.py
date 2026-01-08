@@ -136,7 +136,7 @@ class DataManipulation:
 
     # ==================== PERIOD FILTERING ====================
     def filter_by_period(
-        self, df: pd.DataFrame, min_period: str = "2013_2Q"
+        self, df: pd.DataFrame, min_period: str = "2013_Q2"
     ) -> pd.DataFrame:
         """Filter records by period threshold (e.g., 2013_2Q and later)."""
         if "periodofreport" in df.columns:
