@@ -28,7 +28,7 @@ share/python-wheels/
 MANIFEST
 *.pkl
 *.npy
-parquuet_files/*
+parquuet_files*
 *.parquet
 # PyInstaller
 #  Usually these files are written by a python script from a template
