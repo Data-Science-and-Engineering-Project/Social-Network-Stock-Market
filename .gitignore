@@ -87,8 +87,9 @@ ipython_config.py
 # Exception: Track these reference CSV files
 !Data/Indexes/Holdings_details_Russell_3000_ETF.csv
 !Data/Indexes/SPY.csv
-
+Data/parquet_files/
 Data/holdings/
+Data/parquuet_files.zip
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
 #   intended to run in multiple environments; otherwise, check them in:
