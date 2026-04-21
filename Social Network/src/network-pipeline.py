@@ -81,7 +81,7 @@ else:
 def load_data():
     """Load reference data and quarterly holdings."""
     personal_dir = os.path.expanduser('~')
-    root = os.path.join(personal_dir, 'Social-Network-Stock-Market/Social Network/parquuet_files')
+    root = os.path.join(personal_dir, 'Social-Network-Stock-Market/SocialNetwork/parquet_files')
     output_dir = os.path.join(root, 'generated_combined_parquet')
 
     print(f"Data directory: {root}")
@@ -90,8 +90,11 @@ def load_data():
     # Load reference data
     ticker_map = pd.read_parquet(f"{root}/ticker_to_cusip.parquet")
     prices = pd.read_parquet(f"{root}/ticker_prices.parquet")
-    ticker_map["cusip"] = ticker_map["cusip"].astype(str)
-    prices["period_start"] = pd.to_datetime(prices["period_start"])
+    ticker_map.columns = [c.upper() for c in ticker_map.columns]
+    prices.columns = [c.upper() for c in prices.columns]
+
+    ticker_map["CUSIP"] = ticker_map["CUSIP"].astype(str) 
+    prices["PERIOD_START"] = pd.to_datetime(prices["PERIOD_START"])
 
     print(f"✓ Ticker map: {ticker_map.shape}")
     print(f"✓ Prices: {prices.shape}")
@@ -102,7 +105,7 @@ def load_data():
     print("=" * 80)
 
     combined_files = sorted([f for f in os.listdir(output_dir) 
-                            if f.startswith('holdings_processed_') and f.endswith('.parquet')])
+                            if f.startswith('holdings_filtered_new_period_start_') and f.endswith('.parquet')])
 
     if not combined_files:
         print("ERROR: No processed files found. Check output_dir path.")
@@ -111,23 +114,56 @@ def load_data():
     all_dfs = []
     for file in combined_files:
         df_temp = pd.read_parquet(os.path.join(output_dir, file))
+        
+        # זיהוי עמודת התאריך וחילוץ שנה ורבעון (תוקן לשמות העמודות בקבצים שלך)
+        date_col = 'period_start' if 'period_start' in df_temp.columns else 'PERIOD_DATE'
+        
+        if date_col in df_temp.columns:
+            df_temp[date_col] = pd.to_datetime(df_temp[date_col])
+            df_temp['YEAR'] = df_temp[date_col].dt.year
+            df_temp['QUARTER'] = 'Q' + df_temp[date_col].dt.quarter.astype(str)
+        else:
+            # אם אין עמודת תאריך, ננסה לחלץ משם הקובץ (למשל: 2013-04-01)
+            date_match = re.search(r'(\d{4})-\d{2}-\d{2}', file)
+            if date_match:
+                year_val = int(date_match.group(1))
+                df_temp['YEAR'] = year_val
+                # לוגיקה בסיסית לקביעת רבעון לפי חודש (אם קיים בשם הקובץ)
+                month_match = re.search(r'\d{4}-(\d{2})-\d{2}', file)
+                month_val = int(month_match.group(1)) if month_match else 1
+                df_temp['QUARTER'] = f"Q{(month_val-1)//3 + 1}"
+            else:
+                print(f"  ⚠ Warning: Could not find date for {file}, skipping.")
+                continue
+
         year = df_temp['YEAR'].iloc[0]
         quarter_str = df_temp['QUARTER'].iloc[0]
-        print(f"  ✓ Loaded {file}: {len(df_temp):,} records ({quarter_str})")
+        print(f"  ✓ Loaded {file}: {len(df_temp):,} records ({year} {quarter_str})")
         all_dfs.append(df_temp)
     
     data = pd.concat(all_dfs, ignore_index=True)
+
+    
+    # 2. תיקון קריטי: הפיכת כל שמות העמודות לאותיות גדולות
+    # זה יפתור את הבעיה ש-cik הופך ל-CIK ו-cusip ל-CUSIP
+    data.columns = [c.upper() for c in data.columns]
+    data = data.loc[:, ~data.columns.duplicated()]
+    data = data.reset_index(drop=True)
+    
+    # 3. התאמת שם עמודת התאריך אם היא נקראה period_start (עכשיו PERIOD_START)
+    if 'PERIOD_START' in data.columns:
+        data = data.rename(columns={'PERIOD_START': 'PERIOD_DATE'})
+    
+    # 4. המרה לפורמט תאריך
     data['PERIOD_DATE'] = pd.to_datetime(data['PERIOD_DATE'])
     
-    # Filter to 2021-2024 ONLY
-    data = data[(data['YEAR'] >= 2021) & (data['YEAR'] <= 2024)].copy()
+    # 5. יצירת עמודת VALUE במידה והיא חסרה (נשתמש בכמות המניות כמשקל)
+    if 'VALUE' not in data.columns and 'SSHPRNAMT' in data.columns:
+        data['VALUE'] = data['SSHPRNAMT']
     
-    print(f"\n{'─' * 80}")
-    print(f"Total records (2021-2024): {len(data):,}")
-    print(f"Date range: {data['PERIOD_DATE'].min()} to {data['PERIOD_DATE'].max()}")
-    print(f"Years: {sorted(data['YEAR'].unique())}")
-    print(f"Unique funds (CIK): {data['CIK'].nunique():,}")
-    print(f"Unique stocks (CUSIP): {data['CUSIP'].nunique():,}")
+    # 6. סינון שנים (וודא שטווח השנים מתאים לנתונים שלך!)
+    # אם הנתונים שלך מתחילים ב-2013, אולי כדאי לשנות כאן ל-2013
+    data = data[(data['YEAR'] >= 2022) & (data['YEAR'] <= 2024)].copy()
     
     return data
 
@@ -152,7 +188,16 @@ def build_quarterly_graphs(data):
     
     # Group by YEAR and extract quarter from QUARTER column
     for (year, quarter_str), group in data.groupby(['YEAR', 'QUARTER']):
-        quarter = int(quarter_str.split('_')[0][1])  # Extract Q number from "Q1_2020"
+        if isinstance(quarter_str, str):
+            if '_' in quarter_str:
+                quarter = int(quarter_str.split('_')[0][1])
+            elif quarter_str.startswith('Q'):
+                quarter = int(quarter_str[1])
+            else:
+                quarter = int(quarter_str)
+        else:
+            # אם זה כבר מספר (int64) כפי שמופיע בשגיאה
+            quarter = int(quarter_str)
         
         funds = group['CIK'].unique()
         stocks = group['CUSIP'].unique()
@@ -1026,7 +1071,71 @@ def save_inference_model(models_dir='temporal_models', results_dir='results', ou
     
     return output_path
 
+def export_all_predictions_to_csv(models_dir='results/temporal_models', output_path='results/all_predictions_scores.csv', threshold=0.1):
+    """
+    מחלצת ציוני חיזוי מכל המודלים, מחברת נתוני מניות (Name, Ticker) ושומרת ל-CSV באותיות גדולות.
+    """
+    import os
+    import pandas as pd
+    
+    # 1. הגדרת נתיב וטעינת ה-Ticker Map (באותו פורמט של load_data בסקריפט)
+    personal_dir = os.path.expanduser('~')
+    root = os.path.join(personal_dir, 'Social-Network-Stock-Market/SocialNetwork/parquet_files')
+    
+    try:
+        ticker_map = pd.read_parquet(os.path.join(root, "ticker_to_cusip.parquet"))
+        # הפיכת עמודות המפה לאותיות גדולות לאחידות
+        ticker_map.columns = [c.upper() for c in ticker_map.columns]
+    except Exception as e:
+        print(f"⚠ Warning: Could not load ticker_map for join: {e}")
+        ticker_map = None
 
+    model_files = sorted([f for f in os.listdir(models_dir) if f.endswith('.pkl')])
+    if not model_files:
+        print(f"No models found in: {models_dir}")
+        return
+
+    all_rows = []
+    for model_file in model_files:
+        print(f"Processing scores for: {model_file}...")
+        predictor = NodeConnectionPredictor(os.path.join(models_dir, model_file))
+        test_q = f"{predictor.test_quarter[0]}Q{predictor.test_quarter[1]}"
+        
+        for fund_id in predictor.funds_train:
+            preds = predictor.predict_connections(fund_id, node_type='fund', top_k=None)
+            if preds['found']:
+                for stock_id, score in preds['all_predictions']:
+                    if score >= threshold:
+                        all_rows.append({
+                            'TEST_QUARTER': test_q,
+                            'FUND_CIK': fund_id,
+                            'STOCK_CUSIP': stock_id,
+                            'PREDICTION_SCORE': round(score, 4)
+                        })
+    
+    if not all_rows:
+        print("No predictions found above threshold.")
+        return
+
+    df_results = pd.DataFrame(all_rows)
+
+    # 2. ביצוע ה-JOIN (שימוש ב-STOCK_CUSIP מול CUSIP של המפה)
+    if ticker_map is not None:
+        # אנחנו מוודאים שגם העמודות שאנחנו מוסיפים הן ב-Uppercase
+        df_results = df_results.merge(
+            ticker_map[['CUSIP', 'NAME', 'TICKER']], 
+            left_on='STOCK_CUSIP', 
+            right_on='CUSIP', 
+            how='left'
+        )
+        # הסרת העמודה הכפולה CUSIP (כי יש לנו STOCK_CUSIP)
+        if 'CUSIP' in df_results.columns:
+            df_results = df_results.drop(columns=['CUSIP'])
+    
+    # 3. שמירה סופית
+    df_results.to_csv(output_path, index=False)
+    print(f"✓ Success! Detailed report saved to: {output_path}")
+    print(f"Total prediction records: {len(df_results):,}")
 # ============================================================================
 # MAIN EXECUTION
 # ============================================================================
@@ -1058,6 +1167,11 @@ if __name__ == "__main__":
         # Run temporal link prediction - saves to results/ folder
         results_df, models_dir, results_dir = run_temporal_link_prediction(quarterly_graphs, train_window=3, test_offset=1, results_dir='results')
         
+        export_all_predictions_to_csv(
+            models_dir=models_dir, 
+            output_path=os.path.join(results_dir, 'final_scores_report.csv'), 
+            threshold=0.2
+        )
         # ====================================================================
         # INFERENCE: NODE CONNECTION PREDICTION
         # ====================================================================
