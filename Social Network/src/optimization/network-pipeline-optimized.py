@@ -2,7 +2,7 @@
 Stock Market Social Network - Temporal Link Prediction Pipeline (OPTIMIZED)
 
 Build quarterly bipartite graphs of fund-stock holdings and perform temporal link prediction 
-using sliding windows (2021-2024).
+using sliding windows (2023-2025).
 
 Key Features:
 - Load holdings data 2021-2024 only
@@ -191,6 +191,13 @@ class HoldingsDataLayer:
             ])
             src_np = agg["CIK_ID"].to_numpy()
             dst_np = agg["CUSIP_ID"].to_numpy()
+            
+            # Extract Polars Series to numpy arrays (FIX: Polars Series don't have .values)
+            freq_np = agg["frequency"].to_numpy().astype(np.float32)
+            duration_np = agg["duration"].to_numpy().astype(np.float32)
+            mean_value_np = agg["mean_value"].to_numpy().astype(np.float32)
+            std_value_np = agg["std_value"].to_numpy().astype(np.float32)
+            last_value_np = agg["last_value"].to_numpy().astype(np.float32)
         else:
             agg = combined.groupby(["CIK_ID", "CUSIP_ID"]).agg({
                 "q_idx": ["min", "max"],
@@ -205,17 +212,24 @@ class HoldingsDataLayer:
             agg["last_value"] = agg["last_value"].fillna(0.0)
             src_np = agg["CIK_ID"].values
             dst_np = agg["CUSIP_ID"].values
+            
+            # Extract Pandas Series to numpy arrays
+            freq_np = agg["frequency"].values.astype(np.float32)
+            duration_np = agg["duration"].values.astype(np.float32)
+            mean_value_np = agg["mean_value"].values.astype(np.float32)
+            std_value_np = agg["std_value"].values.astype(np.float32)
+            last_value_np = agg["last_value"].values.astype(np.float32)
         
         src = torch.from_numpy(src_np.astype(np.int64)).to(self.device)
         dst = torch.from_numpy(dst_np.astype(np.int64)).to(self.device)
         
         # Temporal features: [frequency, duration, mean_value, std_value, last_value]
         feats = np.stack([
-            agg["frequency"].values.astype(np.float32) if hasattr(agg["frequency"], "values") else agg["frequency"],
-            agg["duration"].values.astype(np.float32) if hasattr(agg["duration"], "values") else agg["duration"],
-            agg["mean_value"].values.astype(np.float32) if hasattr(agg["mean_value"], "values") else agg["mean_value"],
-            agg["std_value"].values.astype(np.float32) if hasattr(agg["std_value"], "values") else agg["std_value"],
-            agg["last_value"].values.astype(np.float32) if hasattr(agg["last_value"], "values") else agg["last_value"],
+            freq_np,
+            duration_np,
+            mean_value_np,
+            std_value_np,
+            last_value_np,
         ], axis=1)
         
         # Log-compress heavy-tailed VALUE columns to prevent numerical instability
@@ -472,7 +486,7 @@ def load_data():
     
     # Load all processed quarterly holdings files
     print("=" * 80)
-    print("Loading quarterly holdings data (2021-2024)...")
+    print("Loading quarterly holdings data (2023-2025)...")
     print("=" * 80)
     
     combined_files = sorted([f for f in os.listdir(output_dir)
@@ -525,8 +539,8 @@ def load_data():
     if 'VALUE' not in data.columns and 'SSHPRNAMT' in data.columns:
         data['VALUE'] = data['SSHPRNAMT']
     
-    # Filter to 2021-2024 (compatible with original)
-    data = data[(data['YEAR'] >= 2021) & (data['YEAR'] <= 2024)].copy()
+    # Filter to 2023-2025 range for valid quarters
+    data = data[(data['YEAR'] >= 2023) & (data['YEAR'] <= 2025)].copy()
     
     # Create global CIK_ID and CUSIP_ID mapping
     print("\nCreating global node IDs...")
@@ -615,7 +629,7 @@ class NodeConnectionPredictor:
 # ============================================================================
 
 def run_temporal_link_prediction(data, n_funds, n_stocks, train_window=3, test_offset=1, 
-                                 results_dir='results', epochs_per_window=30):
+                                 results_dir='results_optimized/', epochs_per_window=30):
     """
     Run temporal link prediction with sliding window evaluation.
     
@@ -773,7 +787,7 @@ if __name__ == "__main__":
         data, n_funds, n_stocks,
         train_window=3,
         test_offset=1,
-        results_dir='results',
+        results_dir='results_optimized/',
         epochs_per_window=30
     )
     
