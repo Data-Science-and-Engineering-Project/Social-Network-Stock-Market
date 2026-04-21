@@ -16,6 +16,7 @@ from ETL.gnn_db_pipeline.steps import (
     step4_normalized_holdings,
     step5_cik_aum,
     step6_changed_holdings,
+    step8_changed_stas,
 )
 
 
@@ -82,6 +83,7 @@ class GNNDBPipeline:
                 step5_cik_aum.run(quarter_filter=q)
 
             step6_changed_holdings.run()
+            step8_changed_stas.run()
 
             self.logger.info("\n" + "=" * 80)
             self.logger.info("GNN PIPELINE COMPLETED SUCCESSFULLY")

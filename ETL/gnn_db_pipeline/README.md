@@ -8,11 +8,14 @@ Transforms the `Social_13F` database into `13FGNN`, a clean, GNN-ready database 
 # Full pipeline (all quarters)
 ./venv/Scripts/python.exe -m ETL.gnn_db_pipeline.run_pipeline
 
-# Single-quarter test (re-runs steps 4+5 for that quarter only; step3, step6 still run end-to-end)
+# Single-quarter test (re-runs steps 4+5 for that quarter only; step3, step6, step8 still run end-to-end)
 ./venv/Scripts/python.exe -m ETL.gnn_db_pipeline.run_pipeline --test-quarter 2017_Q3
 
 # Step 6 only, once steps 1–5 are already populated
 ./venv/Scripts/python.exe -c "from ETL.gnn_db_pipeline.steps import step6_changed_holdings; step6_changed_holdings.run()"
+
+# Step 8 only, once steps 1–6 (and stocks_return) are already populated
+./venv/Scripts/python.exe -c "from ETL.gnn_db_pipeline.steps import step8_changed_stas; step8_changed_stas.run()"
 
 # Step 6 sanity test on a single pair (2018_Q2 -> 2018_Q3, writes to changed_holdings_test)
 ./venv/Scripts/python.exe -m ETL.gnn_db_pipeline.test_2018_q2_q3
@@ -34,7 +37,8 @@ ETL/gnn_db_pipeline/
     ├── step3_stocks_return.py         # Build stocks_return (price_t / price_{t-1})
     ├── step4_normalized_holdings.py   # Build normalized_holdings (weights + raw shares + price)
     ├── step5_cik_aum.py               # Build cik_aum (sum position values)
-    └── step6_changed_holdings.py      # Build changed_holdings (3 delta columns)
+    ├── step6_changed_holdings.py      # Build changed_holdings (3 delta columns)
+    └── step8_changed_stas.py          # changed_stas quarterly stats + log_return tertiles
 ```
 
 ## Pipeline Stages
@@ -47,6 +51,7 @@ ETL/gnn_db_pipeline/
 | 4 | `step4_normalized_holdings` | yes | `normalized_holdings` | Per-position weights + raw shares/price |
 | 5 | `step5_cik_aum` | yes | `cik_aum` | Per-fund total portfolio value per quarter |
 | 6 | `step6_changed_holdings` | no | `changed_holdings` | Three per-position deltas between consecutive quarters |
+| 8 | `step8_changed_stas` | no | `changed_stas` | One row per `(year, quarter)`: degree/count/delta stats on `changed_holdings`; tertiles of `stocks_return.log_return` |
 
 Per-quarter steps run once per `(year, quarter)` tuple; `pipeline.py` discovers them from the source `holdings_filtered_new` table. The non-per-quarter steps run exactly once.
 
@@ -60,7 +65,7 @@ step1  ->  step2  ->  step3
             for each (year, quarter):
                 step4  ->  step5
                         ↓
-                      step6
+                      step6  ->  step8
 ```
 
 ## Table Schemas
@@ -72,6 +77,7 @@ step1  ->  step2  ->  step3
 | year | SMALLINT | curr quarter |
 | quarter | SMALLINT | curr quarter |
 | return | DOUBLE PRECISION | `price_t / price_{t-1}` |
+| log_return | DOUBLE PRECISION | `LN(return)` when `return > 0`, else NULL (refreshed in step 8) |
 
 One row per `(cusip, year, quarter)` for every quarter *except* the first one per cusip (no prior price to compare to).
 
@@ -104,6 +110,21 @@ One row per `(cusip, year, quarter)` for every quarter *except* the first one pe
 | change_in_shares | BIGINT | `shares_t − shares_{t-1}` |
 | change_in_weight | DOUBLE PRECISION | `w_t − w_{t-1}` |
 | change_in_adjusted_weight | DOUBLE PRECISION | `w_t × (AUM_t / AUM_{t-1}) − w_{t-1}` |
+
+### `changed_stas`
+| Column | Type | Notes |
+|---|---|---|
+| year | SMALLINT | |
+| quarter | SMALLINT | |
+| avg_degree_in_cusip | DOUBLE PRECISION | mean distinct CIK count per cusip in `changed_holdings` for that quarter |
+| avg_degree_out_cik | DOUBLE PRECISION | mean distinct cusip count per CIK |
+| num_cusip | BIGINT | distinct cusips |
+| num_cik | BIGINT | distinct CIKs |
+| avg_change_in_shares | DOUBLE PRECISION | mean `change_in_shares` |
+| avg_change_in_weight | DOUBLE PRECISION | mean `change_in_weight` |
+| avg_change_in_adjusted_weight | DOUBLE PRECISION | mean `change_in_adjusted_weight` |
+| log_return_tertile_1 | DOUBLE PRECISION | 1/3 quantile of `stocks_return.log_return` for that quarter |
+| log_return_tertile_2 | DOUBLE PRECISION | 2/3 quantile |
 
 ## Step 6 — Per-CIK Loop with Sliding 2-Quarter Window
 

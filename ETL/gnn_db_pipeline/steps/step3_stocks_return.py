@@ -2,7 +2,8 @@
 
 Schema:
     cusip TEXT, year SMALLINT, quarter SMALLINT,
-    return DOUBLE PRECISION
+    return DOUBLE PRECISION,
+    log_return DOUBLE PRECISION  -- ln(return) where return > 0, else NULL
 """
 
 import pandas as pd
@@ -81,10 +82,16 @@ def run():
         ).with_columns(
             (pl.col("price") / pl.col("price_prev")).alias("return")
         )
-        # First quarter per cusip has null return — drop it
+        # First quarter per cusip has null return — drop it; ln(return) only where return > 0
         pdf = (
             pdf.filter(pl.col("return").is_not_null())
-            .select("cusip", "year", "quarter", "return")
+            .with_columns(
+                pl.when(pl.col("return") > 0)
+                .then(pl.col("return").log())
+                .otherwise(pl.lit(None))
+                .alias("log_return")
+            )
+            .select("cusip", "year", "quarter", "return", "log_return")
         )
         result = pdf.to_pandas()
         logger.info(f"Final stocks_return: {len(result)} rows")
@@ -97,7 +104,8 @@ def run():
                 cusip TEXT,
                 year SMALLINT,
                 quarter SMALLINT,
-                "return" DOUBLE PRECISION
+                "return" DOUBLE PRECISION,
+                log_return DOUBLE PRECISION
             )
         """)
 
