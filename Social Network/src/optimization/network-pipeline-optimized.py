@@ -199,17 +199,35 @@ class HoldingsDataLayer:
             std_value_np = agg["std_value"].to_numpy().astype(np.float32)
             last_value_np = agg["last_value"].to_numpy().astype(np.float32)
         else:
-            agg = combined.groupby(["CIK_ID", "CUSIP_ID"]).agg({
+            # Pandas path: handle grouped aggregations properly
+            agg_dict = combined.groupby(["CIK_ID", "CUSIP_ID"]).agg({
                 "q_idx": ["min", "max"],
                 "VALUE": ["mean", "std", "last"]
             }).reset_index()
-            agg.columns = ["CIK_ID", "CUSIP_ID", "q_idx_min", "q_idx_max", 
-                          "mean_value", "std_value", "last_value"]
-            agg["frequency"] = combined.groupby(["CIK_ID", "CUSIP_ID"]).size().values
+            
+            # Flatten multi-level columns from aggregation
+            agg_dict.columns = ["_".join(col).strip("_") if col[1] else col[0] 
+                               for col in agg_dict.columns.values]
+            
+            # Rename to our standard names
+            agg_dict = agg_dict.rename(columns={
+                "q_idx_min": "q_idx_min",
+                "q_idx_max": "q_idx_max",
+                "VALUE_mean": "mean_value",
+                "VALUE_std": "std_value",
+                "VALUE_last": "last_value",
+            })
+            
+            # Add frequency by re-grouping (order-preserving)
+            freq_dict = combined.groupby(["CIK_ID", "CUSIP_ID"]).size().reset_index(name="frequency")
+            agg = agg_dict.merge(freq_dict, on=["CIK_ID", "CUSIP_ID"], how="left")
+            
+            # Calculate duration and fill NaNs
             agg["duration"] = agg["q_idx_max"] - agg["q_idx_min"] + 1
             agg["mean_value"] = agg["mean_value"].fillna(0.0)
             agg["std_value"] = agg["std_value"].fillna(0.0)
             agg["last_value"] = agg["last_value"].fillna(0.0)
+            
             src_np = agg["CIK_ID"].values
             dst_np = agg["CUSIP_ID"].values
             
@@ -628,7 +646,112 @@ class NodeConnectionPredictor:
 # 7. TEMPORAL LINK PREDICTION PIPELINE
 # ============================================================================
 
-def run_temporal_link_prediction(data, n_funds, n_stocks, train_window=3, test_offset=1, 
+# ============================================================================
+# 7. TEMPORAL LINK PREDICTION PIPELINE
+# ============================================================================
+
+def export_all_predictions_to_csv(models_dir='results_optimized/temporal_models', output_path='results_optimized/all_predictions_scores.csv', threshold=0.1):
+    """
+    Extract prediction scores from all trained models, join with stock metadata (Name, Ticker), and save to CSV.
+    """
+    import os
+    import pandas as pd
+    
+    # 1. Setup path and load Ticker Map (same format as load_data)
+    personal_dir = os.path.expanduser('~')
+    root = os.path.join(personal_dir, 'Social-Network-Stock-Market/SocialNetwork/parquet_files')
+    
+    try:
+        ticker_map = pd.read_parquet(os.path.join(root, "ticker_to_cusip.parquet"))
+        # Uppercase all columns for consistency
+        ticker_map.columns = [c.upper() for c in ticker_map.columns]
+    except Exception as e:
+        print(f"⚠ Warning: Could not load ticker_map for join: {e}")
+        ticker_map = None
+
+    model_files = sorted([f for f in os.listdir(models_dir) if f.endswith('.pkl')])
+    if not model_files:
+        print(f"No models found in: {models_dir}")
+        return
+
+    all_rows = []
+    for model_file in model_files:
+        print(f"Processing scores for: {model_file}...")
+        model_path = os.path.join(models_dir, model_file)
+        
+        try:
+            with open(model_path, 'rb') as f:
+                model_data = pickle.load(f)
+            
+            # Extract model info
+            embeddings = torch.from_numpy(model_data['embeddings']).to(device)
+            n_funds = model_data['n_funds']
+            n_stocks = model_data['n_stocks']
+            test_quarter = model_data['test_quarter']
+            test_q = f"{test_quarter[0]}Q{test_quarter[1]}"
+            
+            # Get the trained model
+            model = model_data['model'].to(device)
+            model.eval()
+            
+            # Create dummy edge_index for scoring (we just need node embeddings)
+            dummy_edges = torch.zeros((2, 1), dtype=torch.long, device=device)
+            
+            with torch.no_grad():
+                z = model.forward(dummy_edges) if hasattr(embeddings, 'shape') else embeddings
+            
+            # Score all fund-stock pairs
+            for fund_id in range(n_funds):
+                for stock_id in range(n_stocks):
+                    if hasattr(z, 'cpu'):
+                        fund_emb = z[fund_id]
+                        stock_emb = z[n_funds + stock_id]
+                        score = torch.sigmoid((fund_emb * stock_emb).sum()).item()
+                    else:
+                        fund_emb = embeddings[fund_id]
+                        stock_emb = embeddings[n_funds + stock_id]
+                        score = float(np.tanh(np.dot(fund_emb, stock_emb)))
+                    
+                    if score >= threshold:
+                        all_rows.append({
+                            'TEST_QUARTER': test_q,
+                            'FUND_CIK': fund_id,
+                            'STOCK_CUSIP': stock_id,
+                            'PREDICTION_SCORE': round(float(score), 4)
+                        })
+        
+        except Exception as e:
+            print(f"  ⚠ Error processing {model_file}: {e}")
+            continue
+    
+    if not all_rows:
+        print("No predictions found above threshold.")
+        return
+
+    df_results = pd.DataFrame(all_rows)
+
+    # 2. Join with ticker metadata (STOCK_CUSIP → CUSIP)
+    if ticker_map is not None:
+        df_results = df_results.merge(
+            ticker_map[['CUSIP', 'NAME', 'TICKER']], 
+            left_on='STOCK_CUSIP', 
+            right_on='CUSIP', 
+            how='left'
+        )
+        # Remove duplicate CUSIP column
+        if 'CUSIP' in df_results.columns:
+            df_results = df_results.drop(columns=['CUSIP'])
+    
+    # 3. Save to CSV
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    df_results.to_csv(output_path, index=False)
+    print(f"✓ Success! Detailed report saved to: {output_path}")
+    print(f"Total prediction records: {len(df_results):,}")
+    
+    return df_results
+
+
+def run_temporal_link_prediction(data, n_funds, n_stocks, train_window_size=3, test_offset=1, 
                                  results_dir='results_optimized/', epochs_per_window=30):
     """
     Run temporal link prediction with sliding window evaluation.
@@ -636,7 +759,7 @@ def run_temporal_link_prediction(data, n_funds, n_stocks, train_window=3, test_o
     Args:
         data: DataFrame from load_data()
         n_funds, n_stocks: Global node counts
-        train_window: Quarters for training
+        train_window_size: Quarters for training (renamed to avoid shadowing train_window function)
         test_offset: Offset to test quarter
         results_dir: Directory for saving models/results
         epochs_per_window: Training epochs per window
@@ -647,7 +770,7 @@ def run_temporal_link_prediction(data, n_funds, n_stocks, train_window=3, test_o
     
     print("=" * 100)
     print(f"TEMPORAL LINK PREDICTION: SLIDING WINDOW EVALUATION")
-    print(f"Train window: {train_window} quarters | Test offset: {test_offset} quarter(s)")
+    print(f"Train window: {train_window_size} quarters | Test offset: {test_offset} quarter(s)")
     print("=" * 100)
     
     os.makedirs(results_dir, exist_ok=True)
@@ -664,10 +787,11 @@ def run_temporal_link_prediction(data, n_funds, n_stocks, train_window=3, test_o
     results_per_window = []
     
     for window_idx, (train_quarters, test_quarter) in enumerate(
-        get_sliding_window_splits(quarters, train_window=train_window, test_offset=test_offset)
+        get_sliding_window_splits(quarters, train_window=train_window_size, test_offset=test_offset)
     ):
         test_year, test_q = test_quarter
         train_label = ' → '.join([f"{y}Q{q}" for y, q in train_quarters])
+        transfer_learned = window_idx > 0  # Track if using transfer learning
         
         print(f"\n{'─' * 100}")
         print(f"WINDOW {window_idx + 1} | TEST: {test_year}Q{test_q}")
@@ -714,20 +838,23 @@ def run_temporal_link_prediction(data, n_funds, n_stocks, train_window=3, test_o
             model = model.to(device)  # Move back to device
             print(f"  ✓ Model saved: {model_name}")
             
-            # Record results
+            # Record results (MATCHING ORIGINAL CSV FORMAT)
             results_per_window.append({
                 'window': window_idx + 1,
                 'train_quarters': train_label,
                 'test_year': test_year,
                 'test_quarter': test_q,
+                'transfer_learned': transfer_learned,
                 'auc': metrics['auc'],
                 'precision': metrics['precision'],
                 'recall': metrics['recall'],
-                'n_new_links': metrics['n_new_links'],
             })
         
         except Exception as e:
+            import traceback
             print(f"  ✗ Error: {str(e)}")
+            print(f"  Full traceback:")
+            traceback.print_exc()
             continue
     
     # Summary
@@ -785,7 +912,7 @@ if __name__ == "__main__":
     print("\n[STEP 2] Running temporal link prediction...")
     results_df, models_dir, results_dir = run_temporal_link_prediction(
         data, n_funds, n_stocks,
-        train_window=3,
+        train_window_size=3,
         test_offset=1,
         results_dir='results_optimized/',
         epochs_per_window=30
@@ -794,3 +921,13 @@ if __name__ == "__main__":
     print("\n[STEP 3] Pipeline complete!")
     print(f"  Models: {models_dir}")
     print(f"  Results: {results_dir}")
+    
+    # Export all predictions to CSV
+    if results_dir:
+        print("\n[STEP 4] Exporting all predictions to CSV...")
+        export_path = os.path.join(results_dir, 'all_predictions_scores.csv')
+        export_all_predictions_to_csv(
+            models_dir=models_dir,
+            output_path=export_path,
+            threshold=0.2
+        )

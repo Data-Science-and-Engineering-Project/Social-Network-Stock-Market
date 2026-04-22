@@ -161,9 +161,10 @@ def load_data():
     if 'VALUE' not in data.columns and 'SSHPRNAMT' in data.columns:
         data['VALUE'] = data['SSHPRNAMT']
     
-    # 6. סינון שנים (וודא שטווח השנים מתאים לנתונים שלך!)
-    # אם הנתונים שלך מתחילים ב-2013, אולי כדאי לשנות כאן ל-2013
-    data = data[(data['YEAR'] >= 2022) & (data['YEAR'] <= 2024)].copy()
+    # 6. סינון שנים ורבעונים (התחלה מרבעון 3 של 2023)
+    data['quarter_num'] = data['QUARTER'].astype(str).str.replace('Q', '').astype(int)
+    data = data[((data['YEAR'] > 2023) | ((data['YEAR'] == 2023) & (data['quarter_num'] >= 3)))].copy()
+    data = data.drop('quarter_num', axis=1)
     
     return data
 

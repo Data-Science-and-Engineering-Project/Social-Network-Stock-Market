@@ -13,9 +13,9 @@
 
 # ביטלנו את ה-GPU כדי למנוע את הודעות ה-Idle שקיבלת
 # במקום זה, ביקשנו יותר ליבות (CPU) כדי להאיץ את חישובי המרכזיות (Step 2)
-#SBATCH --cpus-per-task=16
-#SBATCH --mem=64G
-#SBATCH --time=12:00:00
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=32G
+#SBATCH --time=48:00:00
 
 # הגדרות אימייל
 #SBATCH --mail-type=END,FAIL
