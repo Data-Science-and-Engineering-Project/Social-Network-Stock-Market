@@ -1081,7 +1081,7 @@ def save_inference_model(models_dir='temporal_models', results_dir='results', ou
 
 def export_all_predictions_to_csv(models_dir='results/temporal_models', output_path='results/all_predictions_scores.csv', threshold=0.1):
     """
-    מחלצת ציוני חיזוי מכל המודלים, מחברת נתוני מניות (Name, Ticker) ושומרת ל-CSV באותיות גדולות.
+    מחלצת ציוני חיזוי מכל המודלים, מחברת נתוני מניות (Name, Ticker) ושומרת ל-CSV וגם ל-Parquet באותיות גדולות.
     """
     import os
     import pandas as pd
@@ -1140,9 +1140,15 @@ def export_all_predictions_to_csv(models_dir='results/temporal_models', output_p
         if 'CUSIP' in df_results.columns:
             df_results = df_results.drop(columns=['CUSIP'])
     
-    # 3. שמירה סופית
+    # 3. שמירה סופית - CSV וגם Parquet
     df_results.to_csv(output_path, index=False)
-    print(f"✓ Success! Detailed report saved to: {output_path}")
+    print(f"✓ CSV saved to: {output_path}")
+    
+    # שמירה ל-Parquet (החלפת .csv ב-.parquet בשם הקובץ)
+    parquet_path = output_path.replace('.csv', '.parquet')
+    df_results.to_parquet(parquet_path, index=False, compression='snappy')
+    print(f"✓ Parquet saved to: {parquet_path}")
+    
     print(f"Total prediction records: {len(df_results):,}")
 # ============================================================================
 # MAIN EXECUTION
