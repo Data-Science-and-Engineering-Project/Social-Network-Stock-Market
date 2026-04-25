@@ -37,6 +37,7 @@ import leidenalg as la
 # ML libraries
 from sklearn.metrics import roc_auc_score, precision_score, recall_score
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.preprocessing import MinMaxScaler
 import lightgbm as lgb
 import joblib
 
@@ -162,9 +163,10 @@ def load_data():
         data['VALUE'] = data['SSHPRNAMT']
     
     # 6. סינון שנים ורבעונים (התחלה מרבעון 3 של 2023)
-    data['quarter_num'] = data['QUARTER'].astype(str).str.replace('Q', '').astype(int)
-    data = data[((data['YEAR'] > 2023) | ((data['YEAR'] == 2023) & (data['quarter_num'] >= 3)))].copy()
-    data = data.drop('quarter_num', axis=1)
+    # data['quarter_num'] = data['QUARTER'].astype(str).str.replace('Q', '').astype(int)
+    # data = data[((data['YEAR'] > 2023) | ((data['YEAR'] == 2023) & (data['quarter_num'] >= 3)))].copy()
+    # data = data.drop('quarter_num', axis=1)
+    data = data[data['YEAR'] == 2023].copy()
     
     return data
 
@@ -203,14 +205,26 @@ def build_quarterly_graphs(data):
         funds = group['CIK'].unique()
         stocks = group['CUSIP'].unique()
         
+        # Normalize edge weights to [0, 1] range for current quarter
+        value_min = group['VALUE'].min()
+        value_max = group['VALUE'].max()
+        value_range = value_max - value_min if value_max > value_min else 1.0
+        
+        amount_min = group['SSHPRNAMT'].min()
+        amount_max = group['SSHPRNAMT'].max()
+        amount_range = amount_max - amount_min if amount_max > amount_min else 1.0
+        
         # Build bipartite graph
         G_bip = nx.Graph()
         G_bip.add_nodes_from(funds, bipartite=0, node_type='fund')
         G_bip.add_nodes_from(stocks, bipartite=1, node_type='stock')
         
-        # Add edges with VALUE weight
+        # Add edges with NORMALIZED VALUE weights [0, 1]
         edges = [
-            (row.CIK, row.CUSIP, {'value': row.VALUE, 'amount': row.SSHPRNAMT})
+            (row.CIK, row.CUSIP, {
+                'value': (row.VALUE - value_min) / value_range,
+                'amount': (row.SSHPRNAMT - amount_min) / amount_range
+            })
             for row in group.itertuples(index=False)
         ]
         G_bip.add_edges_from(edges)
@@ -292,13 +306,14 @@ def compute_fund_features(G_bip, funds):
     """
     Compute topological features for funds from bipartite graph.
     Features computed only from G_bip (no future information).
+    All features are normalized to [0, 1] range.
     
     Args:
         G_bip: Bipartite graph (fund-stock holdings)
         funds: List of fund CIKs
     
     Returns:
-        DataFrame with features: degree, pagerank, hub, authority, closeness, community
+        DataFrame with normalized features: degree, pagerank, hub, authority, closeness, community
     """
     if len(funds) == 0:
         return pd.DataFrame()
@@ -320,32 +335,8 @@ def compute_fund_features(G_bip, funds):
         hubs = {f: 0 for f in funds}
         authorities = {f: 0 for f in funds}
     
-    # Closeness on largest component
-    closeness_cent = {}
-    if G_fund.number_of_nodes() > 0:
-        try:
-            comps = list(nx.connected_components(G_fund))
-            if comps:
-                largest_cc = max(comps, key=len)
-                closeness_cent = closeness_centrality(G_fund.subgraph(largest_cc))
-        except:
-            pass
-    
-    # Community detection (Leiden algorithm)
-    communities = {}
-    if G_fund.number_of_nodes() > 1:
-        try:
-            vertex_names = list(G_fund.nodes())
-            vertex_to_idx = {v: i for i, v in enumerate(vertex_names)}
-            edge_list = [(vertex_to_idx[u], vertex_to_idx[v]) for u, v in G_fund.edges()]
-            
-            if edge_list:
-                ig_G = ig.Graph(n=len(vertex_names), edges=edge_list)
-                ig_G.vs['_nx_name'] = vertex_names
-                partition = la.find_partition(ig_G, la.ModularityVertexPartition)
-                communities = {ig_G.vs[i]['_nx_name']: p for p, cl in enumerate(partition) for i in cl}
-        except:
-            communities = {f: 0 for f in funds}
+    closeness_cent = {f: 0 for f in funds}
+    communities = {f: -1 for f in funds}
     
     # Build feature dataframe
     fund_features = pd.DataFrame({
@@ -357,6 +348,11 @@ def compute_fund_features(G_bip, funds):
         'closeness': [closeness_cent.get(f, 0) for f in funds],
         'community': [communities.get(f, -1) for f in funds]
     }).set_index('fund')
+    
+    # Normalize all features to [0, 1] range
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    feature_cols = ['degree', 'pagerank', 'hub', 'authority', 'closeness', 'community']
+    fund_features[feature_cols] = scaler.fit_transform(fund_features[feature_cols])
     
     return fund_features
 
@@ -555,17 +551,28 @@ def create_link_prediction_features(G_bip_train, G_bip_test, embeddings_train,
             features.append(feat)
         return np.array(features) if features else np.zeros((0, fund_emb.shape[1] + stock_emb.shape[1] + 6))
     
-    X_train = np.vstack([
-        build_features(pos_edges_train),
-        build_features(neg_edges_train)
-    ])
-    y_train = np.hstack([np.ones(len(pos_edges_train)), np.zeros(len(neg_edges_train))])
+    X_train_pos = build_features(pos_edges_train)
+    X_train_neg = build_features(neg_edges_train)
+    X_test_pos = build_features(pos_edges_test)
+    X_test_neg = build_features(neg_edges_test)
     
-    X_test = np.vstack([
-        build_features(pos_edges_test),
-        build_features(neg_edges_test)
-    ])
-    y_test = np.hstack([np.ones(len(pos_edges_test)), np.zeros(len(neg_edges_test))])
+    # Combine train and test for global normalization
+    X_combined = np.vstack([X_train_pos, X_train_neg, X_test_pos, X_test_neg])
+    
+    # Normalize all features to [0, 1] range using MinMaxScaler
+    scaler = MinMaxScaler(feature_range=(0, 1))
+    X_combined_normalized = scaler.fit_transform(X_combined)
+    
+    # Split back into train/test
+    n_train_pos = len(X_train_pos)
+    n_train_neg = len(X_train_neg)
+    n_test_pos = len(X_test_pos)
+    
+    X_train = X_combined_normalized[:n_train_pos + n_train_neg]
+    X_test = X_combined_normalized[n_train_pos + n_train_neg:]
+    
+    y_train = np.hstack([np.ones(n_train_pos), np.zeros(n_train_neg)])
+    y_test = np.hstack([np.ones(n_test_pos), np.zeros(len(X_test_neg))])
     
     return X_train, y_train, X_test, y_test
 
