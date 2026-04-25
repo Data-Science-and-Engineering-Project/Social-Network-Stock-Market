@@ -5,8 +5,8 @@ from plotly.subplots import make_subplots
 import os
 
 # --- הגדרות נתיבים ---
-PARQUET_PATH = 
-OUTPUT_DIR = 
+PARQUET_PATH = "start"
+OUTPUT_DIR = "start"
 HTML_OUTPUT = os.path.join(OUTPUT_DIR, "model_insights_dashboard.html")
 
 def generate_dashboard():

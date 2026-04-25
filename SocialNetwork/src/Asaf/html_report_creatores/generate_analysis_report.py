@@ -25,8 +25,8 @@ from sklearn.preprocessing import MinMaxScaler
 # CONFIGURATION
 # ============================================================================
 
-PARQUET_PATH = 
-OUTPUT_DIR = 
+PARQUET_PATH = "start"
+OUTPUT_DIR = "start"
 HTML_FILENAME = "ds_analysis_report.html"
 
 # ============================================================================
