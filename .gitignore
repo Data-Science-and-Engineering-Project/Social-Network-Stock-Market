@@ -3,6 +3,8 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+parquet_for_cluster/
+.claude/
 # C extensions
 *.so
 files/*
