@@ -229,3 +229,4 @@ unique_cusips_by_year.sql
 ETL/gnn_db_pipeline/test_2017_q3.py
 ETL/gnn_db_pipeline/test_2018_q2_q3.py
 Notebooks/LightGCN/Untitled-1.json
+.idea/
