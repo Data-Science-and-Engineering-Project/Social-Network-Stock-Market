@@ -35,7 +35,7 @@ import igraph as ig
 import leidenalg as la
 
 # ML libraries
-from sklearn.metrics import roc_auc_score, precision_score, recall_score
+from sklearn.metrics import roc_auc_score, precision_score, recall_score, accuracy_score, f1_score
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
 import lightgbm as lgb
@@ -707,14 +707,19 @@ def run_temporal_link_prediction(quarterly_graphs, train_window=3, test_offset=1
             # 7. Evaluate
             print("  7. Evaluating...")
             y_pred = bst.predict(X_test)
+            y_pred_binary = (y_pred > 0.5).astype(int)
             
             auc = roc_auc_score(y_test, y_pred)
-            precision = precision_score(y_test, (y_pred > 0.5).astype(int), zero_division=0)
-            recall = recall_score(y_test, (y_pred > 0.5).astype(int), zero_division=0)
+            precision = precision_score(y_test, y_pred_binary, zero_division=0)
+            recall = recall_score(y_test, y_pred_binary, zero_division=0)
+            accuracy = accuracy_score(y_test, y_pred_binary)
+            f1 = f1_score(y_test, y_pred_binary, zero_division=0)
             
             print(f"\n     ✓ AUC:       {auc:.4f}")
             print(f"     ✓ Precision: {precision:.4f}")
             print(f"     ✓ Recall:    {recall:.4f}")
+            print(f"     ✓ Accuracy:  {accuracy:.4f}")
+            print(f"     ✓ F1-Score:  {f1:.4f}")
             
             # 8. Save models to pickle
             print("  8. Saving models to pickle...")
@@ -759,6 +764,8 @@ def run_temporal_link_prediction(quarterly_graphs, train_window=3, test_offset=1
                 'auc': auc,
                 'precision': precision,
                 'recall': recall,
+                'accuracy': accuracy,
+                'f1_score': f1,
                 'n_test_samples': X_test.shape[0],
                 'model_path': model_path,
                 'transfer_learned': window_idx > 0
@@ -778,13 +785,15 @@ def run_temporal_link_prediction(quarterly_graphs, train_window=3, test_offset=1
     if results_per_quarter:
         results_df = pd.DataFrame(results_per_quarter)
         print(f"\nResults across {len(results_df)} windows:\n")
-        display_cols = ['window', 'train_quarters', 'test_year', 'test_quarter', 'transfer_learned', 'auc', 'precision', 'recall']
+        display_cols = ['window', 'train_quarters', 'test_year', 'test_quarter', 'transfer_learned', 'auc', 'precision', 'recall', 'accuracy', 'f1_score']
         print(results_df[display_cols].to_string(index=False))
         
         print(f"\n\nAggregate Statistics:")
         print(f"  Average AUC:       {results_df['auc'].mean():.4f} (±{results_df['auc'].std():.4f})")
         print(f"  Average Precision: {results_df['precision'].mean():.4f} (±{results_df['precision'].std():.4f})")
         print(f"  Average Recall:    {results_df['recall'].mean():.4f} (±{results_df['recall'].std():.4f})")
+        print(f"  Average Accuracy:  {results_df['accuracy'].mean():.4f} (±{results_df['accuracy'].std():.4f})")
+        print(f"  Average F1-Score:  {results_df['f1_score'].mean():.4f} (±{results_df['f1_score'].std():.4f})")
         
         print(f"\n\nBy Year:")
         by_year = results_df.groupby('test_year')[['auc', 'precision', 'recall']].mean()
