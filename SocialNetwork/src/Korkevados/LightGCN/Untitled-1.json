@@ -1,0 +1,17 @@
+[
+  {
+    "metric": "number of records",
+    "befor_filtering": 97077677,
+    "after_filtering": 62799995
+  },
+  {
+    "metric": "number of unique CUSIPs",
+    "befor_filtering": 121498,
+    "after_filtering": 4570
+  },
+  {
+    "metric": "number of unique CIKs",
+    "befor_filtering": 11908,
+    "after_filtering": 11435
+  }
+]

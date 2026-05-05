@@ -436,3 +436,50 @@ class PostgresHandler(AbstractDBHandler):
 
         return len(df)
 
+    # ==================== QUERY OPERATIONS ====================
+
+    def query(self, sql: str, params: tuple = None) -> pd.DataFrame:
+        """
+        Execute a SQL query and return results as a DataFrame.
+        
+        Args:
+            sql: SQL query string
+            params: Optional tuple of parameters for parameterized queries
+            
+        Returns:
+            DataFrame with query results
+        """
+        if not self.connection:
+            self.connect()
+        
+        try:
+            return pd.read_sql_query(sql, self.connection, params=params)
+        except psycopg2.Error as e:
+            ETLLogger().error(f"Query failed: {str(e)}")
+            return pd.DataFrame()
+
+    def execute(self, sql: str, params: tuple = None) -> bool:
+        """
+        Execute a SQL statement (INSERT, UPDATE, DELETE, etc.).
+        
+        Args:
+            sql: SQL statement string
+            params: Optional tuple of parameters
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        if not self.connection:
+            self.connect()
+        
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(sql, params)
+            self.connection.commit()
+            cursor.close()
+            return True
+        except psycopg2.Error as e:
+            ETLLogger().error(f"Execute failed: {str(e)}")
+            if self.connection:
+                self.connection.rollback()
+            return False
