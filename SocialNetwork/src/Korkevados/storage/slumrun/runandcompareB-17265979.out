@@ -1,0 +1,147 @@
+------------------------------------
+Wed 29 Apr 2026 18:36:16 IDT
+SLURM_JOBID:		17265979
+SLURM_JOB_NODELIST:	cs-4090-04
+SLURM_SCRATCH_DIR:	/scratch/potashda/17265979
+Allocated Resouces:	cpu - 6 / mem - 49152 MB / gpu - 1
+SLURM_GPU_INDEX:	1
+Running as potashda from 4th-year-proj account with normal QOS
+------------------------------------
+==========================================================
+ host       : cs-4090-04.auth.ad.bgu.ac.il
+ gpu        : NVIDIA GeForce RTX 4090
+ conda env  : daniel_env
+ which py   : /home/potashda/.conda/envs/daniel_env/bin/python
+ explicit py: /home/potashda/.conda/envs/daniel_env/bin/python
+ python ver : 3.11.15
+ torch      : 2.6.0+cu124  cuda: True
+ pyg        : 2.7.0
+ pwd        : /home/potashda/13Fgnn/notebooks/slumrun
+ data       : /home/potashda/13Fgnn/data
+ out        : /home/potashda/13Fgnn
+ started    : Wed 29 Apr 2026 18:36:40 IDT
+==========================================================
+
+================== old_B.py — multiq_B sweep ==================
+  loaded changed_holdings               40,468,350 rows    7 cols
+  loaded stocks_return                     151,904 rows    5 cols
+  loaded cik_aum                           240,782 rows    4 cols
+  loaded normalized_holdings            60,846,790 rows    7 cols
+  loaded cusip_financial_data              147,283 rows   12 cols
+version    : old
+approaches : ['multiq_B']
+OUT_DIR    : /home/potashda/13Fgnn
+DATA_DIR   : /home/potashda/13Fgnn/data
+results    : /home/potashda/13Fgnn/notebooks/slumrun/results/old
+device     : cuda
+smoke      : False
+
+======================================================================
+  multiq_B  | edges_col=change_in_weight  | quarters=44  done=41  remaining=3
+======================================================================
+  ! GAT 2024Q2 failed: OutOfMemoryError: CUDA out of memory. Tried to allocate 6.48 GiB. GPU 0 has a total capacity of 23.52 GiB of which 6.09 GiB is free. Including non-PyTorch memory, this process has 17.42 GiB memory in use. Of the allocated memory 16.89 GiB is allocated by PyTorch, and 70.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 844, in run_approach
+    model = train_one(
+            ^^^^^^^^^^
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 526, in train_one
+    loss.backward()
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.48 GiB. GPU 0 has a total capacity of 23.52 GiB of which 6.09 GiB is free. Including non-PyTorch memory, this process has 17.42 GiB memory in use. Of the allocated memory 16.89 GiB is allocated by PyTorch, and 70.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [ 42/44] 2024Q2  SAGE=0.399  GAT=nan  ETA 2.4m
+  ! GAT 2024Q3 failed: OutOfMemoryError: CUDA out of memory. Tried to allocate 6.65 GiB. GPU 0 has a total capacity of 23.52 GiB of which 5.66 GiB is free. Including non-PyTorch memory, this process has 17.85 GiB memory in use. Of the allocated memory 17.33 GiB is allocated by PyTorch, and 51.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 844, in run_approach
+    model = train_one(
+            ^^^^^^^^^^
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 526, in train_one
+    loss.backward()
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.65 GiB. GPU 0 has a total capacity of 23.52 GiB of which 5.66 GiB is free. Including non-PyTorch memory, this process has 17.85 GiB memory in use. Of the allocated memory 17.33 GiB is allocated by PyTorch, and 51.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [ 43/44] 2024Q3  SAGE=0.382  GAT=nan  ETA 1.1m
+  ! GAT 2024Q4 failed: OutOfMemoryError: CUDA out of memory. Tried to allocate 6.82 GiB. GPU 0 has a total capacity of 23.52 GiB of which 5.23 GiB is free. Including non-PyTorch memory, this process has 18.28 GiB memory in use. Of the allocated memory 17.77 GiB is allocated by PyTorch, and 43.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 844, in run_approach
+    model = train_one(
+            ^^^^^^^^^^
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 526, in train_one
+    loss.backward()
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.82 GiB. GPU 0 has a total capacity of 23.52 GiB of which 5.23 GiB is free. Including non-PyTorch memory, this process has 18.28 GiB memory in use. Of the allocated memory 17.77 GiB is allocated by PyTorch, and 43.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [ 44/44] 2024Q4  SAGE=0.336  GAT=nan  ETA 0.0m
+  finished multiq_B / change_in_weight in 3.4 min
+
+======================================================================
+  multiq_B  | edges_col=change_in_adjusted_weight  | quarters=44  done=41  remaining=3
+======================================================================
+  ! GAT 2024Q2 failed: OutOfMemoryError: CUDA out of memory. Tried to allocate 6.48 GiB. GPU 0 has a total capacity of 23.52 GiB of which 6.09 GiB is free. Including non-PyTorch memory, this process has 17.42 GiB memory in use. Of the allocated memory 16.89 GiB is allocated by PyTorch, and 70.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 844, in run_approach
+    model = train_one(
+            ^^^^^^^^^^
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 526, in train_one
+    loss.backward()
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.48 GiB. GPU 0 has a total capacity of 23.52 GiB of which 6.09 GiB is free. Including non-PyTorch memory, this process has 17.42 GiB memory in use. Of the allocated memory 16.89 GiB is allocated by PyTorch, and 70.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [ 42/44] 2024Q2  SAGE=0.393  GAT=nan  ETA 2.1m
+  ! GAT 2024Q3 failed: OutOfMemoryError: CUDA out of memory. Tried to allocate 6.65 GiB. GPU 0 has a total capacity of 23.52 GiB of which 5.66 GiB is free. Including non-PyTorch memory, this process has 17.85 GiB memory in use. Of the allocated memory 17.33 GiB is allocated by PyTorch, and 51.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 844, in run_approach
+    model = train_one(
+            ^^^^^^^^^^
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 526, in train_one
+    loss.backward()
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.65 GiB. GPU 0 has a total capacity of 23.52 GiB of which 5.66 GiB is free. Including non-PyTorch memory, this process has 17.85 GiB memory in use. Of the allocated memory 17.33 GiB is allocated by PyTorch, and 51.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [ 43/44] 2024Q3  SAGE=0.384  GAT=nan  ETA 1.1m
+  ! GAT 2024Q4 failed: OutOfMemoryError: CUDA out of memory. Tried to allocate 6.82 GiB. GPU 0 has a total capacity of 23.52 GiB of which 5.23 GiB is free. Including non-PyTorch memory, this process has 18.28 GiB memory in use. Of the allocated memory 17.77 GiB is allocated by PyTorch, and 43.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 844, in run_approach
+    model = train_one(
+            ^^^^^^^^^^
+  File "/home/potashda/13Fgnn/notebooks/slumrun/_common.py", line 526, in train_one
+    loss.backward()
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/potashda/.conda/envs/daniel_env/lib/python3.11/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.82 GiB. GPU 0 has a total capacity of 23.52 GiB of which 5.23 GiB is free. Including non-PyTorch memory, this process has 18.28 GiB memory in use. Of the allocated memory 17.77 GiB is allocated by PyTorch, and 43.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [ 44/44] 2024Q4  SAGE=0.344  GAT=nan  ETA 0.0m
+  finished multiq_B / change_in_adjusted_weight in 3.3 min
+all done.
+
+ finished : Wed 29 Apr 2026 18:43:41 IDT
+==========================================================
