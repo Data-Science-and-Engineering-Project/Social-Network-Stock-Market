@@ -152,9 +152,9 @@ def get_args():
     p.add_argument("--max-open-rate",    type=float, default=None)
     p.add_argument("--min-avg-duration", type=float, default=None)
     p.add_argument("--max-avg-duration", type=float, default=None)
-    p.add_argument("--min-n-holdings",   type=float, default=None,
+    p.add_argument("--min-n-holdings",   type=float, default=10,
                    help="Minimum mean portfolio size (n_holdings_mean)")
-    p.add_argument("--max-n-holdings",   type=float, default=None,
+    p.add_argument("--max-n-holdings",   type=float, default=200,
                    help="Maximum mean portfolio size; cap on broad index-like filers")
     return p.parse_args()
 
