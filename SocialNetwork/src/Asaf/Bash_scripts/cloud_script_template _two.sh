@@ -5,7 +5,7 @@
 
 # הגדרות שליחת מייל בסיום או כשל
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=zenoua@post.bgu.ac.il
+#SBATCH --mail-user=
 
 # משאבים: משימה אחת עם 8 ליבות (טוב ל-LightGBM/NetworkX) ו-32GB ראם
 #SBATCH --ntasks=1
