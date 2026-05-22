@@ -1,0 +1,17 @@
+{
+  "best_metric_name": "test_auc",
+  "best_metric_value": 0.9352400184632651,
+  "year": 2024,
+  "quarter": 3,
+  "predicts_year": 2024,
+  "predicts_quarter": 4,
+  "edges_col": "change_in_weight",
+  "embed_dim": 128,
+  "num_layers": 3,
+  "model_tag": "WeightedLightGCN_v4",
+  "epochs_trained": 90,
+  "test_auc": 0.9352400184632651,
+  "test_f1_opt": 0.8644871474918892,
+  "rank_return_spearman": 0.006542921458834748,
+  "saved_at": "2026-04-28 18:37:42"
+}
