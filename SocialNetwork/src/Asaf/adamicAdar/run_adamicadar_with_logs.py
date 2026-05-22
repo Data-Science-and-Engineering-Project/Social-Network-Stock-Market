@@ -15,6 +15,8 @@ import networkx as nx
 from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score
 import warnings
 from datetime import datetime
+from scipy.sparse import csr_matrix, diags
+from sklearn.metrics import average_precision_score
 
 warnings.filterwarnings('ignore')
 
@@ -232,201 +234,77 @@ def evaluate_predictions(y_true, y_prob, y_pred, model_name):
 # 4. ADAMIC-ADAR LINK PREDICTION
 # ============================================================================
 
-# def adamic_adar_score(G, train_quarters, test_pairs, quarterly_graphs):
-#     """
-#     Adamic-Adar: Common neighbors weighted by inverse log of their degree.
-#     Score(A,B) = Σ 1/log(degree(common_neighbor))
-#     """
-#     log_message("    [-] Computing Adamic-Adar scores...")
-    
-#     # Build aggregated graph from training window
-#     G_train_agg = nx.Graph()
-#     for yq in train_quarters:
-#         G_q = quarterly_graphs.get(yq)
-#         if G_q:
-#             G_train_agg.add_edges_from(G_q.edges())
-    
-#     scores = []
-#     max_score = 0
-    
-#     for f, s in test_pairs:
-#         if f in G_train_agg and s in G_train_agg:
-#             neighbors_f = set(G_train_agg.neighbors(f))
-#             neighbors_s = set(G_train_agg.neighbors(s))
-#             common = neighbors_f & neighbors_s
-            
-#             aa_score = 0
-#             for node in common:
-#                 degree = G_train_agg.degree(node)
-#                 if degree > 1:
-#                     aa_score += 1.0 / np.log(degree)
-            
-#             scores.append(aa_score)
-#             max_score = max(max_score, aa_score)
-#         else:
-#             scores.append(0)
-    
-#     # Normalize scores to [0, 1]
-#     if max_score > 0:
-#         scores = [s / max_score for s in scores]
-    
-#     # Threshold at median for binary predictions
-#     threshold = np.median(scores) if scores else 0
-#     y_pred = [1 if s >= threshold else 0 for s in scores]
-    
-#     log_message(f"    [✓] Adamic-Adar computed. Max: {max_score:.4f}, Threshold: {threshold:.4f}")
-    
-#     return scores, y_pred
-# def adamic_adar_score(G, train_quarters, test_pairs, quarterly_graphs):
-#     """
-#     Bipartite Adamic-Adar: מחשב ציון המבוסס על מסלולים באורך 3.
-#     עבור צמד (Fund, Stock), אנחנו מוצאים קרנות שותפות (Co-investors) 
-#     שמחזיקות במניה הזו, ומשקללים את המניות המשותפות שלהן עם הקרן המקורית,
-#     תוך ענישה על פי לוג הדרגה של הקרן המתווכת.
-#     """
-#     log_message("    [-] Computing Bipartite Adamic-Adar scores (Path Length 3)...")
-    
-#     # 1. בניית הגרף המאוחד מחלונות האימון
-#     G_train_agg = nx.Graph()
-#     for yq in train_quarters:
-#         G_q = quarterly_graphs.get(yq)
-#         if G_q:
-#             G_train_agg.add_edges_from(G_q.edges())
-            
-#     # נוודא שיש לנו את נתוני סוגי הצמתים מהגרף המקורי
-#     # (אם הגרף המאוחד איבד את ה-attributes, ניעזר בסטים מהרשת המקורית)
-#     funds_v = {n for n, d in G_train_agg.nodes(data=True) if d.get('node_type') == 'fund'}
-#     if not funds_v: # הגנה במקרה שה-attributes לא הועתקו לגרף המאוחד
-#         # נניח ש-CIK הוא תמיד מספר (או מחרוזת קצרה) ו-CUSIP הוא קוד אלפאנומרי
-#         # או פשוט נשלוף מהגרפים המקוריים
-#         for yq in train_quarters:
-#             G_q = quarterly_graphs.get(yq)
-#             if G_q:
-#                 funds_v.update([n for n, d in G_q.nodes(data=True) if d.get('node_type') == 'fund'])
-
-#     scores = []
-#     max_score = 0
-    
-#     # 2. חישוב הציון לכל צמד בדיקה
-#     for f, s in test_pairs:
-#         # אם אחד מהצמתים לא היה קיים בכלל באימון - הציון הוא 0
-#         if f not in G_train_agg or s not in G_train_agg:
-#             scores.append(0)
-#             continue
-            
-#         # ודואגים שסדר המשתנים נכון (f הוא הקרן, s היא המניה)
-#         fund_node = f if f in funds_v else s
-#         stock_node = s if s not in funds_v else f
-        
-#         # א. מציאת כל הקרנות האחרות שמחזיקות במניית היעד (s)
-#         co_investors = set(G_train_agg.neighbors(stock_node))
-#         # נוריד את הקרן הנוכחית עצמה אם היא כבר מחזיקה בה
-#         co_investors.discard(fund_node) 
-        
-#         # ב. מציאת כל המניות שהקרן שלנו (f) מחזיקה בהן
-#         fund_stocks = set(G_train_agg.neighbors(fund_node))
-        
-#         aa_bipartite_score = 0
-        
-#         # ג. מעבר על הקרנות המתווכות (השכנים במרחק 2 מהקרן המקורית)
-#         for investor in co_investors:
-#             # מציאת המניות המשותפות בין הקרן שלנו לקרן המתווכת (אורך מסלול 3)
-#             investor_stocks = set(G_train_agg.neighbors(investor))
-#             common_stocks = fund_stocks & investor_stocks
-            
-#             if common_stocks:
-#                 # דרגת הקרן המתווכת (כמה מניות היא מחזיקה סה"כ)
-#                 degree = G_train_agg.degree(investor)
-#                 if degree > 1:
-#                     # הציון גדל ככל שיש יותר מניות משותפות, 
-#                     # וקטן ככל שהקרן המתווכת היא "ענקית" שמחזיקה הכל מהכל
-#                     aa_bipartite_score += len(common_stocks) / np.log(degree)
-                    
-#         scores.append(aa_bipartite_score)
-#         max_score = max(max_score, aa_bipartite_score)
-    
-#     # 3. נרמול הציון לטווח של [0, 1]
-#     if max_score > 0:
-#         scores = [s / max_score for s in scores]
-    
-#     # קביעת סף בינארי לפי החציון
-#     threshold = np.median(scores) if scores else 0
-#     y_pred = [1 if s > threshold else 0 for s in scores]
-    
-#     log_message(f"    [✓] Bipartite Adamic-Adar computed. Max: {max_score:.4f}, Threshold: {threshold:.4f}")
-    
-#     return scores, y_pred
-def adamic_adar_score(G, train_quarters, test_pairs, quarterly_graphs):
+def adamic_adar_score(G_test, train_quarters, test_pairs, quarterly_graphs):
     """
-    Bipartite Adamic-Adar (Accelerated):
-    Computes path length 3 similarity weighted by inverse log of co-investor degrees,
-    optimized with structural dict pre-computation for weak servers.
+    Bipartite Adamic-Adar (Vectorized & Accelerated):
+    Computes path length 3 similarity using highly optimized sparse matrix multiplication.
     """
-    log_message("    [-] Computing Accelerated Bipartite Adamic-Adar scores...")
+    log_message("    [-] Computing Vectorized Bipartite Adamic-Adar scores...")
     
-    # 1. בניית הגרף המאוחד מחלונות האימון
+    # Build aggregated graph from training window
     G_train_agg = nx.Graph()
     for yq in train_quarters:
         G_q = quarterly_graphs.get(yq)
         if G_q:
+            G_train_agg.add_nodes_from(G_q.nodes(data=True))
             G_train_agg.add_edges_from(G_q.edges())
             
-    # 2. Pre-computation: שמירת כל המבנה במילונים מהירים בזיכרון (גישה ב-O(1))
-    # מילון שכנים (סטים) לכל צומת
-    neighbors = {node: set(G_train_agg.neighbors(node)) for node in G_train_agg.nodes()}
-    # מילון דרגות לכל צומת
-    degrees = dict(G_train_agg.degree())
+    # Identify node types and map to continuous indices
+    funds_set = {n for n, d in G_train_agg.nodes(data=True) if d.get('node_type') == 'fund'}
+    funds = list(funds_set)
+    stocks = list(set(G_train_agg.nodes()) - funds_set)
     
-    # חישוב מראש של משקל הענישה לכל קרן מתווכת: 1 / log(degree)
-    # קרן עם דרגה 0 או 1 תקבל משקל 0 כדי למנוע חלוקה באפס או בלוג 1
-    fund_weights = {}
-    for node in G_train_agg.nodes():
-        deg = degrees.get(node, 0)
-        fund_weights[node] = 1.0 / np.log(deg) if deg > 1 else 0
-        
-    scores = []
-    max_score = 0
+    fund_to_idx = {f: i for i, f in enumerate(funds)}
+    stock_to_idx = {s: j for j, s in enumerate(stocks)}
     
-    # 3. מעבר לולאה אחת מהירה על הזוגות - ללא פניות ל-NetworkX!
-    for f, s in test_pairs:
-        if f in neighbors and s in neighbors:
-            # s היא המניה, f היא הקרן
-            co_investors = neighbors[s]
-            fund_stocks = neighbors[f]
-            
-            aa_bipartite_score = 0
-            
-            # רצה רק על קרנות שחולקות את המניה s
-            for investor in co_investors:
-                if investor != f:
-                    # חיתוך מהיר בזיכרון של המניות המשותפות
-                    common_stocks_count = len(fund_stocks & neighbors[investor])
-                    
-                    if common_stocks_count > 0:
-                        # הציון הוא מכפלת מספר המניות המשותפות במשקל של הקרן המתווכת
-                        aa_bipartite_score += common_stocks_count * fund_weights[investor]
-                        
-            scores.append(aa_bipartite_score)
-            if aa_bipartite_score > max_score:
-                max_score = aa_bipartite_score
+    # Build sparse bi-adjacency matrix A (Funds x Stocks)
+    row_indices, col_indices = [], []
+    for u, v in G_train_agg.edges():
+        if u in funds_set:
+            row_indices.append(fund_to_idx[u])
+            col_indices.append(stock_to_idx[v])
         else:
-            scores.append(0)
+            row_indices.append(fund_to_idx[v])
+            col_indices.append(stock_to_idx[u])
             
-    # 4. נרמול הציון לטווח של [0, 1]
-    if max_score > 0:
-        scores = [s / max_score for s in scores]
-        
-    # 5. קביעת סף בינארי חכם (מניעת מלכוד החציון האפסי)
-    threshold = np.median(scores) if scores else 0
-    if threshold == 0 and np.max(scores) > 0:
-        threshold = np.mean(scores)
-        
-    # שינוי ל- >= כדי להבטיח קבוצה סגורה ותקינות מדדים
-    y_pred = [1 if s >= threshold else 0 for s in scores]
+    A = csr_matrix((np.ones(len(row_indices)), (row_indices, col_indices)), 
+                   shape=(len(funds), len(stocks)))
     
-    log_message(f"    [✓] Bipartite Adamic-Adar computed. Max Raw Score: {max_score:.4f}, Threshold: {threshold:.4f}")
+    # Compute Weights (1 / log(degree)) for the funds
+    fund_degrees = np.array(A.sum(axis=1)).flatten()
+    with np.errstate(divide='ignore'):
+        weights = np.where(fund_degrees > 1, 1.0 / np.log(fund_degrees), 0.0)
     
-    return scores, y_pred
+    W = diags(weights)
+    
+    # Fast Matrix Computations: A * W * A^T logic projected to stocks
+    B = A.dot(A.T)  # Co-investor matrix (Common stocks)
+    B.setdiag(0)    # Remove self-loops to exclude the testing fund itself
+    B.eliminate_zeros()
+    
+    C = B.dot(W)    # Apply Adamic-Adar penalty weights based on co-investor degrees
+    S = C.dot(A)    # Final projection mapping back to stocks
+    
+    # Extract specific target pair scores
+    scores = []
+    for f, s in test_pairs:
+        if f in fund_to_idx and s in stock_to_idx:
+            scores.append(S[fund_to_idx[f], stock_to_idx[s]])
+        else:
+            scores.append(0.0)
+            
+    # Normalize & Smart Thresholding
+    scores = np.array(scores)
+    max_s = scores.max() if len(scores) > 0 else 0
+    if max_s > 0:
+        scores = scores / max_s
+        
+    # Using mean + std instead of median to prevent metric anomalies
+    threshold = np.mean(scores) + 0.5 * np.std(scores) if max_s > 0 else 0
+    y_pred = (scores >= threshold).astype(int).tolist()
+    
+    log_message(f"    [✓] Vectorized Adamic-Adar computed. Threshold: {threshold:.4f}")
+    return scores.tolist(), y_pred
 
 # ============================================================================
 # 5. BASELINE PIPELINE EXECUTION

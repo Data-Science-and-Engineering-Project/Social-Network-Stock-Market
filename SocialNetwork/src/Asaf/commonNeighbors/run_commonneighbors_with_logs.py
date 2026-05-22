@@ -249,6 +249,7 @@ def common_neighbors_score(G, train_quarters, test_pairs, quarterly_graphs):
     for yq in train_quarters:
         G_q = quarterly_graphs.get(yq)
         if G_q:
+            G_train_agg.add_nodes_from(G_q.nodes(data=True))
             G_train_agg.add_edges_from(G_q.edges())
             
     # שליפת רשימות הקרנות והמניות כדי לשמור על סדר קבוע במטריצה
@@ -262,7 +263,8 @@ def common_neighbors_score(G, train_quarters, test_pairs, quarterly_graphs):
     # 2. יצירת מטריצת שכנויות דו-צדדית (Bipartite Adjacency Matrix)
     # שורות = קרנות, עמודות = מניות. 1 אומר שהקרן מחזיקה במניה.
     B = bipartite.biadjacency_matrix(G_train_agg, row_order=funds, column_order=stocks)
-    
+    B = B.tocsc()
+
     # 3. קסם האלגברה הליניארית: כפל המטריצה בעצמה (B * B^T)
     # המטריצה C שתיווצר מכילה את כמות המניות המשותפות בין כל זוג קרנות!
     C = B.dot(B.T)
@@ -281,8 +283,7 @@ def common_neighbors_score(G, train_quarters, test_pairs, quarterly_graphs):
             s_idx = stock_to_idx[s]
             
             # וקטור שמייצג אילו קרנות מחזיקות את המניה s
-            funds_holding_s_vec = B[:, s_idx].toarray().flatten()
-            
+            funds_holding_s_vec = B[:, [s_idx]].toarray().flatten()
             # כמה קרנות אחרות מחזיקות את המניה (פחות הקרן הנוכחית אם היא שם)
             count = funds_holding_s_vec.sum() - funds_holding_s_vec[f_idx]
             
@@ -292,8 +293,7 @@ def common_neighbors_score(G, train_quarters, test_pairs, quarterly_graphs):
                 
             # מכפלה סקלרית בין השורות נותנת לנו את סכום המניות המשותפות 
             # רק עם הקרנות שבאמת מחזיקות את המניה s
-            cn_sum = C[f_idx, :].dot(funds_holding_s_vec)[0]
-            
+            cn_sum = C[[f_idx], :].toarray().flatten().dot(funds_holding_s_vec)            
             pair_score = cn_sum / count
             scores.append(pair_score)
             
