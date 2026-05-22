@@ -233,42 +233,97 @@ def evaluate_predictions(y_true, y_prob, y_pred, model_name):
 # ============================================================================
 
 def jaccard_similarity_score(G, train_quarters, test_pairs, quarterly_graphs):
-    """
-    Jaccard Similarity: |shared neighbors| / |all neighbors|
-    Score(A,B) = |neighbors(A) ∩ neighbors(B)| / |neighbors(A) ∪ neighbors(B)|
-    """
-    log_message("    [-] Computing Jaccard Similarity scores...")
+    log_message("    [-] Fast Vectorized Bipartite Jaccard Score...")
     
-    # Build aggregated graph from training window
+    # 1. בניית הגרף המאוחד לחלון האימון
     G_train_agg = nx.Graph()
     for yq in train_quarters:
         G_q = quarterly_graphs.get(yq)
         if G_q:
+            # קודם כל נוסיף את הצמתים יחד עם התכונות (node_type)
+            G_train_agg.add_nodes_from(G_q.nodes(data=True))
+            # לאחר מכן נוסיף את הקשתות
             G_train_agg.add_edges_from(G_q.edges())
-    
-    scores = []
-    
-    for f, s in test_pairs:
-        if f in G_train_agg and s in G_train_agg:
-            neighbors_f = set(G_train_agg.neighbors(f))
-            neighbors_s = set(G_train_agg.neighbors(s))
             
-            intersection = len(neighbors_f & neighbors_s)
-            union = len(neighbors_f | neighbors_s)
+    # בידוד רשימת הקרנות והמניות שקיימות בגרף האימון
+    all_nodes = G_train_agg.nodes(data=True)
+    funds = [n for n, d in all_nodes if G_train_agg.nodes[n].get('node_type') == 'fund' or str(n).startswith('CIK')] # התאמה לסוגי הצמתים שלך
+    
+    # 2. בניית מטריצת שכנות (Adjacency Matrix) - קרנות מול מניות
+    # NetworkX יודע להוציא את זה ברגע כמטריצה דלילה (Sparse Matrix) מהירה ויעילה בזיכרון
+    try:
+        from networkx.algorithms import bipartite
+        # אם הגרף מסומן כדו-צדדי בצורה מלאה
+        B = bipartite.biadjacency_matrix(G_train_agg, row_order=funds)
+        # B היא מטריצה שבה שורה = קרן, עמודה = מניה. ערך 1 אומר שיש החזקה.
+        
+        # 3. חישוב חיתוך ואיחוד בין כל הקרנות בבת אחת בעזרת מכפלת מטריצות!
+        # מספר המניות המשותפות בין כל זוג קרנות
+        intersection_matrix = B.dot(B.T).toarray() 
+        
+        # סך המניות של כל קרן (הדרגה שלה)
+        degrees = np.array(B.sum(axis=1)).flatten()
+        
+        # איחוד: |A| + |B| - |A ∩ B|
+        union_matrix = degrees[:, None] + degrees[None, :] - intersection_matrix
+        
+        # מטריצת הג'אקארד הסופית בין קרנות לקרנות
+        with np.errstate(divide='ignore', invalid='ignore'):
+            fund_jaccard = np.where(union_matrix > 0, intersection_matrix / union_matrix, 0)
             
-            jaccard = intersection / union if union > 0 else 0
-            scores.append(jaccard)
-        else:
-            scores.append(0)
-    
-    # Threshold at median for binary predictions
-    threshold = np.median(scores) if scores else 0
-    y_pred = [1 if s >= threshold else 0 for s in scores]
-    
-    log_message(f"    [✓] Jaccard Similarity computed. Threshold: {threshold:.4f}")
-    
-    return scores, y_pred
+        # מיפוי מהיר מקרן לאינדקס שלה במטריצה
+        fund_to_idx = {fund: idx for idx, fund in enumerate(funds)}
+        
+        # 4. חילוץ הציונים עבור ה-test_pairs
+        scores = []
+        for f, s in test_pairs:
+            if f in fund_to_idx and s in G_train_agg:
+                # הקרנות האחרות שמחזיקות במניה s
+                other_funds = list(G_train_agg.neighbors(s))
+                other_idxs = [fund_to_idx[of] for of in other_funds if of in fund_to_idx and of != f]
+                
+                if other_idxs:
+                    idx_f = fund_to_idx[f]
+                    # ממוצע הדמיון של קרן f עם כל הקרנות שמחזיקות במניה s
+                    scores.append(np.mean(fund_jaccard[idx_f, other_idxs]))
+                else:
+                    scores.append(0)
+            else:
+                scores.append(0)
+                
+    except Exception as e:
+        log_message(f"    [!] Matrix acceleration failed: {str(e)}. Falling back to safe fast loops.")
+        # פתרון גיבוי מהיר מבוסס מילונים (אם המטריצה הבי-פארטיטית נכשלת בבנייה)
+        neighbors = {n: set(G_train_agg.neighbors(n)) for n in G_train_agg.nodes()}
+        scores = []
+        for f, s in test_pairs:
+            if f in neighbors and s in neighbors:
+                funds_holding_s = neighbors[s]
+                if not funds_holding_s:
+                    scores.append(0)
+                    continue
+                
+                jaccard_sum = 0
+                set_f = neighbors[f]
+                count = 0
+                for other_f in funds_holding_s:
+                    if other_f != f and other_f in neighbors:
+                        set_other = neighbors[other_f]
+                        inter = len(set_f & set_other)
+                        uni = len(set_f | set_other)
+                        jaccard_sum += (inter / uni) if uni > 0 else 0
+                        count += 1
+                scores.append(jaccard_sum / count if count > 0 else 0)
+            else:
+                scores.append(0)
 
+    # 5. קביעת ה-Threshold
+    threshold = np.median(scores) if scores else 0
+    if threshold == 0 and np.max(scores) > 0:
+        threshold = np.mean(scores)
+        
+    y_pred = [1 if s >= threshold else 0 for s in scores]
+    return scores, y_pred
 # ============================================================================
 # 5. BASELINE PIPELINE EXECUTION
 # ============================================================================

@@ -16,6 +16,7 @@ from networkx.algorithms import bipartite
 from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score
 import warnings
 from datetime import datetime
+import scipy.sparse as sp
 
 warnings.filterwarnings('ignore')
 
@@ -233,42 +234,86 @@ def evaluate_predictions(y_true, y_prob, y_pred, model_name):
 # 4. COMMON NEIGHBORS LINK PREDICTION
 # ============================================================================
 
+
+
 def common_neighbors_score(G, train_quarters, test_pairs, quarterly_graphs):
     """
-    Common Neighbors: Number of shared neighbors between two nodes.
-    Score(A,B) = |neighbors(A) ∩ neighbors(B)|
+    Bipartite Common Neighbors (Accelerated with SciPy Sparse Matrices): 
+    Calculates the average number of shared stocks between fund 'f' 
+    and all other funds that hold stock 's'.
     """
-    log_message("    [-] Computing Common Neighbors scores...")
+    log_message("    [-] Computing Sparse Matrix Bipartite Common Neighbors scores...")
     
-    # Build aggregated graph from training window
+    # 1. בניית הגרף המאוחד לחלון האימון
     G_train_agg = nx.Graph()
     for yq in train_quarters:
         G_q = quarterly_graphs.get(yq)
         if G_q:
             G_train_agg.add_edges_from(G_q.edges())
+            
+    # שליפת רשימות הקרנות והמניות כדי לשמור על סדר קבוע במטריצה
+    funds = [n for n, d in G_train_agg.nodes(data=True) if d.get('node_type') == 'fund']
+    stocks = [n for n, d in G_train_agg.nodes(data=True) if d.get('node_type') == 'stock']
+    
+    # יצירת מילונים לגישה מהירה לאינדקס של כל צומת
+    fund_to_idx = {f: i for i, f in enumerate(funds)}
+    stock_to_idx = {s: i for i, s in enumerate(stocks)}
+    
+    # 2. יצירת מטריצת שכנויות דו-צדדית (Bipartite Adjacency Matrix)
+    # שורות = קרנות, עמודות = מניות. 1 אומר שהקרן מחזיקה במניה.
+    B = bipartite.biadjacency_matrix(G_train_agg, row_order=funds, column_order=stocks)
+    
+    # 3. קסם האלגברה הליניארית: כפל המטריצה בעצמה (B * B^T)
+    # המטריצה C שתיווצר מכילה את כמות המניות המשותפות בין כל זוג קרנות!
+    C = B.dot(B.T)
+    
+    # איפוס האלכסון כדי שקרן לא תספור את המניות המשותפות עם עצמה (other_f != f)
+    C.setdiag(0)
+    C.eliminate_zeros()
     
     scores = []
-    max_common = 0
+    max_score = 0
     
+    # 4. מעבר מהיר על זוגות הבדיקה
     for f, s in test_pairs:
-        if f in G_train_agg and s in G_train_agg:
-            neighbors_f = set(G_train_agg.neighbors(f))
-            neighbors_s = set(G_train_agg.neighbors(s))
-            common = len(neighbors_f & neighbors_s)
-            scores.append(common)
-            max_common = max(max_common, common)
+        if f in fund_to_idx and s in stock_to_idx:
+            f_idx = fund_to_idx[f]
+            s_idx = stock_to_idx[s]
+            
+            # וקטור שמייצג אילו קרנות מחזיקות את המניה s
+            funds_holding_s_vec = B[:, s_idx].toarray().flatten()
+            
+            # כמה קרנות אחרות מחזיקות את המניה (פחות הקרן הנוכחית אם היא שם)
+            count = funds_holding_s_vec.sum() - funds_holding_s_vec[f_idx]
+            
+            if count <= 0:
+                scores.append(0)
+                continue
+                
+            # מכפלה סקלרית בין השורות נותנת לנו את סכום המניות המשותפות 
+            # רק עם הקרנות שבאמת מחזיקות את המניה s
+            cn_sum = C[f_idx, :].dot(funds_holding_s_vec)[0]
+            
+            pair_score = cn_sum / count
+            scores.append(pair_score)
+            
+            if pair_score > max_score:
+                max_score = pair_score
         else:
             scores.append(0)
+            
+    # 5. נרמול הציונים לטווח [0, 1]
+    if max_score > 0:
+        scores = [s / max_score for s in scores]
     
-    # Normalize scores to [0, 1]
-    if max_common > 0:
-        scores = [s / max_common for s in scores]
-    
-    # Threshold at median for binary predictions
+    # 6. קביעת ה-Threshold
     threshold = np.median(scores) if scores else 0
+    if threshold == 0 and np.max(scores) > 0:
+        threshold = np.mean(scores)
+        
     y_pred = [1 if s >= threshold else 0 for s in scores]
     
-    log_message(f"    [✓] Common Neighbors computed. Max: {max_common}, Threshold: {threshold:.4f}")
+    log_message(f"    [✓] Sparse Matrix Common Neighbors computed. Max Raw Score: {max_score:.2f}, Threshold: {threshold:.4f}")
     
     return scores, y_pred
 

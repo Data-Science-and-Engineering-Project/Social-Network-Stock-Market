@@ -170,36 +170,40 @@ def get_sliding_window_splits(chronological_quarters, train_window=8, test_offse
         test_quarter = chronological_quarters[i + train_window + test_offset - 1]
         yield train_quarters, test_quarter
 
-def generate_test_samples(G_test, G_last_train, num_negatives_ratio=1.0):
-    """Generate balanced test set with positives and negatives."""
-    log_message("    [-] Extracting positive holding edges from test graph...")
+def generate_test_samples(G_test, G_train_agg, num_negatives_ratio=1.0):
+    """Generate balanced test set with positives and negatives, STRICTLY for new links."""
+    log_message("    [-] Extracting NEW positive holding edges from test graph...")
     
-    funds_train = [n for n, d in G_last_train.nodes(data=True) if d.get('node_type') == 'fund']
-    stocks_train = [n for n, d in G_last_train.nodes(data=True) if d.get('node_type') == 'stock']
+    # Use the aggregated training graph to find known nodes
+    funds_train = [n for n, d in G_train_agg.nodes(data=True) if d.get('node_type') == 'fund']
+    stocks_train = [n for n, d in G_train_agg.nodes(data=True) if d.get('node_type') == 'stock']
     
     funds_train_set = set(funds_train)
     stocks_train_set = set(stocks_train)
 
+    # THE FIX: Only take edges that exist in test, but DID NOT exist in training (New Links)
     pos_edges = [(u, v) for u, v in G_test.edges() 
-                if u in funds_train_set and v in stocks_train_set]
+                if u in funds_train_set and v in stocks_train_set
+                and not G_train_agg.has_edge(u, v)]
     
     if not funds_train or not stocks_train:
         log_message("    [!] Error: Empty train fund or stock sets.")
         return [], []
 
-    log_message(f"    [-] Positive edges found: {len(pos_edges):,}")
+    log_message(f"    [-] NEW Positive edges found: {len(pos_edges):,}")
     log_message(f"    [-] Beginning negative sampling (Ratio 1:{num_negatives_ratio})...")
     
     neg_edges = set()
     num_neg_target = int(len(pos_edges) * num_negatives_ratio)
     attempts = 0
-    max_attempts = num_neg_target * 5
+    max_attempts = max(10000, num_neg_target * 5) # Added a safety buffer for small graphs
     
     while len(neg_edges) < num_neg_target and attempts < max_attempts:
         f = random.choice(funds_train)
         s = random.choice(stocks_train)
         
-        if not G_test.has_edge(f, s):
+        # Negative sample must not exist in Test AND must not have existed in Train
+        if not G_test.has_edge(f, s) and not G_train_agg.has_edge(f, s):
             neg_edges.add((f, s))
         attempts += 1
         
@@ -232,19 +236,12 @@ def evaluate_predictions(y_true, y_prob, y_pred, model_name):
 # 4. PREFERENTIAL ATTACHMENT LINK PREDICTION
 # ============================================================================
 
-def preferential_attachment_score(G, train_quarters, test_pairs, quarterly_graphs):
+def preferential_attachment_score(G_train_agg, test_pairs):
     """
     Preferential Attachment: Product of node degrees.
     Score(A,B) = degree(A) × degree(B)
     """
-    log_message("    [-] Computing Preferential Attachment scores...")
-    
-    # Build aggregated graph from training window
-    G_train_agg = nx.Graph()
-    for yq in train_quarters:
-        G_q = quarterly_graphs.get(yq)
-        if G_q:
-            G_train_agg.add_edges_from(G_q.edges())
+    log_message("    [-] Computing Preferential Attachment scores on aggregated graph...")
     
     scores = []
     max_score = 0
@@ -303,26 +300,35 @@ def process_sliding_window_baselines(quarterly_graphs, train_window=8, test_offs
             log_message("  [!] WARNING: Test graph is empty. Skipping.")
             continue
             
-        last_train_q = train_quarters[-1]
-        G_last_train = quarterly_graphs.get(last_train_q)
-        
-        if G_last_train is None:
-            log_message("  [!] WARNING: Last train graph not found. Skipping.")
+        # ---------------------------------------------------------
+        # NEW STEP: Build Aggregated Train Graph early in the pipeline
+        # ---------------------------------------------------------
+        log_message("  [*] Aggregating training graphs for the current window...")
+        G_train_agg = nx.Graph()
+        for yq in train_quarters:
+            G_q = quarterly_graphs.get(yq)
+            if G_q:
+                # Add nodes with data to preserve 'node_type' attributes
+                G_train_agg.add_nodes_from(G_q.nodes(data=True))
+                G_train_agg.add_edges_from(G_q.edges())
+                
+        if G_train_agg.number_of_edges() == 0:
+            log_message("  [!] WARNING: Aggregated train graph is empty. Skipping.")
             continue
 
-        # Generate Test Set
-        log_message("  [*] Step 1: Creating Evaluation Dataset...")
-        test_pairs, y_true = generate_test_samples(G_test, G_last_train, num_negatives_ratio=1.0)
+        # Generate Test Set (Passing G_train_agg instead of G_last_train)
+        log_message("  [*] Step 1: Creating Evaluation Dataset (Filtering out existing links)...")
+        test_pairs, y_true = generate_test_samples(G_test, G_train_agg, num_negatives_ratio=1.0)
         
-        if not test_pairs:
-            log_message("  [!] WARNING: Could not generate valid test pairs. Skipping.")
+        if not test_pairs or sum(y_true) == 0:
+            log_message("  [!] WARNING: Could not generate valid new test pairs (no new links formed). Skipping.")
             continue
             
         log_message(f"    [✓] Total test samples created: {len(test_pairs):,}")
             
-        # Preferential Attachment
+        # Preferential Attachment (Passing G_train_agg directly)
         log_message("\n  [*] Step 2: Executing Preferential Attachment Link Prediction...")
-        y_prob_pa, y_pred_pa = preferential_attachment_score(G_test, train_quarters, test_pairs, quarterly_graphs)
+        y_prob_pa, y_pred_pa = preferential_attachment_score(G_train_agg, test_pairs)
         res_pa = evaluate_predictions(y_true, y_prob_pa, y_pred_pa, "Preferential Attachment")
         
         log_message("\n" + "." * 60)
@@ -344,7 +350,7 @@ def process_sliding_window_baselines(quarterly_graphs, train_window=8, test_offs
         })
         
         log_message(f"\n  [*] Step 3: Window {window_idx + 1} memory cleanup...")
-        del test_pairs, y_true, y_prob_pa, y_pred_pa
+        del test_pairs, y_true, y_prob_pa, y_pred_pa, G_train_agg
         gc.collect()
         log_message("  [✓] Cleanup complete.")
         
