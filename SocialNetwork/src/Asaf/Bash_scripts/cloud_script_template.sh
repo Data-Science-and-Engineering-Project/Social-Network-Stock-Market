@@ -4,7 +4,7 @@
 #SBATCH --error=logs/error_%j.txt
 
 #SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=zenoua@post.bgu.ac.il
+#SBATCH --mail-user=
 
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
