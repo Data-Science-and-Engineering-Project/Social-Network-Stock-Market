@@ -68,11 +68,10 @@ graph LR
     ALGO[Portfolio Algorithm]:::portfolio
     OUT[Portfolio Suggestion]:::portfolio
 
-    SEC --> ETL --> DB1 --> PRE --> DB2 --> ML
-    ALGO --> OUT
+    SEC --> ETL --> DB1 --> PRE --> DB2 --> ML --> OUT
     EODHD --> DB2
-    DB2 -->|financial data| ALGO
-    ML -->|model results| ALGO
+    DB2 -->|financial data|
+    ML -->|model results|
 
     style PRE fill:#D6EAF8,stroke:#2E86C1
     style ML  fill:#E8DAEF,stroke:#7D3C98
