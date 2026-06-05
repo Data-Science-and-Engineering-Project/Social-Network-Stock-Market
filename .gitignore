@@ -42,6 +42,14 @@ parquuet_files*
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Runtime pipeline logs
+*_log.txt
+
+# ML model artifacts
+*.pth
+*.ckpt
+artifacts/
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
@@ -92,6 +100,8 @@ ipython_config.py
 # Exception: Track these reference CSV files
 !Data/Indexes/Holdings_details_Russell_3000_ETF.csv
 !Data/Indexes/SPY.csv
+!preprocess/Data/Indexes/Holdings_details_Russell_3000_ETF.csv
+!preprocess/Data/Indexes/SPY.csv
 Data/parquet_files/
 Data/holdings/
 Data/parquuet_files.zip
