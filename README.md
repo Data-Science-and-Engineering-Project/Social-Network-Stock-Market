@@ -52,7 +52,7 @@ graph LR
     classDef portfolio fill:#B7950B,stroke:#7D6608,color:#fff
 
     SEC[(SEC EDGAR)]:::source
-    EODHD[(EODHD API)]:::source
+    EODHD[(EODHD API - Financial Data)]:::source
     ETL[ETL Pipeline]:::etl
     DB1[(Social_13F)]:::db
     DB2[(13FGNN)]:::db
