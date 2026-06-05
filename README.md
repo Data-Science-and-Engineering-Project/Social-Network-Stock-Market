@@ -106,7 +106,15 @@ DB_PASSWORD=your_password
 EDOHD_API=your_eodhd_api_key
 ```
 
-### 4. Run preprocessing
+### 4. Ingest raw 13F filings
+
+Reads quarters from `Data/run.json` and loads them into the `Social_13F` database:
+
+```bash
+python ETL/etl_pipeline.py
+```
+
+### 5. Run preprocessing
 
 ```bash
 # Step 1 – Russell 3000 filtering
@@ -119,9 +127,18 @@ python preprocess/step2_delta_graphs/run_pipeline.py
 # Open preprocess/step3_fundamental_data/Insert_Fundamentaldata.ipynb and run all cells
 ```
 
-### 5. Train the model
+### 6. Train the model
 
-Open and run the notebooks in `SocialNetwork/model/`.
+```bash
+python SocialNetwork/model/model/lightGCN.py
+```
+
+Optional flags:
+```bash
+--edges-col change_in_adjusted_weight   # edge weight column (default: change_in_weight)
+--epochs 300 --embed-dim 128 --num-layers 3
+--quarters 2023Q1,2023Q2                # run specific quarter pairs only
+```
 
 ---
 
@@ -143,12 +160,17 @@ Open and run the notebooks in `SocialNetwork/model/`.
 
 ## Temporal Design
 
-Data is partitioned into strict non-overlapping windows to prevent leakage:
+The model uses a **rolling quarter-pair** approach applied to every consecutive (Q, Q+1) pair in the dataset (2013–present):
 
-| Split | Role |
-|-------|------|
-| Q1 + Q2 | Training (graph construction, model training) |
-| Q3 | Validation (out-of-sample evaluation) |
-| Q4 | Prediction (final inference target) |
+| Component | Data used | Role |
+|-----------|-----------|------|
+| Input graph | Quarter Q buy-edges (Δw > 0) | Build bipartite fund-stock graph + node features |
+| Target positives | Quarter Q+1 buy-edges, restricted to Q ∩ Q+1 universe | What the model learns to predict |
+| 80% of Q+1 positives | — | Training (BPR loss) |
+| 10% of Q+1 positives | — | Validation (early stopping, patience=25) |
+| 10% of Q+1 positives | — | Test (AUC, F1, Hit@K, NDCG@K) |
 
-No future data is ever visible during training or feature construction.
+**No-leakage guarantees:**
+- The forward pass during training propagates only over Q's graph structure — Q+1 edges are never visible to the GNN
+- Negative sampling explicitly forbids all real Q and Q+1 edges
+- Stock rankings are tagged with Q+1 (the quarter being predicted, not observed)
