@@ -105,7 +105,6 @@ ipython_config.py
 Data/parquet_files/
 Data/holdings/
 Data/parquuet_files.zip
-Docs/
 Notebooks/Filtering_value_funds/
 Notebooks/LightGCN/logs/
 Notebooks/LightGCN/models/
