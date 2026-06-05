@@ -170,3 +170,18 @@ The model uses a **rolling quarter-pair** approach applied to every consecutive 
 - The forward pass during training propagates only over Q's graph structure — Q+1 edges are never visible to the GNN
 - Negative sampling explicitly forbids all real Q and Q+1 edges
 - Stock rankings are tagged with Q+1 (the quarter being predicted, not observed)
+
+---
+
+## Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| Core | Python, SQL, PostgreSQL, Parquet |
+| Data Processing | pandas, Polars, NumPy |
+| Data Sources | SEC EDGAR, EODHD, Yahoo Finance |
+| Graph Analytics | NetworkX, igraph, Leiden Algorithm |
+| ML | scikit-learn |
+| GNN | PyTorch, PyTorch Geometric, GCN, GraphSAGE, GAT, LightGCN |
+| Visualization & Portfolio | matplotlib, HTML |
+| Deployment | GitHub Actions, GitHub Pages, Git |
