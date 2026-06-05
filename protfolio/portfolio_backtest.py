@@ -11,11 +11,10 @@ Rules:
 
 import json
 import math
-import os
-import sys
 from pathlib import Path
 
 import pandas as pd
+import yfinance as yf
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -51,6 +50,39 @@ def period_index(year: int, quarter: int) -> int:
 
 
 # ---------------------------------------------------------------------------
+# Russell 3000 benchmark
+# ---------------------------------------------------------------------------
+def fetch_russell3000_quarterly(quarters_df: pd.DataFrame) -> dict:
+    """Download ^RUA and return a dict of (year, quarter) -> quarterly return ratio."""
+    print("  Fetching Russell 3000 (^RUA) from Yahoo Finance...")
+    raw = yf.download("^RUA", start="2013-01-01", end="2026-01-01",
+                      interval="1d", progress=False, auto_adjust=True)
+    # Flatten multi-level columns if present
+    if isinstance(raw.columns, pd.MultiIndex):
+        raw.columns = raw.columns.get_level_values(0)
+    prices = raw["Close"].dropna()
+    prices.index = pd.to_datetime(prices.index)
+
+    # Get last trading day price per quarter
+    quarterly = prices.resample("QE").last()
+    quarterly.index = quarterly.index.to_period("Q")
+
+    result = {}
+    for _, row in quarters_df.iterrows():
+        py, pq = int(row.predicts_year), int(row.predicts_quarter)
+        cur = pd.Period(f"{py}Q{pq}", freq="Q")
+        prev = cur - 1
+        try:
+            p_cur = quarterly.loc[cur]
+            p_prev = quarterly.loc[prev]
+            if p_prev > 0:
+                result[(py, pq)] = float(p_cur / p_prev)
+        except KeyError:
+            pass
+    return result
+
+
+# ---------------------------------------------------------------------------
 # Load data
 # ---------------------------------------------------------------------------
 def load_data():
@@ -63,7 +95,8 @@ def load_data():
 # ---------------------------------------------------------------------------
 # Core backtest
 # ---------------------------------------------------------------------------
-def run_backtest(ranks: pd.DataFrame, returns: pd.DataFrame, financial: pd.DataFrame):
+def run_backtest(ranks: pd.DataFrame, returns: pd.DataFrame, financial: pd.DataFrame,
+                 russell: dict):
     # All unique prediction quarters, sorted chronologically
     quarters = (
         ranks[["predicts_year", "predicts_quarter"]]
@@ -115,22 +148,7 @@ def run_backtest(ranks: pd.DataFrame, returns: pd.DataFrame, financial: pd.DataF
         else:
             port_return = 1.0  # flat quarter, no data
 
-        # --- Benchmark: equal-weight ALL ranked stocks that quarter ---
-        all_cusips = ranks[
-            (ranks.predicts_year == py) & (ranks.predicts_quarter == pq)
-        ]["cusip"].tolist()
-        bench_rets = []
-        for cusip in all_cusips:
-            try:
-                r = returns_idx.loc[(py, pq, cusip)]
-                if pd.notna(r) and r > 0:
-                    bench_rets.append(r)
-            except KeyError:
-                pass
-        bench_return = sum(bench_rets) / len(bench_rets) if bench_rets else 1.0
-
         # --- Update portfolio value ---
-        prev_value = cumulative_value
         cumulative_value *= port_return
         peak_value = max(peak_value, cumulative_value)
         drawdown = (cumulative_value - peak_value) / peak_value
@@ -169,13 +187,14 @@ def run_backtest(ranks: pd.DataFrame, returns: pd.DataFrame, financial: pd.DataF
         exited = prev_holdings - current_set
         prev_holdings = current_set
 
+        russell_ret = russell.get((py, pq), None)
         portfolio_history.append({
             "label": label,
             "year": py,
             "quarter": pq,
             "period": int(row.period),
             "portfolio_return": round((port_return - 1) * 100, 4),
-            "benchmark_return": round((bench_return - 1) * 100, 4),
+            "russell_return": round((russell_ret - 1) * 100, 4) if russell_ret else None,
             "portfolio_value": round(cumulative_value, 2),
             "drawdown": round(drawdown * 100, 4),
             "holdings": holdings_detail,
@@ -192,38 +211,37 @@ def run_backtest(ranks: pd.DataFrame, returns: pd.DataFrame, financial: pd.DataF
 # ---------------------------------------------------------------------------
 def compute_metrics(history):
     port_rets = [h["portfolio_return"] / 100 + 1 for h in history]
-    bench_rets = [h["benchmark_return"] / 100 + 1 for h in history]
 
-    total_port = (port_rets[-1] if port_rets else 1.0)
-    for r in port_rets[:-1]:
-        total_port = None  # will compute properly below
     total_port = 1.0
     for r in port_rets:
         total_port *= r
-    total_bench = 1.0
-    for r in bench_rets:
-        total_bench *= r
 
     n = len(port_rets)
     years = n / 4.0
 
-    # Annualized return
     ann_port = (total_port ** (1 / years) - 1) * 100 if years > 0 else 0
-    ann_bench = (total_bench ** (1 / years) - 1) * 100 if years > 0 else 0
 
-    # Quarterly excess returns
-    excess = [(p - 1) - (b - 1) for p, b in zip(port_rets, bench_rets)]
-    mean_excess = sum(excess) / n if n > 0 else 0
-    std_excess = math.sqrt(sum((x - mean_excess) ** 2 for x in excess) / n) if n > 1 else 0
-    sharpe = (mean_excess / std_excess * math.sqrt(4)) if std_excess > 0 else 0
+    # Sharpe: mean quarterly return / std, annualized
+    mean_q = sum(r - 1 for r in port_rets) / n if n > 0 else 0
+    std_q = math.sqrt(sum(((r - 1) - mean_q) ** 2 for r in port_rets) / n) if n > 1 else 0
+    sharpe = (mean_q / std_q * math.sqrt(4)) if std_q > 0 else 0
 
     max_dd = min(h["drawdown"] for h in history)
 
+    # Russell 3000 totals
+    russ_rets = [h["russell_return"] / 100 + 1 for h in history if h["russell_return"] is not None]
+    total_russ = 1.0
+    for r in russ_rets:
+        total_russ *= r
+    n_russ = len(russ_rets)
+    years_russ = n_russ / 4.0
+    ann_russ = (total_russ ** (1 / years_russ) - 1) * 100 if years_russ > 0 else 0
+
     return {
         "total_return_port": round((total_port - 1) * 100, 2),
-        "total_return_bench": round((total_bench - 1) * 100, 2),
         "ann_return_port": round(ann_port, 2),
-        "ann_return_bench": round(ann_bench, 2),
+        "total_return_russ": round((total_russ - 1) * 100, 2),
+        "ann_return_russ": round(ann_russ, 2),
         "n_quarters": n,
         "years": round(years, 1),
         "sharpe": round(sharpe, 3),
@@ -238,14 +256,16 @@ def make_html(history, metrics):
     labels = [h["label"] for h in history]
     port_values = [h["portfolio_value"] for h in history]
     port_rets = [h["portfolio_return"] for h in history]
-    bench_rets = [h["benchmark_return"] for h in history]
+    russell_rets = [h["russell_return"] for h in history]
     drawdowns = [h["drawdown"] for h in history]
 
-    # Cumulative benchmark value
-    bench_value = [INITIAL_VALUE]
+    # Cumulative Russell 3000 value (None where data missing)
+    russell_values = []
+    val = INITIAL_VALUE
     for h in history:
-        bench_value.append(bench_value[-1] * (1 + h["benchmark_return"] / 100))
-    bench_value = bench_value[1:]
+        if h["russell_return"] is not None:
+            val *= (1 + h["russell_return"] / 100)
+        russell_values.append(round(val, 2))
 
     # Most frequent stocks
     from collections import Counter
@@ -260,7 +280,6 @@ def make_html(history, metrics):
         entered_str = ", ".join(h["entered"]) if h["entered"] else "—"
         exited_str = ", ".join(h["exited"]) if h["exited"] else "—"
         port_ret_color = "#16a34a" if h["portfolio_return"] >= 0 else "#dc2626"
-        bench_ret_color = "#16a34a" if h["benchmark_return"] >= 0 else "#dc2626"
 
         rows = ""
         for s in h["holdings"]:
@@ -287,14 +306,15 @@ def make_html(history, metrics):
               <td>{fmt(s.get('dividend_yield'), 4)}</td>
             </tr>"""
 
+        russ_ret = h.get("russell_return")
+        russ_str = f"Russell 3000: <span style=\"color:#f59e0b;font-weight:700\">{russ_ret:+.2f}%</span> &nbsp;|&nbsp; " if russ_ret is not None else ""
         holdings_html += f"""
         <div class="quarter-block" id="q-{h['year']}-{h['quarter']}">
           <div class="quarter-header" onclick="toggleQuarter('{h['year']}-{h['quarter']}')">
             <span class="q-label">{h['label']}</span>
             <span class="q-metrics">
-              Portfolio: <span style="color:{port_ret_color};font-weight:700">{h['portfolio_return']:+.2f}%</span>
-              &nbsp;|&nbsp; Benchmark: <span style="color:{bench_ret_color};font-weight:700">{h['benchmark_return']:+.2f}%</span>
-              &nbsp;|&nbsp; Value: ${h['portfolio_value']:,.0f}
+              Return: <span style="color:{port_ret_color};font-weight:700">{h['portfolio_return']:+.2f}%</span>
+              &nbsp;|&nbsp; {russ_str}Value: ${h['portfolio_value']:,.0f}
             </span>
             <span class="q-toggle">▼</span>
           </div>
@@ -463,24 +483,24 @@ def make_html(history, metrics):
     <!-- Summary metrics -->
     <div class="metrics-grid">
       <div class="metric-card">
-        <div class="label">Total Return (Portfolio)</div>
+        <div class="label">Total Return</div>
         <div class="value {'positive' if metrics['total_return_port'] >= 0 else 'negative'}">{metrics['total_return_port']:+.1f}%</div>
         <div class="sub">from ${INITIAL_VALUE/1e6:.0f}M initial</div>
       </div>
       <div class="metric-card">
-        <div class="label">Total Return (Benchmark)</div>
-        <div class="value {'positive' if metrics['total_return_bench'] >= 0 else 'negative'}">{metrics['total_return_bench']:+.1f}%</div>
-        <div class="sub">equal-weight all ranked stocks</div>
-      </div>
-      <div class="metric-card">
         <div class="label">Annualized Return</div>
         <div class="value neutral">{metrics['ann_return_port']:+.1f}%</div>
-        <div class="sub">Benchmark: {metrics['ann_return_bench']:+.1f}%</div>
+        <div class="sub">Russell 3000: {metrics['ann_return_russ']:+.1f}%</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Russell 3000 Total Return</div>
+        <div class="value {'positive' if metrics['total_return_russ'] >= 0 else 'negative'}">{metrics['total_return_russ']:+.1f}%</div>
+        <div class="sub">^RUA index</div>
       </div>
       <div class="metric-card">
         <div class="label">Sharpe Ratio</div>
         <div class="value neutral">{metrics['sharpe']:.3f}</div>
-        <div class="sub">annualized vs benchmark</div>
+        <div class="sub">annualized</div>
       </div>
       <div class="metric-card">
         <div class="label">Max Drawdown</div>
@@ -491,6 +511,11 @@ def make_html(history, metrics):
         <div class="label">Final Portfolio Value</div>
         <div class="value neutral">${port_values[-1]:,.0f}</div>
         <div class="sub">started at ${INITIAL_VALUE:,.0f}</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Quarters</div>
+        <div class="value neutral">{metrics['n_quarters']}</div>
+        <div class="sub">quarterly rebalancing</div>
       </div>
     </div>
 
@@ -536,9 +561,9 @@ def make_html(history, metrics):
   <script>
     const LABELS = {json.dumps(labels)};
     const PORT_VAL = {json.dumps(port_values)};
-    const BENCH_VAL = {json.dumps(bench_value)};
+    const RUSS_VAL = {json.dumps(russell_values)};
     const PORT_RETS = {json.dumps(port_rets)};
-    const BENCH_RETS = {json.dumps(bench_rets)};
+    const RUSS_RETS = {json.dumps(russell_rets)};
     const DRAWDOWNS = {json.dumps(drawdowns)};
     const ENTERED = {json.dumps([len(h['entered']) for h in history])};
     const EXITED = {json.dumps([len(h['exited']) for h in history])};
@@ -554,23 +579,23 @@ def make_html(history, metrics):
       xaxis: {{ gridcolor: GRID_COLOR, tickangle: -45 }},
       yaxis: {{ gridcolor: GRID_COLOR }},
       margin: {{ t: 20, b: 80, l: 60, r: 20 }},
-      legend: {{ bgcolor: 'transparent' }},
+      legend: {{ bgcolor: 'transparent', orientation: 'h', y: 1.08 }},
     }};
 
-    // Cumulative chart
+    // Cumulative chart — portfolio vs Russell 3000
     Plotly.newPlot('chart-cumulative', [
       {{
         x: LABELS, y: PORT_VAL, mode: 'lines', name: 'Portfolio (Top 10)',
         line: {{ color: '#60a5fa', width: 2.5 }},
-        fill: 'tonexty', fillcolor: 'rgba(96,165,250,0.05)'
+        fill: 'tozeroy', fillcolor: 'rgba(96,165,250,0.08)'
       }},
       {{
-        x: LABELS, y: BENCH_VAL, mode: 'lines', name: 'Benchmark (Equal Weight All)',
+        x: LABELS, y: RUSS_VAL, mode: 'lines', name: 'Russell 3000 (^RUA)',
         line: {{ color: '#f59e0b', width: 2, dash: 'dot' }}
       }}
     ], {{...layoutBase, yaxis: {{ ...layoutBase.yaxis, tickprefix: '$', tickformat: ',.0f' }}}}, {{responsive: true}});
 
-    // Quarterly returns bar
+    // Quarterly returns bar — portfolio bars + Russell line overlay
     const retColors = PORT_RETS.map(r => r >= 0 ? 'rgba(74,222,128,0.8)' : 'rgba(248,113,113,0.8)');
     Plotly.newPlot('chart-quarterly', [
       {{
@@ -578,8 +603,9 @@ def make_html(history, metrics):
         marker: {{ color: retColors }},
       }},
       {{
-        x: LABELS, y: BENCH_RETS, mode: 'lines', name: 'Benchmark',
-        line: {{ color: '#f59e0b', width: 1.5, dash: 'dot' }}
+        x: LABELS, y: RUSS_RETS, mode: 'lines+markers', name: 'Russell 3000',
+        line: {{ color: '#f59e0b', width: 1.5, dash: 'dot' }},
+        marker: {{ size: 4, color: '#f59e0b' }}
       }}
     ], {{...layoutBase, yaxis: {{ ...layoutBase.yaxis, ticksuffix: '%' }}}}, {{responsive: true}});
 
@@ -633,16 +659,25 @@ def main():
     ranks, returns, financial = load_data()
     print(f"  Ranks: {len(ranks):,} rows | Returns: {len(returns):,} rows | Financial: {len(financial):,} rows")
 
+    quarters_df = (
+        ranks[["predicts_year", "predicts_quarter"]]
+        .drop_duplicates()
+        .copy()
+    )
+    russell = fetch_russell3000_quarterly(quarters_df)
+    print(f"  Russell 3000 quarters fetched: {len(russell)}")
+
     print("Running backtest...")
-    history = run_backtest(ranks, returns, financial)
+    history = run_backtest(ranks, returns, financial, russell)
     print(f"  Processed {len(history)} quarters")
 
     metrics = compute_metrics(history)
-    print(f"\n  Portfolio total return : {metrics['total_return_port']:+.2f}%")
-    print(f"  Benchmark total return : {metrics['total_return_bench']:+.2f}%")
-    print(f"  Annualized return      : {metrics['ann_return_port']:+.2f}%")
-    print(f"  Sharpe ratio           : {metrics['sharpe']:.3f}")
-    print(f"  Max drawdown           : {metrics['max_drawdown']:.2f}%")
+    print(f"\n  Portfolio total return  : {metrics['total_return_port']:+.2f}%")
+    print(f"  Russell 3000 total ret  : {metrics['total_return_russ']:+.2f}%")
+    print(f"  Annualized return       : {metrics['ann_return_port']:+.2f}%")
+    print(f"  Russell 3000 annualized : {metrics['ann_return_russ']:+.2f}%")
+    print(f"  Sharpe ratio            : {metrics['sharpe']:.3f}")
+    print(f"  Max drawdown            : {metrics['max_drawdown']:.2f}%")
 
     print("\nGenerating HTML report...")
     html = make_html(history, metrics)
