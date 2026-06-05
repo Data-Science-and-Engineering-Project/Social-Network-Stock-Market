@@ -27,6 +27,7 @@ RETURNS_FILE = DATA_DIR / "stocks_return.parquet"
 FINANCIAL_FILE = DATA_DIR / "cusip_financial_data.parquet"
 
 OUTPUT_HTML = Path(__file__).parent / "portfolio_report.html"
+OUTPUT_HTML_MOBILE = Path(__file__).parent / "portfolio_report_mobile.html"
 
 TOP_N = 10
 INITIAL_VALUE = 1_000_000.0
@@ -652,6 +653,392 @@ def make_html(history, metrics):
 
 
 # ---------------------------------------------------------------------------
+# Mobile HTML report
+# ---------------------------------------------------------------------------
+def make_html_mobile(history, metrics):
+    from collections import Counter
+
+    labels = [h["label"] for h in history]
+    port_values = [h["portfolio_value"] for h in history]
+    port_rets = [h["portfolio_return"] for h in history]
+    russell_rets = [h["russell_return"] for h in history]
+    drawdowns = [h["drawdown"] for h in history]
+
+    russell_values = []
+    val = INITIAL_VALUE
+    for h in history:
+        if h["russell_return"] is not None:
+            val *= (1 + h["russell_return"] / 100)
+        russell_values.append(round(val, 2))
+
+    all_cusips = []
+    for h in history:
+        all_cusips.extend([s["cusip"] for s in h["holdings"]])
+    top_frequent = Counter(all_cusips).most_common(10)
+
+    freq_rows = ""
+    for cusip, count in top_frequent:
+        pct = count / len(history) * 100
+        freq_rows += f"<tr><td>{cusip}</td><td>{count}q</td><td>{pct:.0f}%</td></tr>"
+
+    # Quarter accordion
+    holdings_html = ""
+    for h in history:
+        port_ret_color = "#4ade80" if h["portfolio_return"] >= 0 else "#f87171"
+        russ_ret = h.get("russell_return")
+        russ_badge = ""
+        if russ_ret is not None:
+            rc = "#4ade80" if russ_ret >= 0 else "#f87171"
+            russ_badge = f'<span class="badge" style="color:{rc}">R3K {russ_ret:+.1f}%</span>'
+
+        rows = ""
+        for s in h["holdings"]:
+            ret_val = s.get("actual_return_pct")
+            ret_str = f"{ret_val:+.1f}%" if ret_val is not None else "—"
+            rc2 = "#4ade80" if (ret_val or 0) >= 0 else "#f87171"
+
+            def fmt(v, d=1):
+                if v is None or (isinstance(v, float) and math.isnan(v)):
+                    return "—"
+                return f"{v:.{d}f}"
+
+            rows += f"""
+            <div class="stock-row">
+              <div class="stock-top">
+                <span class="cusip">{s['cusip']}</span>
+                <span class="stock-ret" style="color:{rc2}">{ret_str}</span>
+              </div>
+              <div class="stock-meta">
+                Score {s['mean_score']:.3f} &nbsp;·&nbsp;
+                P/E {fmt(s.get('pe_ratio'))} &nbsp;·&nbsp;
+                ROE {fmt(s.get('roe'), 2)} &nbsp;·&nbsp;
+                P/B {fmt(s.get('price_to_book'))}
+              </div>
+            </div>"""
+
+        entered_str = " ".join(h["entered"]) if h["entered"] else "none"
+        exited_str = " ".join(h["exited"]) if h["exited"] else "none"
+
+        holdings_html += f"""
+      <div class="qblock" id="mob-q-{h['year']}-{h['quarter']}">
+        <button class="qhead" onclick="mToggle('{h['year']}-{h['quarter']}')">
+          <span class="qlabel">{h['label']}</span>
+          <span class="qright">
+            <span style="color:{port_ret_color};font-weight:700">{h['portfolio_return']:+.1f}%</span>
+            {russ_badge}
+            <span class="qarrow" id="arr-{h['year']}-{h['quarter']}">›</span>
+          </span>
+        </button>
+        <div class="qbody" id="mob-qc-{h['year']}-{h['quarter']}">
+          <div class="turnrow">
+            <span class="chip green">▲ {entered_str}</span>
+            <span class="chip red">▼ {exited_str}</span>
+          </div>
+          <div class="val-row">Portfolio value: <strong>${h['portfolio_value']:,.0f}</strong></div>
+          {rows}
+        </div>
+      </div>"""
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Portfolio · Mobile</title>
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  <style>
+    :root {{
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --muted: #64748b;
+      --text: #e2e8f0;
+      --green: #4ade80;
+      --red: #f87171;
+      --blue: #60a5fa;
+      --amber: #f59e0b;
+    }}
+    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ font-size: 16px; }}
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding-bottom: 2rem;
+    }}
+
+    /* ── Sticky header ── */
+    .topbar {{
+      position: sticky; top: 0; z-index: 100;
+      background: #0f172aee;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }}
+    .topbar h1 {{ font-size: 1rem; font-weight: 700; color: #f1f5f9; }}
+    .topbar .sub {{ font-size: 0.72rem; color: var(--muted); }}
+
+    /* ── Key number strip ── */
+    .strip {{
+      display: flex; overflow-x: auto; gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      scrollbar-width: none;
+    }}
+    .strip::-webkit-scrollbar {{ display: none; }}
+    .kpi {{
+      flex: 0 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.65rem 0.9rem;
+      min-width: 110px;
+    }}
+    .kpi .klabel {{ font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }}
+    .kpi .kval {{ font-size: 1.25rem; font-weight: 700; margin-top: 0.15rem; }}
+    .kpi .ksub {{ font-size: 0.65rem; color: var(--muted); margin-top: 0.1rem; }}
+    .green {{ color: var(--green); }}
+    .red   {{ color: var(--red); }}
+    .blue  {{ color: var(--blue); }}
+    .amber {{ color: var(--amber); }}
+
+    /* ── Section heading ── */
+    .sec {{
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted);
+      padding: 0.9rem 1rem 0.4rem;
+    }}
+
+    /* ── Chart cards ── */
+    .chart-card {{
+      margin: 0 1rem 0.75rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.75rem 0.5rem 0.25rem;
+      overflow: hidden;
+    }}
+    .chart-title {{
+      font-size: 0.72rem; color: var(--muted); font-weight: 600;
+      padding: 0 0.5rem 0.4rem;
+    }}
+
+    /* ── Quarter accordion ── */
+    .qblock {{
+      margin: 0 1rem 0.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }}
+    .qhead {{
+      width: 100%; background: none; border: none; color: var(--text);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.85rem 1rem;
+      font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; text-align: left;
+      -webkit-tap-highlight-color: transparent;
+    }}
+    .qhead:active {{ background: #263245; }}
+    .qlabel {{ color: #f1f5f9; }}
+    .qright {{ display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }}
+    .badge {{
+      font-size: 0.7rem; padding: 0.15rem 0.45rem;
+      background: #1e3a5f44; border: 1px solid #2563eb44;
+      border-radius: 999px;
+    }}
+    .qarrow {{
+      color: var(--muted); font-size: 1.1rem;
+      transition: transform 0.2s; display: inline-block;
+    }}
+    .qarrow.open {{ transform: rotate(90deg); }}
+    .qbody {{
+      display: none;
+      padding: 0 1rem 1rem;
+      border-top: 1px solid var(--border);
+    }}
+    .qbody.open {{ display: block; }}
+
+    .turnrow {{
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      padding: 0.6rem 0 0.5rem;
+    }}
+    .chip {{
+      font-size: 0.68rem; padding: 0.2rem 0.55rem;
+      border-radius: 999px; font-weight: 500;
+    }}
+    .chip.green {{ background: #14532d33; color: var(--green); border: 1px solid #16a34a55; }}
+    .chip.red   {{ background: #7f1d1d33; color: var(--red);   border: 1px solid #dc262655; }}
+    .val-row {{
+      font-size: 0.78rem; color: var(--muted);
+      padding-bottom: 0.6rem;
+    }}
+    .val-row strong {{ color: var(--text); }}
+
+    /* ── Stock rows ── */
+    .stock-row {{
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #263245;
+    }}
+    .stock-row:last-child {{ border-bottom: none; }}
+    .stock-top {{
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.88rem;
+    }}
+    .cusip {{ font-weight: 600; color: #f1f5f9; letter-spacing: 0.03em; }}
+    .stock-ret {{ font-weight: 700; font-size: 0.88rem; }}
+    .stock-meta {{ font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }}
+
+    /* ── Frequency table ── */
+    .freq-table {{
+      width: 100%; border-collapse: collapse; font-size: 0.82rem;
+    }}
+    .freq-table th {{
+      text-align: left; padding: 0.4rem 0.75rem;
+      color: var(--muted); font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }}
+    .freq-table td {{
+      padding: 0.4rem 0.75rem;
+      border-bottom: 1px solid #263245;
+    }}
+    .freq-table tbody tr:last-child td {{ border-bottom: none; }}
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <h1>LightGCN Portfolio</h1>
+    <div class="sub">Top-{TOP_N} stocks &nbsp;·&nbsp; Quarterly rebalance &nbsp;·&nbsp; {metrics['n_quarters']} quarters ({metrics['years']}y)</div>
+  </div>
+
+  <!-- KPI strip -->
+  <div class="strip">
+    <div class="kpi">
+      <div class="klabel">Total Return</div>
+      <div class="kval {'green' if metrics['total_return_port'] >= 0 else 'red'}">{metrics['total_return_port']:+.1f}%</div>
+      <div class="ksub">portfolio</div>
+    </div>
+    <div class="kpi">
+      <div class="klabel">Russell 3000</div>
+      <div class="kval {'green' if metrics['total_return_russ'] >= 0 else 'red'}">{metrics['total_return_russ']:+.1f}%</div>
+      <div class="ksub">^RUA total</div>
+    </div>
+    <div class="kpi">
+      <div class="klabel">Ann. Return</div>
+      <div class="kval blue">{metrics['ann_return_port']:+.1f}%</div>
+      <div class="ksub">vs R3K {metrics['ann_return_russ']:+.1f}%</div>
+    </div>
+    <div class="kpi">
+      <div class="klabel">Sharpe</div>
+      <div class="kval blue">{metrics['sharpe']:.2f}</div>
+      <div class="ksub">annualized</div>
+    </div>
+    <div class="kpi">
+      <div class="klabel">Max DD</div>
+      <div class="kval red">{metrics['max_drawdown']:.1f}%</div>
+      <div class="ksub">from peak</div>
+    </div>
+    <div class="kpi">
+      <div class="klabel">Final Value</div>
+      <div class="kval blue">${port_values[-1]/1e6:.2f}M</div>
+      <div class="ksub">from $1M</div>
+    </div>
+  </div>
+
+  <!-- Cumulative chart -->
+  <div class="sec">Cumulative Value</div>
+  <div class="chart-card">
+    <div class="chart-title">Portfolio vs Russell 3000</div>
+    <div id="m-cumulative" style="height:220px"></div>
+  </div>
+
+  <!-- Quarterly returns -->
+  <div class="sec">Quarterly Returns</div>
+  <div class="chart-card">
+    <div id="m-quarterly" style="height:200px"></div>
+  </div>
+
+  <!-- Drawdown -->
+  <div class="sec">Drawdown</div>
+  <div class="chart-card">
+    <div id="m-drawdown" style="height:160px"></div>
+  </div>
+
+  <!-- Top holdings -->
+  <div class="sec">Most Frequent Holdings</div>
+  <div class="chart-card" style="padding: 0.75rem">
+    <table class="freq-table">
+      <thead><tr><th>CUSIP</th><th>Qtrs</th><th>Freq</th></tr></thead>
+      <tbody>{freq_rows}</tbody>
+    </table>
+  </div>
+
+  <!-- Quarter accordion -->
+  <div class="sec">Holdings by Quarter</div>
+  {holdings_html}
+
+  <script>
+    const L  = {json.dumps(labels)};
+    const PV = {json.dumps(port_values)};
+    const RV = {json.dumps(russell_values)};
+    const PR = {json.dumps(port_rets)};
+    const RR = {json.dumps(russell_rets)};
+    const DD = {json.dumps(drawdowns)};
+
+    const BG    = '#1e293b';
+    const GRID  = '#334155';
+    const FONT  = '#94a3b8';
+
+    const base = {{
+      paper_bgcolor: BG, plot_bgcolor: BG,
+      font: {{ color: FONT, size: 10 }},
+      margin: {{ t: 8, b: 52, l: 48, r: 8 }},
+      xaxis: {{ gridcolor: GRID, tickangle: -55, tickfont: {{ size: 9 }} }},
+      yaxis: {{ gridcolor: GRID }},
+      legend: {{ bgcolor: 'transparent', font: {{ size: 9 }}, orientation: 'h', y: 1.15 }},
+    }};
+
+    Plotly.newPlot('m-cumulative', [
+      {{ x:L, y:PV, mode:'lines', name:'Portfolio',
+         line:{{ color:'#60a5fa', width:2 }},
+         fill:'tozeroy', fillcolor:'rgba(96,165,250,0.07)' }},
+      {{ x:L, y:RV, mode:'lines', name:'Russell 3000',
+         line:{{ color:'#f59e0b', width:1.5, dash:'dot' }} }}
+    ], {{...base, yaxis:{{...base.yaxis, tickprefix:'$', tickformat:',.0f'}}}}, {{responsive:true}});
+
+    const rc = PR.map(r => r >= 0 ? 'rgba(74,222,128,0.8)' : 'rgba(248,113,113,0.8)');
+    Plotly.newPlot('m-quarterly', [
+      {{ x:L, y:PR, type:'bar', name:'Portfolio', marker:{{ color:rc }} }},
+      {{ x:L, y:RR, mode:'lines+markers', name:'R3K',
+         line:{{ color:'#f59e0b', width:1.2, dash:'dot' }},
+         marker:{{ size:3, color:'#f59e0b' }} }}
+    ], {{...base, yaxis:{{...base.yaxis, ticksuffix:'%'}}}}, {{responsive:true}});
+
+    Plotly.newPlot('m-drawdown', [
+      {{ x:L, y:DD, mode:'lines', fill:'tozeroy',
+         fillcolor:'rgba(248,113,113,0.18)',
+         line:{{ color:'#f87171', width:1.5 }}, name:'Drawdown' }}
+    ], {{...base, showlegend:false, yaxis:{{...base.yaxis, ticksuffix:'%'}}}}, {{responsive:true}});
+
+    function mToggle(id) {{
+      const body  = document.getElementById('mob-qc-' + id);
+      const arrow = document.getElementById('arr-' + id);
+      body.classList.toggle('open');
+      arrow.classList.toggle('open');
+    }}
+
+    // Open most recent quarter by default
+    const last = L[L.length - 1];
+    const m = last.match(/(\\d+) Q(\\d+)/);
+    if (m) mToggle(m[1] + '-' + m[2]);
+  </script>
+</body>
+</html>"""
+    return html
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main():
@@ -679,10 +1066,14 @@ def main():
     print(f"  Sharpe ratio            : {metrics['sharpe']:.3f}")
     print(f"  Max drawdown            : {metrics['max_drawdown']:.2f}%")
 
-    print("\nGenerating HTML report...")
+    print("\nGenerating HTML reports...")
     html = make_html(history, metrics)
     OUTPUT_HTML.write_text(html, encoding="utf-8")
-    print(f"  Report saved to: {OUTPUT_HTML}")
+    print(f"  Desktop report : {OUTPUT_HTML}")
+
+    html_mobile = make_html_mobile(history, metrics)
+    OUTPUT_HTML_MOBILE.write_text(html_mobile, encoding="utf-8")
+    print(f"  Mobile report  : {OUTPUT_HTML_MOBILE}")
 
 
 if __name__ == "__main__":

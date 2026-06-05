@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir _site
           # Copy the specific HTML file and rename it to index.html so it loads automatically
-          cp protfolio/portfolio_report.html _site/index.html
+          cp protfolio/portfolio_report_mobile.html _site/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
