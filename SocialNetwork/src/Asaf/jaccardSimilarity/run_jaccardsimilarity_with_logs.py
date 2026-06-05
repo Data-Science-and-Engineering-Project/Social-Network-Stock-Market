@@ -12,6 +12,7 @@ Bipartite formulation for predicting fund → stock links:
 import os
 import re
 import gc
+from collections import defaultdict
 import numpy as np
 import pandas as pd
 import networkx as nx
@@ -482,31 +483,54 @@ def jaccard_similarity_score(train_quarters, test_pairs, quarterly_graphs,
 
     stock_fund_map = {si: B_csc[:, si].nonzero()[0] for si in test_stock_idxs}
 
-    # ── Score extraction — sparse dot-product per test pair ──────────────────
-    # For each (f, s):
-    #   1. Get other_idxs = funds holding s  (from stock_fund_map)
-    #   2. inter[k] = B[fi, :] · B[other_idxs[k], :]  (sparse dot)
-    #   3. Jaccard[k] = inter[k] / (deg[fi] + deg[other_idxs[k]] - inter[k])
-    #   4. score = mean(Jaccard)
+    # ── Score extraction — batched sparse matmul grouped by stock ────────────
+    # Group test pairs by stock index so we do ONE matmul per stock instead of
+    # one matmul per pair.  Reduces ~2M sparse dot calls to ~3K batch calls.
+    #
+    # For stock si with test funds [f1, f2, ...] and holding funds other_idxs:
+    #   inter_mat = B[fi_arr, :] · B[other_idxs, :].T  → shape (M, K)
+    #   jac_mat   = inter_mat / (deg_fi + deg_others - inter_mat)
+    #   score[i]  = mean of jac_mat[i, :] excluding self column
     scores = np.zeros(len(test_pairs), dtype=np.float64)
 
+    stock_to_pairs = defaultdict(list)  # si -> [(pair_idx, fi), ...]
     for i, (f, s) in enumerate(test_pairs):
         fi = fund_to_idx.get(f, -1)
         si = stock_to_idx.get(s, -1)
-        if fi < 0 or si < 0:
-            continue
+        if fi >= 0 and si >= 0:
+            stock_to_pairs[si].append((i, fi))
 
+    for si, pair_list in stock_to_pairs.items():
         other_idxs = stock_fund_map.get(si, np.array([], dtype=np.int32))
-        other_idxs = other_idxs[other_idxs != fi]  # Exclude self
         if len(other_idxs) == 0:
             continue
 
-        # Sparse dot: B[fi, :] · B[other_idxs, :].T  → shape (1, K)
-        inter = B[fi, :].dot(B[other_idxs, :].T).toarray().flatten()
-        union = degrees[fi] + degrees[other_idxs] - inter
+        pair_positions = np.array([p for p, _ in pair_list], dtype=np.int32)
+        fi_arr          = np.array([f for _, f in pair_list], dtype=np.int32)
+
+        # Batch sparse matmul: (M, S) · (K, S).T → dense (M, K)
+        inter_mat = B[fi_arr, :].dot(B[other_idxs, :].T).toarray()
+
+        deg_fi     = degrees[fi_arr][:, np.newaxis]      # (M, 1)
+        deg_others = degrees[other_idxs][np.newaxis, :]  # (1, K)
+        union_mat  = deg_fi + deg_others - inter_mat      # (M, K)
+
         with np.errstate(divide='ignore', invalid='ignore'):
-            jac = np.where(union > 0, inter / union, 0.0)
-        scores[i] = float(np.mean(jac))
+            jac_mat = np.where(union_mat > 0, inter_mat / union_mat, 0.0)
+
+        # Self-exclusion: find column of each fi in other_idxs and zero it out
+        other_pos  = {idx: k for k, idx in enumerate(other_idxs)}
+        k_self_arr = np.array([other_pos.get(fi, -1) for fi in fi_arr])
+
+        rows_with_self = np.where(k_self_arr >= 0)[0]
+        if len(rows_with_self) > 0:
+            jac_mat[rows_with_self, k_self_arr[rows_with_self]] = 0.0
+
+        n_valid  = np.full(len(fi_arr), len(other_idxs), dtype=np.float64)
+        n_valid[k_self_arr >= 0] -= 1.0
+
+        row_means = np.where(n_valid > 0, jac_mat.sum(axis=1) / n_valid, 0.0)
+        scores[pair_positions] = row_means
 
     # ── Normalize to [0, 1] ──────────────────────────────────────────────────
     max_s = scores.max()
