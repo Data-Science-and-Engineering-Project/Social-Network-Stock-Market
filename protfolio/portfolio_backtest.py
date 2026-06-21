@@ -23,8 +23,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data"
 
 RANKS_FILE = DATA_DIR / "cusip_ranks_v4__change_in_weight.parquet"
-RETURNS_FILE = DATA_DIR / "stocks_return.parquet"
-FINANCIAL_FILE = DATA_DIR / "cusip_financial_data.parquet"
+RETURNS_FILE = DATA_DIR / "parquet_for_cluster" / "stocks_return.parquet"
+FINANCIAL_FILE = DATA_DIR / "parquet_for_cluster" / "cusip_financial_data.parquet"
+TICKER_MAP_FILE = DATA_DIR / "holdings" / "ticker_to_cusip.parquet"
 
 OUTPUT_HTML = Path(__file__).parent / "portfolio_report.html"
 OUTPUT_HTML_MOBILE = Path(__file__).parent / "portfolio_report_mobile.html"
@@ -90,14 +91,28 @@ def load_data():
     ranks = pd.read_parquet(RANKS_FILE)
     returns = pd.read_parquet(RETURNS_FILE)
     financial = pd.read_parquet(FINANCIAL_FILE)
-    return ranks, returns, financial
+    ticker_map = load_ticker_map()
+    return ranks, returns, financial, ticker_map
+
+
+def load_ticker_map() -> dict:
+    """Return a dict mapping CUSIP -> ticker symbol."""
+    df = pd.read_parquet(TICKER_MAP_FILE)
+    mapping = {}
+    for cusip, ticker in zip(df["cusip"].astype(str), df["ticker"]):
+        if pd.notna(ticker) and str(ticker).strip():
+            mapping[cusip] = str(ticker)
+    return mapping
 
 
 # ---------------------------------------------------------------------------
 # Core backtest
 # ---------------------------------------------------------------------------
 def run_backtest(ranks: pd.DataFrame, returns: pd.DataFrame, financial: pd.DataFrame,
-                 russell: dict):
+                 russell: dict, ticker_map: dict):
+    def to_ticker(cusip):
+        return ticker_map.get(str(cusip), str(cusip))
+
     # All unique prediction quarters, sorted chronologically
     quarters = (
         ranks[["predicts_year", "predicts_quarter"]]
@@ -176,6 +191,7 @@ def run_backtest(ranks: pd.DataFrame, returns: pd.DataFrame, financial: pd.DataF
 
             holdings_detail.append({
                 "cusip": cusip,
+                "ticker": to_ticker(cusip),
                 "rank": int(rr["rank"]),
                 "mean_score": round(float(rr["mean_score"]), 4),
                 "actual_return_pct": round((actual_ret - 1) * 100, 2) if actual_ret else None,
@@ -199,8 +215,8 @@ def run_backtest(ranks: pd.DataFrame, returns: pd.DataFrame, financial: pd.DataF
             "portfolio_value": round(cumulative_value, 2),
             "drawdown": round(drawdown * 100, 4),
             "holdings": holdings_detail,
-            "entered": sorted(entered),
-            "exited": sorted(exited),
+            "entered": sorted(to_ticker(c) for c in entered),
+            "exited": sorted(to_ticker(c) for c in exited),
             "n_available": len(available),
         })
 
@@ -270,10 +286,10 @@ def make_html(history, metrics):
 
     # Most frequent stocks
     from collections import Counter
-    all_cusips = []
+    all_tickers = []
     for h in history:
-        all_cusips.extend([s["cusip"] for s in h["holdings"]])
-    top_frequent = Counter(all_cusips).most_common(15)
+        all_tickers.extend([s["ticker"] for s in h["holdings"]])
+    top_frequent = Counter(all_tickers).most_common(15)
 
     # Holdings tables HTML
     holdings_html = ""
@@ -295,7 +311,7 @@ def make_html(history, metrics):
 
             rows += f"""
             <tr>
-              <td>{s['cusip']}</td>
+              <td>{s['ticker']}</td>
               <td>{s['rank']}</td>
               <td>{s['mean_score']:.4f}</td>
               <td style="color:{ret_color};font-weight:600">{ret_str}</td>
@@ -328,7 +344,7 @@ def make_html(history, metrics):
             <table class="holdings-table">
               <thead>
                 <tr>
-                  <th>CUSIP</th><th>Rank</th><th>Model Score</th><th>Actual Return</th>
+                  <th>Ticker</th><th>Rank</th><th>Model Score</th><th>Actual Return</th>
                   <th>P/E</th><th>ROE</th><th>EV/EBITDA</th><th>P/B</th><th>D/E</th><th>Div Yield</th>
                 </tr>
               </thead>
@@ -339,9 +355,9 @@ def make_html(history, metrics):
         </div>"""
 
     freq_rows = ""
-    for cusip, count in top_frequent:
+    for ticker, count in top_frequent:
         pct = count / len(history) * 100
-        freq_rows += f"<tr><td>{cusip}</td><td>{count}</td><td>{pct:.0f}%</td></tr>"
+        freq_rows += f"<tr><td>{ticker}</td><td>{count}</td><td>{pct:.0f}%</td></tr>"
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -543,7 +559,7 @@ def make_html(history, metrics):
       <div class="chart-card">
         <h2>Most Frequent Portfolio Holdings</h2>
         <table class="freq-table">
-          <thead><tr><th>CUSIP</th><th>Quarters in Portfolio</th><th>Frequency</th></tr></thead>
+          <thead><tr><th>Ticker</th><th>Quarters in Portfolio</th><th>Frequency</th></tr></thead>
           <tbody>{freq_rows}</tbody>
         </table>
       </div>
@@ -671,15 +687,15 @@ def make_html_mobile(history, metrics):
             val *= (1 + h["russell_return"] / 100)
         russell_values.append(round(val, 2))
 
-    all_cusips = []
+    all_tickers = []
     for h in history:
-        all_cusips.extend([s["cusip"] for s in h["holdings"]])
-    top_frequent = Counter(all_cusips).most_common(10)
+        all_tickers.extend([s["ticker"] for s in h["holdings"]])
+    top_frequent = Counter(all_tickers).most_common(10)
 
     freq_rows = ""
-    for cusip, count in top_frequent:
+    for ticker, count in top_frequent:
         pct = count / len(history) * 100
-        freq_rows += f"<tr><td>{cusip}</td><td>{count}q</td><td>{pct:.0f}%</td></tr>"
+        freq_rows += f"<tr><td>{ticker}</td><td>{count}q</td><td>{pct:.0f}%</td></tr>"
 
     # Quarter accordion
     holdings_html = ""
@@ -705,7 +721,7 @@ def make_html_mobile(history, metrics):
             rows += f"""
             <div class="stock-row">
               <div class="stock-top">
-                <span class="cusip">{s['cusip']}</span>
+                <span class="cusip">{s['ticker']}</span>
                 <span class="stock-ret" style="color:{rc2}">{ret_str}</span>
               </div>
               <div class="stock-meta">
@@ -969,7 +985,7 @@ def make_html_mobile(history, metrics):
   <div class="sec">Most Frequent Holdings</div>
   <div class="chart-card" style="padding: 0.75rem">
     <table class="freq-table">
-      <thead><tr><th>CUSIP</th><th>Qtrs</th><th>Freq</th></tr></thead>
+      <thead><tr><th>Ticker</th><th>Qtrs</th><th>Freq</th></tr></thead>
       <tbody>{freq_rows}</tbody>
     </table>
   </div>
@@ -1043,8 +1059,8 @@ def make_html_mobile(history, metrics):
 # ---------------------------------------------------------------------------
 def main():
     print("Loading data...")
-    ranks, returns, financial = load_data()
-    print(f"  Ranks: {len(ranks):,} rows | Returns: {len(returns):,} rows | Financial: {len(financial):,} rows")
+    ranks, returns, financial, ticker_map = load_data()
+    print(f"  Ranks: {len(ranks):,} rows | Returns: {len(returns):,} rows | Financial: {len(financial):,} rows | Tickers: {len(ticker_map):,}")
 
     quarters_df = (
         ranks[["predicts_year", "predicts_quarter"]]
@@ -1055,7 +1071,7 @@ def main():
     print(f"  Russell 3000 quarters fetched: {len(russell)}")
 
     print("Running backtest...")
-    history = run_backtest(ranks, returns, financial, russell)
+    history = run_backtest(ranks, returns, financial, russell, ticker_map)
     print(f"  Processed {len(history)} quarters")
 
     metrics = compute_metrics(history)
